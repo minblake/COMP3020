@@ -8,7 +8,6 @@ html, body, .container-fluid, .row {
 	position: fixed;
 	top: 0;
 	left: 0;
-	/*bottom: 0;*/
 	z-index: 1000;
 	display: block;
 	overflow: hidden;
@@ -27,6 +26,16 @@ html, body, .container-fluid, .row {
 	border: 2px solid blue;
 }
 
+/*Receipt bar*/
+#receipt-bar {
+	left: auto;
+	right: 0;
+	background: #993399;
+	overflow-x: hidden;
+	transition: .5s;
+	padding: 10px;
+}
+
 /* Main content */
 .contact-info {
 	height: auto;
@@ -38,10 +47,6 @@ html, body, .container-fluid, .row {
 
 .page-content {
 	background: #f9f8b1;
+	padding: 30px;
 }
 
-/*Receipt bar*/
-#receipt-bar {
-	background: #993399;
-	height: 100%;
-}
