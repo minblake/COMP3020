@@ -1,0 +1,47 @@
+html, body, .container-fluid, .row {
+	height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	/*bottom: 0;*/
+	z-index: 1000;
+	display: block;
+	overflow: hidden;
+	padding: 0;
+	text-align: center;
+}
+
+.nav-link {
+	height: 16.66%;
+	border: 2px solid red;
+	color: #fff;
+}
+
+#home-option {
+	height: 50%;
+	border: 2px solid blue;
+}
+
+/* Main content */
+.contact-info {
+	height: auto;
+	padding: 3px 10px;
+	color: #fff;
+	background: #3a3a3a;
+	border: 2px solid green;
+}
+
+.page-content {
+	background: #f9f8b1;
+}
+
+/*Receipt bar*/
+#receipt-bar {
+	background: #993399;
+	height: 100%;
+}
