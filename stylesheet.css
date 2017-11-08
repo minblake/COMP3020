@@ -15,9 +15,10 @@ html, body, .container-fluid, .row {
 	text-align: center;
 }
 
-.nav-link {
+.sidebar-options {
 	height: 16.66%;
 	border: 2px solid red;
+	background: #5c5c5c;
 	color: #fff;
 }
 
