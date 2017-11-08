@@ -1,10 +1,6 @@
 
-// Display the correct page content when its button is pressed
-function showContent(content) {
-	$('.page-content').each(function(index) {
-		if($(this).attr("id") == content)
-			$(this).show();
-		else
-			$(this).hide();
-	});
-}
+// Display correct page when button is clicked
+$('.sidebar-options').on( 'click', function() {
+	$('.page-content').hide();
+	$('#' + $(this).attr('id')+'-page').show();
+});

@@ -1,37 +1,37 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Hello, world!</title>
+    <title>Order - Ai's Burger</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- My CSS -->
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
+    <div class="container-fluid no-gutters">
+      <div class="row no-gutters">
 
         <!-- Sidebar -->
-        <nav class="flex-column col-2 d-flex sidebar">
-         <button id="home-option" class="sidebar-options" onclick="showContent('home-page')">Welcome to Ai's Burger</button>
-          <button class="sidebar-options" onclick="showContent('popular-page')">Popular Items</button>
-          <button class="sidebar-options" onclick="showContent('build-page')"="sidebar-options">Build Your Own Burger</button>
-          <button class="sidebar-options" onclick="showContent('checkout-page')">Checkout</button>
-        </nav>
+        <div class="col-2 sidebar">
+          <button id="home" class="btn active sidebar-options">Welcome to Ai's Burger!</button>
+          <button id="popular" class="btn sidebar-options">Popular Items</button>
+          <button id="build" class="btn sidebar-options">Build Your Own Burger</button>
+          <button id="checkout" class="btn sidebar-options">Checkout</button>
+        </div>
 
         <!-- Main content -->
-        <main role="main" class="col-10 ml-auto">
+        <main role="main" class="col-9 offset-2 main-container">
           
-          <!-- Receipt bar -->
-          <div id="receipt-bar" class="sidebar">
-              <p>Receipt bar</p>
-          </div>
-
           <!-- Contact Information -->
-          <div class="row contact-info">
+          <div class="row no-gutters contact-info">
             <div class="col">
               <h5>Store location: 999 St. Mary's Rd</h5>
             </div>
@@ -41,32 +41,31 @@
           </div> 
 
           <!-- Page content -->
-          <div class="row page-container">
+          <div class="row no-gutters page-container">
             <div id="home-page" class="page-content">
-              <p>Welcome to Ai's Burger!</p>
+              <h1>Welcome to Ai's Burger!</h1>
             </div>
 
             <div id="popular-page" class="page-content">
-              <p>Popular items</p>
+              <h1>Popular items</h1>
             </div>
 
             <div id="build-page" class="page-content">
-              <p>Build Your Own Burger</p>
+              <h1>Build Your Own Burger</h1>
             </div>
 
             <div id="checkout-page" class="page-content">
-              <p>Checkout</p>
+              <h1>Checkout</h1>
             </div>
-
             
           </div>
-
-
         </main>
 
-        
-          
+        <!-- Receipt bar -->
+        <div id="receipt-bar" class="col-1 sidebar">
+          <p>Receipt bar</p>
         </div>
+
       </div>
     </div>
   
