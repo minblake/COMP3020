@@ -46,8 +46,16 @@ html, body, .container-fluid, .row {
 	border: 2px solid green;
 }
 
-.page-content {
+.page-container {
 	background: #f9f8b1;
 	padding: 30px;
 }
 
+.page-content {
+	display: none;
+}
+
+/* Place this after page-content to show home-page from beginning*/
+#home-page {
+	display: block;
+}

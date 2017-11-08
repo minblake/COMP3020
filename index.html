@@ -16,10 +16,10 @@
 
         <!-- Sidebar -->
         <nav class="flex-column col-2 d-flex sidebar">
-          <button class="sidebar-options" id="home-option">Welcome to Ai's Burger!</button>
-          <button class="sidebar-options">Popular Items</button>
-          <button class="sidebar-options">Build Your Own Burger</button>
-          <button class="sidebar-options">Checkout</button>
+         <button id="home-option" class="sidebar-options" onclick="showContent('home-page')">Welcome to Ai's Burger</button>
+          <button class="sidebar-options" onclick="showContent('popular-page')">Popular Items</button>
+          <button class="sidebar-options" onclick="showContent('build-page')"="sidebar-options">Build Your Own Burger</button>
+          <button class="sidebar-options" onclick="showContent('checkout-page')">Checkout</button>
         </nav>
 
         <!-- Main content -->
@@ -41,20 +41,20 @@
           </div> 
 
           <!-- Page content -->
-          <div class="row page-content">
-            <div id="home-page">
+          <div class="row page-container">
+            <div id="home-page" class="page-content">
               <p>Welcome to Ai's Burger!</p>
             </div>
 
-            <div id="popular-page">
+            <div id="popular-page" class="page-content">
               <p>Popular items</p>
             </div>
 
-            <div id="build-page">
+            <div id="build-page" class="page-content">
               <p>Build Your Own Burger</p>
             </div>
 
-            <div id="checkout-page">
+            <div id="checkout-page" class="page-content">
               <p>Checkout</p>
             </div>
 
@@ -78,5 +78,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <!-- My JavaScript -->
+    <script src="script.js"></script>
   </body>
 </html>
