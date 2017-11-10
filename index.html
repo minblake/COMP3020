@@ -6,9 +6,19 @@
 
   <title>Order - Ai's Burger</title>
 
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" href="testcss.css">
+  <!-- Font Awesome CDN -->
+  <!-- Instructions say to place this code in the top of HTML -->
+  <script src="https://use.fontawesome.com/facda1815c.js"></script>
+
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="owlcarousel//assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="owlcarousel//assets/owl.theme.default.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 <body>
   <div class="container-fluid no-gutters">
@@ -49,67 +59,70 @@
             <h1 class="page-heading">Popular Items</h1>
 
             <!-- Carousel -->
-            <div id="popular-carousel" class="carousel slide" data-interval="false">
-              <div class="carousel-inner">
-                
-                <div class="carousel-item active">
-                  <div class="row no-gutters">
-                    <div class="col">
-                      <img class="d-block w-100" src="images/carousel-separator.jpg">
-                    </div>
+            <div class="row no-gutters justify-content-center content-row">
+              <div class="col-10">
+                <div id="popular-carousel" class="owl-carousel owl-theme">
+                  <div id="b1" class="item wrapper-img selected"><img src="images/b1.jpg"></div>
+                  <div id="b2" class="item wrapper-img"><img src="images/b2.jpg"></div>
+                  <div id="b3" class="item wrapper-img"><img src="images/b3.jpg"></div>
+                  <div id="b4" class="item wrapper-img"><img src="images/b4.jpg"></div>
+                  <div id="b5" class="item wrapper-img"><img src="images/b5.jpg"></div>
+                  <div id="b6" class="item wrapper-img"><img src="images/b6.jpg"></div>
+                  <div id="b7" class="item wrapper-img"><img src="images/b7.jpg"></div>
+                </div> <!-- /popular-carousel -->
+              </div> <!-- /col popular-carousel --> 
+            </div> <!-- /row popular-carousel -->
 
-                    <div class="col">
-                      <img class="d-block w-100" src="images/b1.jpg">
-                    </div>
+            <!-- Description Panel -->
+            <div class="row no-gutters justify-content-center description-row">
+              <div class="col-10">
+                <div class="description-panel">
+                  <div id="description-b1" class="description-text">
+                    <p><strong>Description:</strong> 1 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                  </div> <!-- /description-b1 -->
 
-                    <div class="col">
-                      <img class="d-block w-100" src="images/b2.jpg">
-                    </div>
+                  <div id="description-b2" class="description-text">
+                    <p><strong>Description:</strong> 2 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                  </div> <!-- /description-b2 -->
 
-                    <div class="col">
-                      <img class="d-block w-100" src="images/b3.jpg">
-                    </div>
+                  <div id="description-b3" class="description-text">
+                    <p><strong>Description:</strong> 3 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                  </div> <!-- /description-b3 -->
 
-                    <div class="col">
-                      <img class="d-block w-100" src="images/carousel-separator.jpg">
-                    </div>
-                        </div> <!-- /row carousel-item active -->
-                </div> <!-- /carousel-item active -->
+                  <div id="description-b4" class="description-text">
+                    <p><strong>Description:</strong> 4 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                  </div> <!-- /description-b4 -->
 
-                <div class="carousel-item">
-                  <div class="row no-gutters content-row">
-                            <div class="col">
-                                <img class="d-block w-100" src="images/carousel-separator.jpg">   
-                            </div>
+                  <div id="description-b5" class="description-text">
+                    <p><strong>Description:</strong> 5 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                  </div> <!-- /description-b5 -->
 
-                            <div class="col">
-                              <img class="d-block w-100" src="images/b4.jpg">
-                            </div>
+                  <div id="description-b6" class="description-text">
+                    <p><strong>Description:</strong> 6 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                  </div> <!-- /description-b6 -->
 
-                            <div class="col">
-                              <img class="d-block w-100" src="images/b5.jpg">
-                            </div>
+                  <div id="description-b7" class="description-text">
+                    <p><strong>Description:</strong> 7 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                  </div> <!-- /description-b7 -->
 
-                            <div class="col">
-                              <img class="d-block w-100" src="images/b6.jpg">
-                            </div>
+                </div> <!-- /Description Panel -->
+              </div> <!-- /col description-panel -->
+            </div> <!-- /row description-panel -->
 
-                            <div class="col">
-                              <img class="d-block w-100" src="images/carousel-separator.jpg">
-                            </div>
-                        </div> <!-- /row carousel-item -->
-                    </div> <!-- /carousel-item --> 
-    
-              <!-- Carousel Controllers -->
-              <a class="carousel-control-prev" href="#popular-carousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              </a>
-              
-              <a class="carousel-control-next" href="#popular-carousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              </a>
-              </div> <!-- /carousel-inner -->
-            </div> <!-- /Carousel -->
+            <!-- Add/Customize Button -->
+            <div class="row no-gutters justify-content-center content-row">
+              <div class="col-1">
+                <div class="popular-button">
+                  <button type="button" class="btn btn-danger">Add</button>
+                </div> <!-- /popular-button -->
+              </div> <!-- /col popular-button -->
+
+              <div class="col-1">
+                <div class="popular-button">
+                  <button type="button" class="btn btn-danger">Customize</button>
+                </div> <!-- /popular-button -->
+              </div> <!-- /col popular-button -->
+            </div> <!-- /row popular-row -->
 
           </div> <!-- /Popular Items Page -->
 
@@ -143,7 +156,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
+  <!-- Owl Carousel JS -->
+  <script type="text/javascript" src="owlcarousel/owl.carousel.min.js"></script>
+
   <!-- Custom JS -->
-  <script type="text/javascript" src="testjs.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
