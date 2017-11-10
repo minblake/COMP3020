@@ -1,149 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Order - Ai's Burger</title>
+  <title>Order - Ai's Burger</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="testcss.css">
+</head>
+<body>
+  <div class="container-fluid no-gutters">
+    <div class="row no-gutters">
+      
+      <!-- Sidebar -->
+      <div class="col-2 sidebar">
+        <button id="home-option" class="btn btn-primary sidebar-options" type="button">Welcome to Ai's Burger!</button>
+        <button id="popular-option" class="btn btn-info sidebar-options" type="button">Popular Items</button>
+        <button id="build-option" class="btn btn-info sidebar-options" type="button">Build Your Own Burger</button>
+        <button id="checkout-option" class="btn btn-info sidebar-options" type="button">Checkout</button>
+      </div>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+      <!-- Main Container -->
+      <div class="col-9 offset-2 main-container">
+        
+        <!-- Contact Information -->
+        <div class="row no-gutters contact-info">
+          <div class="col"><h5>Store Location: 999 St. Mary's Rd</h5></div>
+          <div class="col"><h5>Tel: (204) 999-9999</h5></div>
+        </div> <!-- /Contact Information -->
 
-  </head>
-  <body>
-    <div class="container-fluid no-gutters">
-      <div class="row no-gutters">
+        <!-- Page Content -->
+        <div class="row no-gutters page-container">
 
-        <!-- Sidebar -->
-        <div class="col-2 sidebar">
-          <button id="home" class="btn active sidebar-options">Welcome to Ai's Burger!</button>
-          <button id="popular" class="btn sidebar-options">Popular Items</button>
-          <button id="build" class="btn sidebar-options">Build Your Own Burger</button>
-          <button id="checkout" class="btn sidebar-options">Checkout</button>
-        </div>
+          <!-- ********************** Home Page ************************** -->
+          <div id="home-option-page" class="page-content">
 
-        <!-- Main content -->
-        <main role="main" class="col-9 offset-2 main-container">
+            <!-- Page Heading -->
+            <h1 class="page-heading">Welcome to Ai's Burger!</h1>
 
-          <!-- Contact Information -->
-          <div class="row no-gutters contact-info">
-            <div class="col">
-              <h5>Store location: 999 St. Mary's Rd</h5>
-            </div>
-            <div class="col">
-              <h5>Tel: (204) 999-9999</h5>
-            </div>
-          </div>
+          </div> <!-- /Home Page -->
 
-          <!-- Page content -->
-          <div class="row no-gutters page-container">
-            <div id="home-page" class="page-content">
-              <h1>Welcome to Ai's Burger!</h1>
-            </div>
+          <!-- ****************** Popular Items Page ********************* -->
+          <div id="popular-option-page" class="page-content">
             
-            <!-- Popular Items Page -->
-            <div id="popular-page" class="page-content">
-              <h1>Popular items</h1>
+            <!-- Page Heading -->
+            <h1 class="page-heading">Popular Items</h1>
 
-              <!-- Carousel -->
-            <div id="popular-carousel" class="carousel slide">
-              <div class="carousel-inner" role="listbox">
+            <!-- Carousel -->
+            <div id="popular-carousel" class="carousel slide" data-interval="false">
+              <div class="carousel-inner">
                 
                 <div class="carousel-item active">
-                  <div class="row no-gutters content-row">
+                  <div class="row no-gutters">
                     <div class="col">
-                      <img class="d-block w-100" src="images/carousel-separator.jpg">   
+                      <img class="d-block w-100" src="images/carousel-separator.jpg">
                     </div>
 
                     <div class="col">
-                      <img class="d-block w-100" src="images/b1.jpg">   
+                      <img class="d-block w-100" src="images/b1.jpg">
                     </div>
 
                     <div class="col">
-                      <img class="d-block w-100" src="images/b2.jpg">   
+                      <img class="d-block w-100" src="images/b2.jpg">
                     </div>
 
                     <div class="col">
-                      <img class="d-block w-100" src="images/b3.jpg">   
+                      <img class="d-block w-100" src="images/b3.jpg">
                     </div>
 
                     <div class="col">
-                      <img class="d-block w-100" src="images/carousel-separator.jpg">   
+                      <img class="d-block w-100" src="images/carousel-separator.jpg">
                     </div>
-                  </div>
-                  
-                </div>
+                        </div> <!-- /row carousel-item active -->
+                </div> <!-- /carousel-item active -->
 
                 <div class="carousel-item">
                   <div class="row no-gutters content-row">
-                    <div class="col">
-                      <img class="d-block w-100" src="images/carousel-separator.jpg">   
-                    </div>
+                            <div class="col">
+                                <img class="d-block w-100" src="images/carousel-separator.jpg">   
+                            </div>
 
-                    <div class="col">
-                      <img class="d-block w-100" src="images/b4.jpg">   
-                    </div>
+                            <div class="col">
+                              <img class="d-block w-100" src="images/b4.jpg">
+                            </div>
 
-                    <div class="col">
-                      <img class="d-block w-100" src="images/b5.jpg">   
-                    </div>
+                            <div class="col">
+                              <img class="d-block w-100" src="images/b5.jpg">
+                            </div>
 
-                    <div class="col">
-                      <img class="d-block w-100" src="images/b6.jpg">   
-                    </div>
+                            <div class="col">
+                              <img class="d-block w-100" src="images/b6.jpg">
+                            </div>
 
-                    <div class="col">
-                      <img class="d-block w-100" src="images/carousel-separator.jpg">   
-                    </div>
-                  </div>
-                </div>
+                            <div class="col">
+                              <img class="d-block w-100" src="images/carousel-separator.jpg">
+                            </div>
+                        </div> <!-- /row carousel-item -->
+                    </div> <!-- /carousel-item --> 
+    
+              <!-- Carousel Controllers -->
+              <a class="carousel-control-prev" href="#popular-carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              </a>
+              
+              <a class="carousel-control-next" href="#popular-carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </a>
+              </div> <!-- /carousel-inner -->
+            </div> <!-- /Carousel -->
 
-                <a class="carousel-control-prev" href="#popular-carousel" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
+          </div> <!-- /Popular Items Page -->
 
-                <a class="carousel-control-next" href="#popular-carousel" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
+          <!-- Build Page -->
+          <div id="build-option-page" class="page-content">
+            
+            <!-- Page Heading -->
+            <h1 class="page-heading">Build Your Own Burger</h1>
+          </div> <!-- /Build Page -->
 
-            </div>
+          <!-- Checkout Page -->
+          <div id="checkout-option-page" class="page-content">
+            
+            <!-- Page Heading -->
+            <h1 class="page-heading">Checkout</h1>
+          </div> <!-- /Checkout Page -->
 
+        </div> <!-- /Page Content -->
+      </div> <!-- /Main Container -->
 
+      <!-- Receipt Bar -->
+      <div id="receipt-bar" class="col-1 sidebar">
+        
+      </div> <!-- /Receipt Bar -->
+    </div> <!-- /container-fluid row -->
+    
+  </div> <!-- /container-fluid -->
 
-            <div id="build-page" class="page-content">
-              <h1>Build Your Own Burger</h1>
-            </div>
+  <!-- Bootstrap CDN -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-            <div id="checkout-page" class="page-content">
-              <h1>Checkout</h1>
-            </div>
-
-          </div>
-        </main>
-
-        <!-- Receipt bar -->
-        <div id="receipt-bar" class="col-1 sidebar">
-          <p>Receipt bar</p>
-        </div>
-
-      </div>
-    </div>
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
-    <script src="script.js"></script>
-
-
-  </body>
+  <!-- Custom JS -->
+  <script type="text/javascript" src="testjs.js"></script>
+</body>
 </html>

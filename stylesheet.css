@@ -1,22 +1,20 @@
 
+/* To allow child elements to fill the entire screen*/
 html, body, .container-fluid, .row {
-	height: 100%;
+	height: 100%; 
+	padding: 0;
 }
 
-/* Use this alongside row when you have multiple rows*/
+/* Use this alongside row when you have multiple rows in a page*/
 .content-row {
 	height: auto;
 }
 
-h1 {
-	font-family: 'Audiowide', cursive;
-}
 .container-fluid {
-	padding: 0;
+	border: 2px solid red;
 }
 
-
-/************** Sidebar *******************/
+/*************** Sidebar **************/
 .sidebar {
 	height: 100%;
 	position: fixed;
@@ -25,75 +23,82 @@ h1 {
 	z-index: 1000;
 	display: block;
 	overflow: hidden;
-	padding: 0;
+	/*padding: 0;*/
+
+	border: 2px solid pink;
 }
 
-/* Sidebar options */
+/* Sidebar options*/
 .sidebar-options {
 	width: 100%;
 	height: 16.66%;
-	border: 2px solid red;
-	background: #339966;
-	color: #fff;
+	
+
+	border: 2px solid purple;
 }
 
-/* home option */
-#home {
+#home-option {
 	height: 50%;
-	border: 2px solid blue;
 }
 
-/******* Receipt bar *******/
-#receipt-bar {
-	left: auto;
-	right: 0;
-	background: #993399;
-	overflow-x: hidden;
-	transition: .5s;
-	padding: 10px;
-}
-
-
-
-/******************* Main Content *********************/
+/***************** Main Container *******************/
 .main-container {
+
+	/* Allow contact info and page contact fit in one screen*/
 	display: flex;
 	flex-direction: column;
 }
 
-/****** Contact Info *******/
+
+/* Contact Info */
 .contact-info {
 	height: auto;
-	padding: 3px 10px;
 	color: #fff;
 	background: #3a3a3a;
+	padding: 3px 10px;
+
 	border: 2px solid green;
 }
 
-/****** Page content ******/
+/* Page Content */
 .page-container {
 	background: #f9f8b1;
 	padding: 10px;
-	text-align: center;
+
+	border: 2px solid brown;
 }
 
 .page-content {
 	display: none;
-	border: 2px solid green;
 	width: 100%;
+	
+	border: 2px solid orange;
 }
-
-/****** Carousel ******/
-
-.carousel-inner {
-	margin: 0 auto;
-	width: 80%;
-	overflow: hidden;
-}
-
-/***End of Carousel***/
 
 /* Place this after page-content to show home-page from beginning*/
-#home-page {
+#home-option-page {
 	display: block;
+}
+
+.page-heading {
+	text-align: center;
+}
+
+/* Carousel*/
+.carousel-inner {
+
+	/* Make it smaller*/
+	margin: 0 auto;
+	width: 80%;
+}
+
+/******************* Receipt Bar ******************/
+#receipt-bar {
+	left: auto;
+	right: 0;
+	overflow-x: hidden;
+	padding: 10px;
+
+	border: 2px solid yellow;
+
 }
