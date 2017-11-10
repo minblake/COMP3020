@@ -115,7 +115,7 @@
               <!-- Add button -->
               <div class="col-1">
                 <div class="popular-button">
-                  <button type="button" class="btn btn-primary">Add</button>
+                  <button id="add-popular" type="button" class="btn btn-primary">Add</button>
                 </div> <!-- /popular-button -->
               </div> <!-- /col popular-button -->
 
@@ -147,8 +147,14 @@
       </div> <!-- /Main Container -->
 
       <!-- ********************* Receipt Bar ************************ -->
-      <div id="receipt-bar" class="col-1 sidebar">
-        
+      <div id="receipt-bar" class="col-1 sidebar text-center">
+        <h5>Receipt</h5>
+
+        <ul id="receipt-list">
+          <li id="b1-receipt" class="receipt-item"><img src="images/b1-icon.png"> x<span id="b1-quantity">29</span></li>
+          <li id="b2-receipt" class="receipt-item"><img src="images/b2-icon.png"> x<span id="b2-quantity">9</span></li>
+          <li id="b3-receipt" class="receipt-item"><img src="images/b3-icon.png"> x<span id="b3-quantity">99</span></li>
+        </ul>
       </div> <!-- /Receipt Bar -->
     </div> <!-- /container-fluid row -->
     
