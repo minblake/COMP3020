@@ -1,174 +1,256 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <title>Sidebar test</title>
 
-  <title>Order - Ai's Burger</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/assets/owl.theme.default.min.css">
 
-  <!-- Font Awesome CDN -->
-  <!-- Instructions say to place this code in the top of HTML -->
-  <script src="https://use.fontawesome.com/facda1815c.js"></script>
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="style.css">
 
-  <!-- Owl Carousel CSS -->
-  <link rel="stylesheet" href="owlcarousel//assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="owlcarousel//assets/owl.theme.default.min.css">
+    <!--Font Awesome Icons (instructions said to put on heading)-->
+    <script src="https://use.fontawesome.com/facda1815c.js"></script>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 </head>
 <body>
-  <div class="container-fluid no-gutters">
-    <div class="row no-gutters">
-      
-      <!-- Sidebar -->
-      <div class="col-2 sidebar">
-        <button id="home-option" class="btn btn-primary sidebar-options" type="button">Welcome to Ai's Burger!</button>
-        <button id="popular-option" class="btn btn-info sidebar-options" type="button">Popular Items</button>
-        <button id="build-option" class="btn btn-info sidebar-options" type="button">Build Your Own Burger</button>
-        <button id="checkout-option" class="btn btn-info sidebar-options" type="button">Checkout</button>
-      </div>
 
-      <!-- Main Container -->
-      <div class="col-9 offset-2 main-container">
-        
-        <!-- Contact Information -->
-        <div class="row no-gutters contact-info">
-          <div class="col"><h5>Store Location: 999 St. Mary's Rd</h5></div>
-          <div class="col"><h5>Tel: (204) 999-9999</h5></div>
-        </div> <!-- /Contact Information -->
+<!--Top bar (contact info & collapsible buttons)-->
+<div id="top-bar" class="container-fluid">
+    <div class="row no-gutter">
+        <!--Sidebar toggle-->
+        <div class="col-xs-1">
+            <button type="button" id="sidebar-toggle" class="btn btn-danger sidebar-collapse">
+                <i class="fa fa-align-left" aria-hidden="true"></i>
+            </button>
+        </div>
+        <!--Contact info-->
+        <div class="col-xs-5 text-center">
+            <h4 class="contact-info"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>Store Location:</span> 999 St Mary's Rd</h4>
+        </div>
+        <div class="col-xs-5 text-center">
+            <h4 class="contact-info"><i class="fa fa-phone" aria-hidden="true"></i>
+                <span>Tel:</span> (204)999-9999</h4>
+        </div>
+        <!--Receipt toggle-->
+        <div class="col-xs-1 text-right">
+            <button type="button" id="receipt-toggle" class="btn btn-danger sidebar-collapse">
+                <i class="fa fa-align-right" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+</div> <!--/top-bar-->
 
-        <!-- Page Content -->
-        <div class="row no-gutters page-container">
+<div class="wrapper">
 
-          <!-- ********************** Home Page ************************** -->
-          <div id="home-option-page" class="page-content">
+    <!--Sidebar-->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Welcome to Ai's Burger!</h3>
+            <strong>AI</strong>
+        </div>
 
-            <!-- Page Heading -->
-            <h1 class="page-heading">Welcome to Ai's Burger!</h1>
-
-          </div> <!-- /Home Page -->
-
-          <!-- ****************** Popular Items Page ********************* -->
-          <div id="popular-option-page" class="page-content">
-            
-            <!-- Page Heading -->
-            <h1 class="page-heading">Popular Items</h1>
-
-            <!-- Carousel -->
-            <div class="row no-gutters justify-content-center content-row">
-              <div class="col-10">
-                <div id="popular-carousel" class="owl-carousel owl-theme">
-                  <div id="b1" class="item wrapper-img selected"><img src="images/b1.jpg"></div>
-                  <div id="b2" class="item wrapper-img"><img src="images/b2.jpg"></div>
-                  <div id="b3" class="item wrapper-img"><img src="images/b3.jpg"></div>
-                  <div id="b4" class="item wrapper-img"><img src="images/b4.jpg"></div>
-                  <div id="b5" class="item wrapper-img"><img src="images/b5.jpg"></div>
-                  <div id="b6" class="item wrapper-img"><img src="images/b6.jpg"></div>
-                  <div id="b7" class="item wrapper-img"><img src="images/b7.jpg"></div>
-                </div> <!-- /popular-carousel -->
-              </div> <!-- /col popular-carousel --> 
-            </div> <!-- /row popular-carousel -->
-
-            <!-- Description Panel -->
-            <div class="row no-gutters justify-content-center description-row">
-              <div class="col-10">
-                <div class="description-panel">
-                  <div id="description-b1" class="description-text">
-                    <p><strong>Description:</strong> 1 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
-                  </div> <!-- /description-b1 -->
-
-                  <div id="description-b2" class="description-text">
-                    <p><strong>Description:</strong> 2 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
-                  </div> <!-- /description-b2 -->
-
-                  <div id="description-b3" class="description-text">
-                    <p><strong>Description:</strong> 3 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
-                  </div> <!-- /description-b3 -->
-
-                  <div id="description-b4" class="description-text">
-                    <p><strong>Description:</strong> 4 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
-                  </div> <!-- /description-b4 -->
-
-                  <div id="description-b5" class="description-text">
-                    <p><strong>Description:</strong> 5 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
-                  </div> <!-- /description-b5 -->
-
-                  <div id="description-b6" class="description-text">
-                    <p><strong>Description:</strong> 6 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
-                  </div> <!-- /description-b6 -->
-
-                  <div id="description-b7" class="description-text">
-                    <p><strong>Description:</strong> 7 Curabitur non lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi, cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
-                  </div> <!-- /description-b7 -->
-
-                </div> <!-- /Description Panel -->
-              </div> <!-- /col description-panel -->
-            </div> <!-- /row description-panel -->
-
-            <!-- Add/Customize Button -->
-            <div class="row no-gutters justify-content-center content-row">
-              
-              <!-- Add button -->
-              <div class="col-1">
-                <div class="popular-button">
-                  <button id="add-popular" type="button" class="btn btn-primary">Add</button>
-                </div> <!-- /popular-button -->
-              </div> <!-- /col popular-button -->
-
-              <!-- Customize button -->
-              <div class="col-1">
-                <div class="popular-button">
-                  <button type="button" class="btn btn-primary">Customize</button>
-                </div> <!-- /popular-button -->
-              </div> <!-- /col popular-button -->
-            </div> <!-- /row popular-row -->
-
-          </div> <!-- /Popular Items Page -->
-
-          <!-- ********************** Build Page ************************** -->
-          <div id="build-option-page" class="page-content">
-            
-            <!-- Page Heading -->
-            <h1 class="page-heading">Build Your Own Burger</h1>
-          </div> <!-- /Build Page -->
-
-          <!-- ********************* Checkout Page ************************ -->
-          <div id="checkout-option-page" class="page-content">
-            
-            <!-- Page Heading -->
-            <h1 class="page-heading">Checkout</h1>
-          </div> <!-- /Checkout Page -->
-
-        </div> <!-- /Page Content -->
-      </div> <!-- /Main Container -->
-
-      <!-- ********************* Receipt Bar ************************ -->
-      <div id="receipt-bar" class="col-1 sidebar text-center">
-        <h5>Receipt</h5>
-
-        <ul id="receipt-list">
-          <li id="b1-receipt" class="receipt-item"><img src="images/b1-icon.png"> x<span id="b1-quantity">29</span></li>
-          <li id="b2-receipt" class="receipt-item"><img src="images/b2-icon.png"> x<span id="b2-quantity">9</span></li>
-          <li id="b3-receipt" class="receipt-item"><img src="images/b3-icon.png"> x<span id="b3-quantity">99</span></li>
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a id="home-option" class="sidebar-options" href="javascript:void(0);">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a id="popular-option" class="sidebar-options" href="javascript:void(0);">
+                    <i class="fa fa-heart"></i>
+                    Popular Items
+                </a>
+            </li>
+            <li>
+                <a id="build-option" class="sidebar-options" href="javascript:void(0);">
+                    <i class="fa fa-cutlery"></i>
+                    Build Your Own
+                </a>
+            </li>
+            <li>
+                <a id="checkout-option" class="sidebar-options" href="javascript:void(0);">
+                    <i class="fa fa-usd"></i>
+                    Review & Checkout
+                </a>
+            </li>
         </ul>
-      </div> <!-- /Receipt Bar -->
-    </div> <!-- /container-fluid row -->
-    
-  </div> <!-- /container-fluid -->
+    </nav> <!--/Sidebar-->
 
-  <!-- Bootstrap CDN -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <!--Page Content-->
+    <div id="content">
+        <div class="container-fluid">
+            <div id="page">
 
-  <!-- Owl Carousel JS -->
-  <script type="text/javascript" src="owlcarousel/owl.carousel.min.js"></script>
+                <!--Home-->
+                <div id="home-option-page" class="page-content">
 
-  <!-- Custom JS -->
-  <script type="text/javascript" src="script.js"></script>
+                    <!--Page Header-->
+                    <h1 class="page-header">Welcome to Ai's Burger!</h1>
+                </div> <!--/Home-->
+
+                <!--Popular-->
+                <div id="popular-option-page" class="page-content">
+
+                    <!--Page Header-->
+                    <h1 class="page-header">Popular Items</h1>
+
+                    <!--Popular Item Carousel-->
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <div id="popular-carousel" class="owl-carousel owl-theme">
+                                <div id="b1" class="item wrapper-img"><img src="images/b1-icon-lg.png"></div>
+                                <div id="b2" class="item wrapper-img"><img src="images/b2-icon-lg.png"></div>
+                                <div id="b3" class="item wrapper-img"><img src="images/b3-icon-lg.png"></div>
+                                <div id="b4" class="item wrapper-img"><img src="images/b4-icon-lg.png"></div>
+                                <div id="b5" class="item wrapper-img"><img src="images/b5-icon-lg.png"></div>
+                                <div id="b6" class="item wrapper-img"><img src="images/b6-icon-lg.png"></div>
+                                <div id="b7" class="item wrapper-img"><img src="images/b7-icon-lg.png"></div>
+                            </div>
+                        </div>
+                    </div> <!--/Popular Carousel-->
+
+                    <!--Description Panel-->
+                    <div class="row no-gutter">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-8">
+                            <div id="description-panel">
+                                <div id="description-b1" class="description-text">
+                                    <p><strong>Description:</strong> 1 Curabitur non lacinia sem. Orci varius natoque
+                                        penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus
+                                        dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi,
+                                        cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit
+                                        tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu
+                                        luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                                </div> <!-- /description-b1 -->
+
+                                <div id="description-b2" class="description-text">
+                                    <p><strong>Description:</strong> 2 Curabitur non lacinia sem. Orci varius natoque
+                                        penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus
+                                        dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi,
+                                        cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit
+                                        tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu
+                                        luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                                </div> <!-- /description-b2 -->
+
+                                <div id="description-b3" class="description-text">
+                                    <p><strong>Description:</strong> 3 Curabitur non lacinia sem. Orci varius natoque
+                                        penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus
+                                        dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi,
+                                        cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit
+                                        tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu
+                                        luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                                </div> <!-- /description-b3 -->
+
+                                <div id="description-b4" class="description-text">
+                                    <p><strong>Description:</strong> 4 Curabitur non lacinia sem. Orci varius natoque
+                                        penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus
+                                        dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi,
+                                        cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit
+                                        tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu
+                                        luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                                </div> <!-- /description-b4 -->
+
+                                <div id="description-b5" class="description-text">
+                                    <p><strong>Description:</strong> 5 Curabitur non lacinia sem. Orci varius natoque
+                                        penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus
+                                        dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi,
+                                        cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit
+                                        tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu
+                                        luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                                </div> <!-- /description-b5 -->
+
+                                <div id="description-b6" class="description-text">
+                                    <p><strong>Description:</strong> 6 Curabitur non lacinia sem. Orci varius natoque
+                                        penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus
+                                        dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi,
+                                        cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit
+                                        tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu
+                                        luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                                </div> <!-- /description-b6 -->
+
+                                <div id="description-b7" class="description-text">
+                                    <p><strong>Description:</strong> 7 Curabitur non lacinia sem. Orci varius natoque
+                                        penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin metus
+                                        dolor, accumsan eget neque eget, fringilla mollis tellus. Aenean nulla nisi,
+                                        cursus non justo sed, viverra ornare dui. Vivamus nec orci et eros suscipit
+                                        tristique at vitae turpis. Curabitur tincidunt nulla risus, vel finibus arcu
+                                        luctus nec. Donec feugiat ullamcorper velit in molestie.</p>
+                                </div> <!--/description-b7-->
+
+                            </div> <!--/description-panel-->
+                        </div> <!--/col description-panel-->
+
+                    </div> <!--/row description-panel-->
+
+                    <!--Add/Customize Button-->
+                    <div class="row">
+                        <!--Add button-->
+                        <!--<div class="col-xs-5"></div>-->
+                        <div class="col-xs-1 col-xs-offset-5">
+                            <div class="popular-button">
+                                <button id="add-popular" type="button" class="btn btn-danger">Add</button>
+                            </div>
+                        </div> <!--/Add button-->
+
+                        <!-- Customize button -->
+                        <div class="col-xs-1">
+                            <div class="popular-button">
+                                <button id="customize-popular" type="button" class="btn btn-danger">Customize</button>
+                            </div>
+                        </div> <!--/Customize button-->
+                        <!--<div class="col-xs-5"></div>-->
+                    </div> <!--/row popular-row-->
+                </div> <!--/Popular-->
+
+                <!--Build-->
+                <div id="build-option-page" class="page-content">
+
+                    <!--Page Header-->
+                    <h1 class="page-header">Build Your Own Burger</h1>
+                </div> <!--/Build-->
+
+                <!--Checkout-->
+                <div id="checkout-option-page" class="page-content">
+
+                    <!--Page Header-->
+                    <h1 class="page-header">Review and Checkout</h1>
+                </div> <!--/Checkout-->
+            </div> <!--/page-->
+        </div> <!--/container-fluid-->
+    </div>
+
+    <!--Receipt Bar-->
+    <div id="receipt-bar">
+
+        <!--Receipt bar Header-->
+        <div class="sidebar-header">
+            <h5>Order Status</h5>
+        </div>
+
+        <!--List of Item-->
+        <ul id="receipt-list" class="list-unstyled">
+        </ul> <!--/List of Item-->
+    </div> <!--/Receipt bar-->
+</div>
+
+<!--Bootstrap JS, JQUERY-->
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!--Owl Carousel JS-->
+<script src="owlcarousel/owl.carousel.min.js"></script>
+
+<!--Custom JS-->
+<script src="script.js"></script>
 </body>
 </html>
