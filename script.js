@@ -9,6 +9,7 @@ $(document).ready(function () {
 
     //Home button pressed from start
     $('#home-option').trigger('click');
+    $('#b1').trigger('click');
 
 });
 
