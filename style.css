@@ -89,8 +89,8 @@ i, span {
 }
 
 #sidebar.active {
-    min-width: 80px;
-    max-width: 80px;
+    min-width: 100px;
+    max-width: 100px;
     text-align: center
 }
 
@@ -151,8 +151,8 @@ i, span {
     Receipt bar style
 ----------------------------------------------*/
 #receipt-bar {
-    min-width: 80px;
-    max-width: 80px;
+    min-width: 100px;
+    max-width: 100px;
     background: #F2493A;
     color: #fff;
     transition: all 0.3s;
@@ -163,7 +163,7 @@ i, span {
 }
 
 #receipt-bar.active {
-    margin-right: -80px;
+    margin-right: -100px;
 }
 
 /* -------------------------------------------
@@ -232,8 +232,8 @@ i, span {
     Sidebar
     --------------------------------------------*/
     #sidebar {
-        min-width: 80px;
-        max-width: 80px;
+        min-width: 100px;
+        max-width: 100px;
         text-align: center;
         margin-left: -80px !important;
     }
@@ -342,16 +342,12 @@ Side note: I know that this style of nesting in SASS doesn't result in the most 
 }
 
 /* Body/Header stuff */
-body {
-  padding: 0px 30px 30px 20px;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 100;
-}
 
+/*
 h1 {
   font-weight: 100;
 }
-
+*/
 label {
   color: #aaa;
 }
@@ -431,8 +427,8 @@ label {
 .checkout {
   float: right;
   border: 0;
-  margin-top: 20px;
-  padding: 6px 25px;
+  margin: 20px 10px 0px 10px;
+  padding: 6px 20px;
   background-color: #6b6;
   color: #fff;
   font-size: 25px;

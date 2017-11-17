@@ -110,14 +110,14 @@ function recalculateCart()
   
   /* Calculate totals */
   var tax = subtotal * taxRate;
-  var shipping = (subtotal > 0 ? shippingRate : 0);
-  var total = subtotal + tax + shipping;
+  // var shipping = (subtotal > 0 ? shippingRate : 0);
+  var total = subtotal + tax;
   
   /* Update totals display */
   $('.totals-value').fadeOut(fadeTime, function() {
     $('#cart-subtotal').html(subtotal.toFixed(2));
     $('#cart-tax').html(tax.toFixed(2));
-    $('#cart-shipping').html(shipping.toFixed(2));
+    // $('#cart-shipping').html(shipping.toFixed(2));
     $('#cart-total').html(total.toFixed(2));
     if(total == 0){
       $('.checkout').fadeOut(fadeTime);
@@ -142,7 +142,7 @@ function updateQuantity(quantityInput)
   productRow.children('.product-line-price').each(function () {
     $(this).fadeOut(fadeTime, function() {
       $(this).text(linePrice.toFixed(2));
-      recalculateCart();
+      recalculateCart();    
       $(this).fadeIn(fadeTime);
     });
   });  
