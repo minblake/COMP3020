@@ -65,15 +65,20 @@ function addItem(obj) {
         var itemId = obj.attr('id');
 
         // if already in the list, increase counter
-        if ($('#' + itemId + '-receipt').length)
-            $('#' + itemId + '-quantity').html(function (i, val) {
-                return +val + 1
+        if ($('#' + itemId + '-receipt-item').length)
+            $('#' + itemId + '-quantity').val(function (i, oldval) {
+              return ++oldval;
             });
 
         // else, add new item
         else
-            $('#receipt-list').append('<li id="' + itemId + '-receipt"' + ' class="receipt-item">' +
-                '<img src="images/' + itemId + '-icon.png"> x<span id="' + itemId + '-quantity' + '">1</span></li>');
+        {
+            $('#receipt-list').append('<li id="' + itemId + '-receipt-item"' + ' class="receipt-item">' +
+                '<img src="images/' + itemId + '-icon.png"> x <input class="receipt-quantity" id="' + itemId + '-quantity"' + ' type="number" value="1" min="1"></li>');
+
+            // Add remove & edit button to each item
+            $('#receipt-list').append('<div class="receipt-button"><button type="button" class="receipt-edit btn btn-danger"><i class="fa fa-pencil" aria-hidden="true"></i></button><button type="button" class="receipt-remove btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></div>');
+        }
     }
 }
 
@@ -110,14 +115,12 @@ function recalculateCart()
   
   /* Calculate totals */
   var tax = subtotal * taxRate;
-  // var shipping = (subtotal > 0 ? shippingRate : 0);
   var total = subtotal + tax;
   
   /* Update totals display */
   $('.totals-value').fadeOut(fadeTime, function() {
     $('#cart-subtotal').html(subtotal.toFixed(2));
     $('#cart-tax').html(tax.toFixed(2));
-    // $('#cart-shipping').html(shipping.toFixed(2));
     $('#cart-total').html(total.toFixed(2));
     if(total == 0){
       $('.checkout').fadeOut(fadeTime);
