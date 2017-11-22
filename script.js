@@ -75,13 +75,11 @@ function addItem(obj) {
         else {
             $('#receipt-list').append('<li id="' + itemId + '-receipt-item"' + ' class="receipt-item">' +
                 '<img src="images/' + itemId + '-icon.png"> x <input class="receipt-quantity" id="' + itemId +
-                '-quantity"' + ' type="number" value="1" min="1"></li>');
-
-            // Add remove & edit button to each item
-            $('#receipt-list').append('<div class="receipt-button"><button type="button" ' +
-                'id="receipt-edit" class="btn btn-danger edit" onclick="editBurger(' + itemId + ')"><i class="fa fa-pencil" ' +
-                'aria-hidden="true"></i></button><button type="button" data-toggle="modal" data-target="#removeModal" id="receipt-remove" class="btn btn-danger">' +
-                '<i class="fa fa-trash" aria-hidden="true"></i></button></div>');
+                '-quantity"' + ' type="number" value="1" min="1"><div class="receipt-button"><button type="button" ' +
+                'class="btn btn-danger edit" onclick="editBurger(' + itemId + ')"><i class="fa fa-pencil" ' +
+                'aria-hidden="true"></i></button><button data-id="' + itemId + '" type="button" data-toggle="modal"' +
+                'data-target="#removeModal" class="btn btn-danger">' +
+                '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></div></li>');
         }
     }
 }
@@ -103,11 +101,19 @@ $('.edit').on('click', function() {
 
 
 //Remove burger from receipt list
+$('#removeModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    var bID = button.data('id');
+    
+    $('#remove-confirm').on('click', function() {
+        removeBurger(bID);
+        $('#removeModal').modal('hide');
+    });
+});
+
 function removeBurger(bID) {
-    $('#receipt-list').remove('#'+bID+'-receipt-item');
+    $('#'+bID+'-receipt-item').remove();
 }
-
-
 
 
 /* Set rates + misc */
