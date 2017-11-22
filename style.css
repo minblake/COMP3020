@@ -549,3 +549,10 @@ label {
         width: 40%;
     }
 }
+
+#carousel-example-generic {
+    height: 500px;
+    width: auto;
+/*    overflow: hidden;*/
+}
+    

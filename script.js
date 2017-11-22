@@ -187,3 +187,5 @@ function removeItem(removeButton) {
         recalculateCart();
     });
 }
+
+
