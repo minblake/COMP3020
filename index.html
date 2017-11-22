@@ -290,7 +290,7 @@
     </div> <!--/Receipt bar-->
 
     <!-- Remove Item Modal Box -->
-    <div id="remove-modal" class="modal">
+<!--     <div id="remove-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -299,8 +299,26 @@
             <div class="modal-body">            
                 <p>Do you want remove this item from your order?</p>
                 <div class="modal-button-layout">
-                    <button class="modal-button btn btn-danger">Confirm</button>
-                    <button class="modal-button btn btn-danger">Cancel</button>
+                    <button type="button" class="modal-button btn btn-danger">Confirm</button>
+                    <button class="modal-button btn btn-danger" onclick="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="modal fade" id="removeModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">Remove Order Item</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Do you want remove this item from your order?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger">Confirm</button>
                 </div>
             </div>
         </div>

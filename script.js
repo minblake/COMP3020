@@ -80,7 +80,7 @@ function addItem(obj) {
             // Add remove & edit button to each item
             $('#receipt-list').append('<div class="receipt-button"><button type="button" ' +
                 'id="receipt-edit" class="btn btn-danger edit" onclick="editBurger(' + itemId + ')"><i class="fa fa-pencil" ' +
-                'aria-hidden="true"></i></button><button type="button" onclick="removeBurger()" id="receipt-remove" class="btn btn-danger">' +
+                'aria-hidden="true"></i></button><button type="button" data-toggle="modal" data-target="#removeModal" id="receipt-remove" class="btn btn-danger">' +
                 '<i class="fa fa-trash" aria-hidden="true"></i></button></div>');
         }
     }
@@ -101,17 +101,13 @@ $('.edit').on('click', function() {
     editBurger($(this).attr('id'));
 });
 
-/* ------------------------
-   Modal
---------------------------*/
-// Remove item from receipt list
-function removeBurger() {
-    $('#remove-modal').css({display: "block"});
+
+//Remove burger from receipt list
+function removeBurger(bID) {
+    $('#receipt-list').remove('#'+bID+'-receipt-item');
 }
 
-function closeModal() {
-    $('.modal').css({display: "none"});
-}
+
 
 
 /* Set rates + misc */
