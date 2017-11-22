@@ -187,3 +187,18 @@ function removeItem(removeButton) {
         recalculateCart();
     });
 }
+
+/* -------------------------------------------
+    RECEIPT BAR
+----------------------------------------------*/
+// function addOrderToCheckout {
+//     var productList = $('#product-list');
+//     var listItems = $('$receipt-list li');
+
+//     listItems.each(function(idx, li) {
+//         var product = $(li);
+
+            
+
+//     });
+// }

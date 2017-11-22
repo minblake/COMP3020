@@ -153,7 +153,7 @@ i, span {
     RECEIPT BAR
 ----------------------------------------------*/
 #receipt-bar {
-    max-height: calc(100vh - 40px);
+    min-height: calc(100vh - 40px);
     overflow-y: auto;
     text-align: center;
     min-width: 150px;
@@ -249,8 +249,6 @@ i, span {
 /* -------------------------------------------
     MODAL BOX
 ----------------------------------------------*/
-
-
 .modal-header {
     text-align: center;
     background-color: #F2493A;
@@ -336,24 +334,19 @@ i, span {
     width: 10%;
 }
 
-.product-removal {
+.product-customize {
     float: left;
     width: 8%;
 }
 
-.product-edit {
-    float: left;
-    width: 8%;
-}
 .product-line-price {
     float: left;
     width: 12%;
     text-align: right;
 }
 
-.group:before, .shopping-cart:before, .column-labels:before, .product:before, .totals-item:before,
+.group:before, .column-labels:before, .product:before, .totals-item:before,
 .group:after,
-.shopping-cart:after,
 .column-labels:after,
 .product:after,
 .totals-item:after {
@@ -361,11 +354,11 @@ i, span {
     display: table;
 }
 
-.group:after, .shopping-cart:after, .column-labels:after, .product:after, .totals-item:after {
+.group:after, .column-labels:after, .product:after, .totals-item:after {
     clear: both;
 }
 
-.group, .shopping-cart, .column-labels, .product, .totals-item {
+.group, .column-labels, .product, .totals-item {
     zoom: 1;
 }
 
@@ -378,10 +371,6 @@ label {
     color: #aaa;
 }
 
-.shopping-cart {
-    margin-top: -45px;
-}
-
 /* Column headers */
 .column-labels label {
     padding-bottom: 15px;
@@ -389,7 +378,7 @@ label {
     border-bottom: 1px solid #eee;
 }
 
-.column-labels .product-image, .column-labels .product-details, .column-labels .product-removal {
+.column-labels .product-image, .column-labels .product-details, .column-labels .product-customize {
     text-indent: -9999px;
 }
 
@@ -421,7 +410,7 @@ label {
     width: 40px;
 }
 
-.product .remove-product, .product .edit-product {
+.customize-product-btn {
     border: 0;
     padding: 4px 8px;
     background-color: #c66;
@@ -472,11 +461,6 @@ label {
 
 /* Make adjustments for tablet */
 @media screen and (max-width: 650px) {
-    .shopping-cart {
-        margin: 0;
-        padding-top: 20px;
-        border-top: 1px solid #eee;
-    }
 
     .column-labels {
         display: none;
