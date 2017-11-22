@@ -186,6 +186,7 @@ function removeItem(removeButton) {
         productRow.remove();
         recalculateCart();
     });
+<<<<<<< HEAD
 }
 
 /* -------------------------------------------
@@ -202,3 +203,10 @@ function removeItem(removeButton) {
 
 //     });
 // }
+||||||| merged common ancestors
+}
+=======
+}
+
+
+>>>>>>> 7734010ec068b2910baf0743f5875b90aa120d05
