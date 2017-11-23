@@ -113,14 +113,16 @@ i, span {
     SIDEBAR & RECEIPT BAR
 --------------------------------------------*/
 #nav-side-menu, #receipt-bar {
-    overflow: auto;
+    /*overflow: auto;*/
     background: #F2493A;
     color: #fff;
     position: fixed;
     width: 200px;
     height: 100%;
     transition: all 0.3s;
+    overflow-y: overlay;
 }
+
 
 .brand {
     color: #fff;

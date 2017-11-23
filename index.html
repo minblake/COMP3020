@@ -72,14 +72,14 @@
 
 <!--Receipt Bar-->
 <div id="receipt-bar">
-    <div class="brand"><a id="checkout-option" href="javascript:void(0);" data-toggle="modal"
-                          data-target="#reviewModal">
-        <i class="fa fa-shopping-cart fa-2x"></i>
-        <span id="checkout">Checkout</span>
-    </a></div>
+    <div class="brand">
+        <a id="checkout-option" href="javascript:void(0);" data-toggle="modal" data-target="#reviewModal">
+            <i class="fa fa-shopping-cart fa-2x"></i>
+            <span id="checkout">Checkout</span>
+        </a></div>
     <ul id="receipt-list" class="list-unstyled"></ul>
     <div class="total-price">
-        <h4>Total: $ <span id="tp">0.0</span></h4>
+        <h4>Total: $ <span id="tp">0.00</span></h4>
         <h6>**No tax included</h6>
     </div>
 </div> <!--/Receipt bar-->
@@ -191,14 +191,6 @@
 
     </div> <!--/Build-->
 
-    <!--Checkout-->
-    <div id="checkout-option-page" class="page-content">
-
-        <!--Page Header-->
-        <h1 class="page-header">Review and Checkout</h1>
-
-    </div> <!--/Checkout-->
-
 </div> <!--/main container-->
 
 <!-- Modal -->
@@ -244,31 +236,31 @@
                     </div>
                 </div>
 
-                <ul id="order-list" class="list-unstyled"></ul>
+                <div id="order-list"></div>
 
 
                 <div class="row no-gutter order-total">
                     <div class="col-xs-6 col-sm-2 col-sm-offset-8 order-total-header">
                         Subtotal
                     </div>
-                    <div class="col-xs-6 col-sm-2 subtotal">
-                        $20.00
+                    <div class="col-xs-6 col-sm-2" id="subtotal">
+                        $<span>0.00<span>
                     </div>
                 </div>
                 <div class="row no-gutter order-total">
                     <div class="col-xs-6 col-sm-2 col-sm-offset-8 order-total-header">
                         Tax (13%)
                     </div>
-                    <div class="col-xs-6 col-sm-2 tax-total">
-                        $2.00
+                    <div class="col-xs-6 col-sm-2" id="tax">
+                        $<span>0.00<span>
                     </div>
                 </div>
                 <div class="row no-gutter order-total">
                     <div class="col-xs-6 col-sm-2 col-sm-offset-8 order-total-header">
                         Grand Total
                     </div>
-                    <div class="col-xs-6 col-sm-2 grand-total">
-                        $22.00
+                    <div class="col-xs-6 col-sm-2" id="grand-total">
+                        $<span>0.00<span>
                     </div>
                 </div>
             </div>

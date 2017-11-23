@@ -57,6 +57,9 @@ $('#popular-carousel').owlCarousel({
         0: {
             items: 1
         },
+        400: {
+            items: 2
+        },
         600: {
             items: 3
         },
@@ -84,91 +87,13 @@ $('.item').on('click', function () {
 // Add popular item burger
 $('#add-popular').on('click', function () {
     addItem($('.item.item-hover'));
-    calcTotalPrice($('#receipt-list'));
+    calcReceiptPrice();
 });
 
 //Send to edit page
 $('.edit').on('click', function () {
     editBurger($(this).attr('id'));
 });
-
-
-/* -------------------------------------------
-    CHECKOUT
-----------------------------------------------*/
-
-
-/* Set rates + misc */
-var taxRate = 0.13;
-var fadeTime = 300;
-
-
-/* Assign actions */
-$('.product-quantity input').change(function () {
-    updateQuantity(this);
-});
-
-$('').click(function () {
-    removeItem(this);
-});
-
-
-/* Recalculate cart */
-function recalculateCart() {
-    var subtotal = 0;
-
-    /* Sum up row totals */
-    $('.product').each(function () {
-        subtotal += parseFloat($(this).children('.product-line-price').text());
-    });
-
-    /* Calculate totals */
-    var tax = subtotal * taxRate;
-    var total = subtotal + tax;
-
-    /* Update totals display */
-    $('.totals-value').fadeOut(fadeTime, function () {
-        $('#cart-subtotal').html(subtotal.toFixed(2));
-        $('#cart-tax').html(tax.toFixed(2));
-        $('#cart-total').html(total.toFixed(2));
-        if (total == 0) {
-            $('.checkout').fadeOut(fadeTime);
-        } else {
-            $('.checkout').fadeIn(fadeTime);
-        }
-        $('.totals-value').fadeIn(fadeTime);
-    });
-}
-
-
-/* Update quantity */
-function updateQuantity(quantityInput) {
-    /* Calculate line price */
-    var productRow = $(quantityInput).parent().parent();
-    var price = parseFloat(productRow.children('.product-price').text());
-    var quantity = $(quantityInput).val();
-    var linePrice = price * quantity;
-
-    /* Update line price display and recalc cart totals */
-    productRow.children('.product-line-price').each(function () {
-        $(this).fadeOut(fadeTime, function () {
-            $(this).text(linePrice.toFixed(2));
-            recalculateCart();
-            $(this).fadeIn(fadeTime);
-        });
-    });
-}
-
-
-/* Remove item from cart */
-function removeItem(removeButton) {
-    /* Remove row from DOM and recalc cart total */
-    var productRow = $(removeButton).parent().parent();
-    productRow.slideUp(fadeTime, function () {
-        productRow.remove();
-        recalculateCart();
-    });
-}
 
 
 /* -------------------------------------------
@@ -201,10 +126,10 @@ function addItem(obj) {
 }
 
 // Get total price 
-function calcTotalPrice(list) {
+function calcReceiptPrice() {
     var tp = 0;
 
-    $('li', list).each(function () {
+    $('#receipt-list li').each(function () {
         var bId = $(this).data('id');
 
         // Total price += price * quantity
@@ -223,22 +148,30 @@ function addOrderToCheckout() {
         var price = $('#description-' + bId + ' .price').text();
 
         $('#order-list').append(
-            '<li data-id="'+ bId + '"><div class="row no-gutter order">' +
-            '<div class="col-xs-12 col-sm-2 order-image">' +
-            '<img src="images/' + bId + '-icon-lg.png"></div>' +
-            '<div class="col-xs-12 col-sm-3 order-name">' +
-            $('#description-' + bId + ' .name').text() + '</div>' +
-            '<div class="col-sm-1 order-price">' + price +'</div>' +
-            '<div class="col-xs-12 col-sm-2 order-quantity">' +
-            '<input type="number" value="' + quantity + '" +min="1"></div>' +
-            '<div class="col-xs-12 col-sm-3 order-customize">' +
-            '<button class="cust-order-btn btn btn-danger btn order-remove">' +
-            '<i class="fa fa-trash" aria-hidden="true"></i></button>' +
-            '<button class="cust-order-btn btn btn-danger btn order-edit"' +
-            ' onclick="editBurger(' + bId + ')">' +
-            '<i class="fa fa-pencil" aria-hidden="true"></i></button></div>' +
-            '<div class="col-xs-12 col-sm-1 order-line-price">' +
-            quantity * parseFloat(price) + '</div></div></li>');
+            '<div class="row no-gutter order">' +
+                '<div class="col-xs-12 col-sm-2 order-image">' +
+                    '<img src="images/' + bId + '-icon-lg.png">' +
+                '</div>' +
+                '<div class="col-xs-12 col-sm-3 order-name">' +
+                    $('#description-' + bId + ' .name').text() + 
+                '</div>' +
+                '<div class="col-sm-1 order-price">' + 
+                    price + 
+                '</div>' +
+                '<div class="col-xs-12 col-sm-2 order-quantity">' +
+                    '<input id="' + bId + '-quantity" type="number" value="' + quantity + '" min="1">' + 
+                '</div>' +
+                '<div class="col-xs-12 col-sm-3 order-customize">' +
+                    '<button class="cust-order-btn btn btn-danger" onclick="removeOrder(this)">' +
+                        '<i class="fa fa-trash" aria-hidden="true"></i>' + 
+                    '</button>' +
+                    '<button class="cust-order-btn btn btn-danger" onclick="editBurger(' + bId + ')">' +
+                        '<i class="fa fa-pencil" aria-hidden="true"></i></button>' + 
+                '</div>' +
+                '<div class="col-xs-12 col-sm-1 order-line-price">' +
+                    quantity * parseFloat(price) + 
+                '</div>' + 
+            '</div>');
 
     });
 }
@@ -246,7 +179,7 @@ function addOrderToCheckout() {
 
 // Update total price when quantity in receipt bar is changed
 $(document).on('change', '.receipt-quantity', function () {
-    calcTotalPrice($('#receipt-list'));
+    calcReceiptPrice();
 });
 
 //Remove burger from receipt list
@@ -255,9 +188,9 @@ $('#removeModal').on('show.bs.modal', function (event) {
     var bID = button.data('id');
 
     $('#remove-confirm').on('click', function () {
-        removeBurger(bID);
+        removeBurger(bID, true);
         $('#removeModal').modal('hide');
-        calcTotalPrice($('#receipt-list'));
+        calcReceiptPrice($('#receipt-list'));
     });
 });
 
@@ -266,8 +199,56 @@ $('#removeModal').on('show.bs.modal', function (event) {
     CHECKOUT
 ----------------------------------------------*/
 
-// Add order to checkout
+// Add current order to checkout
 $('#reviewModal').on('show.bs.modal', function () {
     $('#order-list').empty();
     addOrderToCheckout();
+    calculateTotals();
 });
+
+// Remove order
+function removeOrder(button) {
+    order = $(button).parent().parent();
+    order.slideUp('fast', function () {
+        order.remove();
+        calculateTotals();
+    });
+};
+
+// Update price on change on quantity
+$(document).on('change', '.order-quantity input', function () {
+    updateQuantity(this);
+});
+
+function calculateTotals() {
+    var subtotal = 0;
+    var taxRate = 0.13;
+
+    // Sum up row totals
+    $('.order').each(function () {
+        subtotal += parseFloat($(this).find('.order-line-price').text());
+    });
+
+    // Calculate totals
+    var tax = subtotal * taxRate;
+    var total = subtotal + tax;
+
+    // Update display
+    $('#subtotal span').html(subtotal.toFixed(2));
+    $('#tax span').html(tax.toFixed(2));
+    $('#grand-total span').html(total.toFixed(2));
+}
+
+function updateQuantity(quantityInput) {
+    var quantity = 0;
+    var order = $(quantityInput).parent().parent();
+    var price = parseFloat(order.children('.order-price').text());
+    quantity = $(quantityInput).val();
+    var linePrice = price * quantity;
+
+    // Update line price display and re-calculate totals 
+    order.find('.order-line-price').each(function () {
+        $(this).text(linePrice.toFixed(2));
+        calculateTotals();
+    });
+}
