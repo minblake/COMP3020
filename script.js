@@ -1,8 +1,13 @@
+/* -------------------------------------------
+    START
+----------------------------------------------*/
 $(document).ready(function () {
+    // Activate sidebar toggle button
     $('#sidebar-toggle').on('click', function () {
         $('#sidebar').toggleClass('active');
     });
 
+    // Activate receipt bar toggle button
     $('#receipt-toggle').on('click', function () {
         $('#receipt-bar').toggleClass('active');
     });
@@ -13,7 +18,9 @@ $(document).ready(function () {
 
 });
 
-
+/* -------------------------------------------
+    SIDEBAR
+----------------------------------------------*/
 // Display correct page when button is clicked
 $('.sidebar-options').on('click', function () {
     $('.page-content').hide();
@@ -24,29 +31,28 @@ $('.sidebar-options').on('click', function () {
 
 });
 
-// Popular Items carousel
-// $('#home-carousel').owlCarousel({
-//     mouseDrag: false,
-//     touchDrag: false,
-//     pullDrag: false,
-//     margin: 10,
-//     nav: true,
-//     autoHeight: true,
-//     items: 1,
-//     //Define navigation icons as < >
-//     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>',
-//         '<i class="fa fa-angle-right" aria-hidden="true"></i>']
-// });
+/* -------------------------------------------
+    CUSTOMIZE ITEMS
+----------------------------------------------*/
+function removeBurger(bID) {
+    $('#' + bID + '-receipt-item').remove();
+}
 
+function editBurger(bID) {
+    $('#build-option').trigger('click');
+    $('.modal').modal('hide');
+}
+
+/* -------------------------------------------
+    POPULAR ITEMS
+----------------------------------------------*/
 // Popular Items carousel
 $('#popular-carousel').owlCarousel({
     mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
+    // touchDrag: false,
     margin: 10,
     nav: true,
     autoHeight: true,
-    // items: 5,
     responsive: {
         0: {
             items: 1
@@ -75,28 +81,21 @@ $('.item').on('click', function () {
 });
 
 
-
-//Receipt Add button
-function editBurger(bID) {
-    $('#build-option').trigger('click');
-}
-
 // Add popular item burger
 $('#add-popular').on('click', function () {
     addItem($('.item.item-hover'));
+    calcTotalPrice($('#receipt-list'));
 });
 
 //Send to edit page
-$('.edit').on('click', function() {
+$('.edit').on('click', function () {
     editBurger($(this).attr('id'));
 });
 
 
-
-
-function removeBurger(bID) {
-    $('#'+bID+'-receipt-item').remove();
-}
+/* -------------------------------------------
+    CHECKOUT
+----------------------------------------------*/
 
 
 /* Set rates + misc */
@@ -109,7 +108,7 @@ $('.product-quantity input').change(function () {
     updateQuantity(this);
 });
 
-$('.product-removal button').click(function () {
+$('').click(function () {
     removeItem(this);
 });
 
@@ -171,17 +170,11 @@ function removeItem(removeButton) {
     });
 }
 
-/* -------------------------------------------
-    CHECKOUT
-----------------------------------------------*/
-$('#checkout-option').on('click', function() {
-    $('#product-list').empty();
-    addOrderToCheckout();
-});
 
 /* -------------------------------------------
     RECEIPT BAR
 ----------------------------------------------*/
+
 // Add item to receipt list
 function addItem(obj) {
     if (obj.length) {
@@ -195,71 +188,86 @@ function addItem(obj) {
 
         // else, add new item
         else {
-            $('#receipt-list').append('<li data-id="' + itemId +'" id="' + itemId + '-receipt-item"' + ' class="receipt-item">' +
-                '<img src="images/' + itemId + '-icon.png"> x <input class="receipt-quantity" id="' + itemId +
-                '-quantity"' + ' type="number" value="1" min="1"><div class="receipt-button"><button type="button" ' +
-                'class="btn btn-danger edit" onclick="editBurger(' + itemId + ')"><i class="fa fa-pencil" ' +
-                'aria-hidden="true"></i></button><button data-id="' + itemId + '" type="button" data-toggle="modal"' +
-                'data-target="#removeModal" class="btn btn-danger">' +
-                '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></div></li>');
+            $('#receipt-list').append('<li data-id="' + itemId + '" id="' + itemId + '-receipt-item" class="receipt-item">' +
+                '<img src="images/' + itemId + '-icon.png"> x' + 
+                '<input class="receipt-quantity" id="' + itemId + '-quantity" type="number" value="1" min="1">' + 
+                '<span class="receipt-btn"><button data-id="' + itemId + '" type="button" data-toggle="modal" ' + 
+                'data-target="#removeModal" class="btn btn-danger btn-sm cust-btn">' +
+                '<i class="fa fa-trash" aria-hidden="true"></i></button>' + 
+                '<button type="button" onclick="editBurger(' + itemId + ')" class="btn btn-danger cust-btn btn-sm">' +
+                '<i class="fa fa-pencil" aria-hidden="true"></i></button></span></li>');
         }
     }
 }
+
+// Get total price 
+function calcTotalPrice(list) {
+    var tp = 0;
+
+    $('li', list).each(function () {
+        var bId = $(this).data('id');
+
+        // Total price += price * quantity
+        tp += parseFloat($('#description-' + bId + ' .price').text()) * 
+        $('#' + bId + '-receipt-item ' + '#' + bId + '-quantity').val();
+    });
+    $('#tp').html(tp.toFixed(2));
+}
+
+// Add current order to review
+function addOrderToCheckout() {
+
+    $('#receipt-list li').each(function () {
+        var bId = $(this).data('id');
+        var quantity = $('#' + bId + '-receipt-item ' + '#' + bId + '-quantity').val();
+        var price = $('#description-' + bId + ' .price').text();
+
+        $('#order-list').append(
+            '<li data-id="'+ bId + '"><div class="row no-gutter order">' +
+            '<div class="col-xs-12 col-sm-2 order-image">' +
+            '<img src="images/' + bId + '-icon-lg.png"></div>' +
+            '<div class="col-xs-12 col-sm-3 order-name">' +
+            $('#description-' + bId + ' .name').text() + '</div>' +
+            '<div class="col-sm-1 order-price">' + price +'</div>' +
+            '<div class="col-xs-12 col-sm-2 order-quantity">' +
+            '<input type="number" value="' + quantity + '" +min="1"></div>' +
+            '<div class="col-xs-12 col-sm-3 order-customize">' +
+            '<button class="cust-order-btn btn btn-danger btn order-remove">' +
+            '<i class="fa fa-trash" aria-hidden="true"></i></button>' +
+            '<button class="cust-order-btn btn btn-danger btn order-edit"' +
+            ' onclick="editBurger(' + bId + ')">' +
+            '<i class="fa fa-pencil" aria-hidden="true"></i></button></div>' +
+            '<div class="col-xs-12 col-sm-1 order-line-price">' +
+            quantity * parseFloat(price) + '</div></div></li>');
+
+    });
+}
+
+
+// Update total price when quantity in receipt bar is changed
+$(document).on('change', '.receipt-quantity', function () {
+    calcTotalPrice($('#receipt-list'));
+});
 
 //Remove burger from receipt list
 $('#removeModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
     var bID = button.data('id');
-    
-    $('#remove-confirm').on('click', function() {
+
+    $('#remove-confirm').on('click', function () {
         removeBurger(bID);
         $('#removeModal').modal('hide');
+        calcTotalPrice($('#receipt-list'));
     });
 });
 
-function addOrderToCheckout() {
-    var imageHtml = '<div class="product"><div class="product-image">';
-    var titleHtml = '<div class="product-details"><div class="product-title">';
-    var descriptHtml = '<p class="product-description">';
-    var priceHtml = '<div class="product-price">';
-    var quantityHtml = '<div class="product-quantity"><input type="number" value="';
-    var linePriceHtml = '<div class="product-line-price">';
-    var btnHtml = '<div class="product-customize">' + 
-            '<button class="customize-product-btn">Remove</button></div>' +
-            '<div class="product-customize">' +
-            '<button class="customize-product-btn">Edit</button></div>';
-    var ih, th, dh, ph, qh, lph;
 
-    $('#receipt-list li').each(function() {
-        var product = $(this);
-        var bId = product.data('id');
+/* -------------------------------------------
+    CHECKOUT
+----------------------------------------------*/
 
-        // Reset html
-        ih = imageHtml;
-        th = titleHtml;
-        dh = descriptHtml;
-        ph = priceHtml;
-        qh = quantityHtml;
-        lph = linePriceHtml;
-
-        // Add image
-        ih += '<img src=images/' + bId + '-icon-lg.png></div>';
-
-        // Add project details
-        th += $('#description-' + bId + ' .name').text() + '</div>';
-        dh += $('#description-' + bId + ' .dsecription').text() + '</p></div>';
-
-        // Add product price
-        var quantity = $('#' + bId + '-receipt-item ' + '#' + bId + '-quantity').val();
-        var price = $('#description-' + bId + ' .price').text();
-        var linePrice = quantity * parseFloat(price);
-        
-        ph += price + '</div>';
-        qh += quantity + '" min="1"></div>';
-        lph += linePrice + '</div></div>';
-
-        $('#product-list').append(ih + th + dh + ph + qh + btnHtml + lph);
-
-    });
-}
-
+// Add order to checkout
+$('#reviewModal').on('show.bs.modal', function () {
+    $('#order-list').empty();
+    addOrderToCheckout();
+});

@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
 
     <title>Order - Ai's Burger</title>
-    
-    
+
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -30,319 +29,264 @@
 <!--Top bar (contact info & collapsible buttons)-->
 <div id="top-bar" class="container-fluid">
     <div class="row no-gutter">
-        <!--Sidebar toggle-->
-        <div class="col-xs-1">
-            <button type="button" id="sidebar-toggle" class="btn btn-danger sidebar-collapse">
-                <i class="fa fa-align-left" aria-hidden="true"></i>
-            </button>
-        </div>
         <!--Contact info-->
-        <div class="col-xs-5 text-center">
+        <div class="col-xs-6 text-center">
             <h4 class="contact-info"><i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>Store Location:</span> 999 St Mary's Rd</h4>
         </div>
-        <div class="col-xs-5 text-center">
+        <div class="col-xs-6 text-center">
             <h4 class="contact-info"><i class="fa fa-phone" aria-hidden="true"></i>
                 <span>Tel:</span> (204)999-9999</h4>
-        </div>
-        <!--Receipt toggle-->
-        <div class="col-xs-1 text-right">
-            <button type="button" id="receipt-toggle" class="btn btn-danger sidebar-collapse">
-                <i class="fa fa-align-right" aria-hidden="true"></i>
-            </button>
         </div>
     </div>
 </div> <!--/top-bar-->
 
-<!--Page wrapper-->
-<div class="wrapper">
-
-    <!--Sidebar-->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>Welcome to Ai's Burger!</h3>
-            <strong>AI</strong>
-        </div>
-
-        <ul class="list-unstyled components">
+<!--Sidebar-->
+<div id="nav-side-menu">
+    <div class="brand"><h3>Welcome to Ai's Burger!</h3></div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <i id="cart" class="fa fa-shopping-cart fa-2x" data-toggle="modal" data-target="#reviewModal"></i>
+    <div class="menu-list">
+        <ul id="menu-content" class="list-unstyled menu-content collapse out">
             <li class="active">
                 <a id="home-option" class="sidebar-options" href="javascript:void(0);">
-                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <i class="fa fa-home fa-lg" aria-hidden="true"></i>
                     Home
                 </a>
             </li>
             <li>
                 <a id="popular-option" class="sidebar-options" href="javascript:void(0);">
-                    <i class="fa fa-heart"></i>
+                    <i class="fa fa-heart fa-lg"></i>
                     Popular Items
                 </a>
             </li>
             <li>
                 <a id="build-option" class="sidebar-options" href="javascript:void(0);">
-                    <i class="fa fa-cutlery"></i>
+                    <i class="fa fa-cutlery fa-lg"></i>
                     Build Your Own
                 </a>
             </li>
-            <li>
-                <a id="checkout-option" class="sidebar-options" href="javascript:void(0);">
-                    <i class="fa fa-usd"></i>
-                    Review & Checkout
-                </a>
-            </li>
         </ul>
-    </nav> <!--/Sidebar-->
+    </div>
+</div> <!--/Sidebar-->
 
-    <!--Page Content-->
-    <div id="content">
-        <div class="container-fluid">
-            <div id="page">
+<!--Receipt Bar-->
+<div id="receipt-bar">
+    <div class="brand"><a id="checkout-option" href="javascript:void(0);" data-toggle="modal"
+                          data-target="#reviewModal">
+        <i class="fa fa-shopping-cart fa-2x"></i>
+        <span id="checkout">Checkout</span>
+    </a></div>
+    <ul id="receipt-list" class="list-unstyled"></ul>
+    <div class="total-price">
+        <h4>Total: $ <span id="tp">0.0</span></h4>
+        <h6>**No tax included</h6>
+    </div>
+</div> <!--/Receipt bar-->
 
-                <!--Home-->
-                <div id="home-option-page" class="page-content">
+<div class="container" id="main">
+    <!--Home-->
+    <div id="home-option-page" class="page-content">
 
-                    <!--Page Header-->
-                    <h1 class="page-header">Welcome to Ai's Burger!</h1>
+        <!--Page Header-->
+        <h1 class="page-header">Welcome to Ai's Burger!</h1>
 
-                </div>
-
-                <!--Popular-->
-                <div id="popular-option-page" class="page-content">
-
-                    <!--Page Header-->
-                    <h1 class="page-header">Popular Items</h1>
-                    
-              
-
-                    <!--Popular Item Carousel-->
-                    <div class="row">
-                        <div class="col-xs-8 col-xs-offset-2">
-                            <div id="popular-carousel" class="owl-carousel owl-theme">
-                                <div id="b1" class="item wrapper-img"><img src="images/b1-icon-lg.png"></div>
-                                <div id="b2" class="item wrapper-img"><img src="images/b2-icon-lg.png"></div>
-                                <div id="b3" class="item wrapper-img"><img src="images/b3-icon-lg.png"></div>
-                                <div id="b4" class="item wrapper-img"><img src="images/b4-icon-lg.png"></div>
-                                <div id="b5" class="item wrapper-img"><img src="images/b5-icon-lg.png"></div>
-                                <div id="b6" class="item wrapper-img"><img src="images/b6-icon-lg.png"></div>
-                                <div id="b7" class="item wrapper-img"><img src="images/b7-icon-lg.png"></div>
-                            </div>
-                        </div>
-                    </div> <!--/Popular Carousel-->
-
-                    <!--Description Panel-->
-                    <div class="row no-gutter">
-                        <div class="col-xs-8 col-xs-offset-2">
-                            <div id="description-panel">
-                                <div id="description-b1" class="description-text">
-                                    <h4 class="name">Chicken cheese delight burger</h4>
-                                    <p><strong>Description:</strong> <span class="description">b1</span></p>
-                                    <h4>$<span class="price">5.99</span></h4>
-                                </div> <!-- /description-b1 -->
-
-                                <div id="description-b2" class="description-text">
-                                    <h4 class="name">Beef cheese delight burger</h4>
-                                    <p><strong>Description:</strong> <span class="description">b2</span></p>
-                                    <h4>$<span class="price">6.99</span></h4>
-                                </div> <!-- /description-b2 -->
-
-                                <div id="description-b3" class="description-text">
-                                    <h4 class="name">Regular Beef burger</h4>
-                                    <p><strong>Description:</strong> <span class="description">b3</span></p>
-                                    <h4>$<span class="price">7.99</span></h4>
-                                </div> <!-- /description-b3 -->
-
-                                <div id="description-b4" class="description-text">
-                                    <h4 class="name">Ai's Special beef burger</h4>
-                                    <p><strong>Description:</strong> <span class="description">b4</span></p>
-                                    <h4>$<span class="price">8.99</span></h4>
-                                </div> <!-- /description-b4 -->
-
-                                <div id="description-b5" class="description-text">
-                                    <h4 class="name">Ai's Special chicken burger</h4>
-                                    <p><strong>Description:</strong> <span class="description">b5</span></p>
-                                    <h4>$<span class="price">9.99</span></h4>
-                                </div> <!-- /description-b5 -->
-
-                                <div id="description-b6" class="description-text">
-                                    <h4 class="name">Chicken supreme burger</h4>
-                                    <p><strong>Description:</strong> <span class="description">b6</span></p>
-                                    <h4>$<span class="price">10.99</span></h4>
-                                </div> <!-- /description-b6 -->
-
-                                <div id="description-b7" class="description-text">
-                                    <h4 class="name">Beef supreme burger</h4>
-                                    <p><strong>Description:</strong> <span class="description">b7</span></p>
-                                    <h4>$<span class="price">11.99</span></h4>
-                                </div> <!--/description-b7-->
-
-                            </div> <!--/description-panel-->
-                        </div> <!--/col description-panel-->
-                    </div> <!--/row description-panel-->
-
-                    <!--Add/Customize Button-->
-                    <div class="row">
-                        <!--Add button-->
-                        <div class="col-xs-1 col-xs-offset-5">
-                            <div class="popular-button">
-                                <button id="add-popular" type="button" class="btn btn-danger">Add</button>
-                            </div>
-                        </div> <!--/Add button-->
-
-                        <!-- Customize button -->
-                        <div class="col-xs-1">
-                            <div class="popular-button">
-                                <button id="customize-popular" type="button" class="btn btn-danger edit">Customize</button>
-                            </div>
-                        </div> <!--/Customize button-->
-                    </div>
-                </div> <!--/Popular-->
-
-                <!--Build-->
-                <div id="build-option-page" class="page-content">
-
-                    <!--Page Header-->
-                    <h1 id="build-header" class="page-header">Build Your Own Burger</h1>
-
-
-                </div> <!--/Build-->
-
-                <!--Checkout-->
-                <div id="checkout-option-page" class="page-content">
-
-                    <!--Page Header-->
-                    <h1 class="page-header">Review and Checkout</h1>
-
-                    <!--Code by Sabit -->
-                    <div class="column-labels">
-                        <label class="product-image">Image</label>
-                        <label class="product-details">Product</label>
-                        <label class="product-price">Price</label>
-                        <label class="product-quantity">Quantity</label>
-                        <label class="product-customize">Remove</label>
-                        <label class="product-customize">Edit</label>
-                        <label class="product-line-price">Total</label>
-                    </div>
-
-                    <div id="product-list">
-                        <!-- <div class="product">
-                            <div class="product-image">
-                                <img src="images/b1-icon-lg.png">
-                            </div>
-
-                            <div class="product-details">
-                                <div class="product-title">Cheese burger</div>
-                                <p class="product-description">The best cheese burger you can ever taste!</p>
-                            </div>
-
-                            <div class="product-price">6.99</div>
-                            <div class="product-quantity">
-                                <input type="number" value="1" min="1">
-                            </div>  
-
-                            <div class="product-customize">
-                                <button class="customize-product-btn">
-                                    Remove
-                                </button>
-                            </div>
-
-                            <div class="product-customize">
-                                <button class="customize-product-btn">
-                                    Edit
-                                </button>
-                            </div>
-
-                            <div class="product-line-price">6.99</div>
-                        </div>
-
-                        <div class="product">
-                            <div class="product-image">
-                                <img src="images/b2-icon-lg.png">
-                            </div>
-
-                            <div class="product-details">
-                                <div class="product-title">Beef burger</div>
-                                <p class="product-description">This beef burger is now the best in town! </p>
-                            </div>
-                            <div class="product-price">8.99</div>
-                            <div class="product-quantity">
-                                <input type="number" value="2" min="1">
-                            </div>
-                            <div class="product-customize">
-                                <button class="customize-product-btn">
-                                    Remove
-                                </button>
-                            </div>
-                            <div class="product-customize">
-                                <button class="customize-product-btn">
-                                    Edit
-                                </button>
-                            </div>
-                            <div class="product-line-price">8.99</div>
-                        </div>     -->
-                    </div>
-                    
-
-                    <div class="totals">
-                        <div class="totals-item">
-                            <label>Subtotal</label>
-                            <div class="totals-value" id="cart-subtotal">0</div>
-                        </div>
-                        <div class="totals-item">
-                            <label>Tax (13%)</label>
-                            <div class="totals-value" id="cart-tax">0</div>
-                        </div>
-                        <div class="totals-item totals-item-total">
-                            <label>Grand Total</label>
-                            <div class="totals-value" id="cart-total">0</div>
-                        </div>
-                    </div>
-
-                    <button class="checkout">Confirm</button>
-                    <button class="checkout">Cancel</button>
-
-
-                </div> <!--/Checkout-->
-            </div> <!--/page-->
-        </div> <!--/container-fluid-->
     </div>
 
-    <!--Receipt Bar-->
-    <div id="receipt-bar">
+    <!--Popular-->
+    <div id="popular-option-page" class="page-content">
 
-        <!--Receipt bar Header-->
-        <div class="sidebar-header">
-            <h5>Order Status</h5>
+        <!--Page Header-->
+        <h1 class="page-header">Popular Items</h1>
+
+        <!--Popular Item Carousel-->
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div id="popular-carousel" class="owl-carousel owl-theme">
+                    <div id="b1" class="item"><img src="images/b1-icon-lg.png"></div>
+                    <div id="b2" class="item"><img src="images/b2-icon-lg.png"></div>
+                    <div id="b3" class="item"><img src="images/b3-icon-lg.png"></div>
+                    <div id="b4" class="item"><img src="images/b4-icon-lg.png"></div>
+                    <div id="b5" class="item"><img src="images/b5-icon-lg.png"></div>
+                    <div id="b6" class="item"><img src="images/b6-icon-lg.png"></div>
+                    <div id="b7" class="item"><img src="images/b7-icon-lg.png"></div>
+                </div>
+            </div>
+        </div> <!--/Popular Carousel-->
+
+        <!--Description Panel-->
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div id="description-panel">
+                    <div id="description-b1" class="description-text">
+                        <h4 class="name">Chicken cheese delight burger</h4>
+                        <p><strong>Description:</strong> <span class="description">b1</span></p>
+                        <h4>$<span class="price">5.99</span></h4>
+                    </div> <!-- /description-b1 -->
+
+                    <div id="description-b2" class="description-text">
+                        <h4 class="name">Beef cheese delight burger</h4>
+                        <p><strong>Description:</strong> <span class="description">b2</span></p>
+                        <h4>$<span class="price">6.99</span></h4>
+                    </div> <!-- /description-b2 -->
+
+                    <div id="description-b3" class="description-text">
+                        <h4 class="name">Regular Beef burger</h4>
+                        <p><strong>Description:</strong> <span class="description">b3</span></p>
+                        <h4>$<span class="price">7.99</span></h4>
+                    </div> <!-- /description-b3 -->
+
+                    <div id="description-b4" class="description-text">
+                        <h4 class="name">Ai's Special beef burger</h4>
+                        <p><strong>Description:</strong> <span class="description">b4</span></p>
+                        <h4>$<span class="price">8.99</span></h4>
+                    </div> <!-- /description-b4 -->
+
+                    <div id="description-b5" class="description-text">
+                        <h4 class="name">Ai's Special chicken burger</h4>
+                        <p><strong>Description:</strong> <span class="description">b5</span></p>
+                        <h4>$<span class="price">9.99</span></h4>
+                    </div> <!-- /description-b5 -->
+
+                    <div id="description-b6" class="description-text">
+                        <h4 class="name">Chicken supreme burger</h4>
+                        <p><strong>Description:</strong> <span class="description">b6</span></p>
+                        <h4>$<span class="price">10.99</span></h4>
+                    </div> <!-- /description-b6 -->
+
+                    <div id="description-b7" class="description-text">
+                        <h4 class="name">Beef supreme burger</h4>
+                        <p><strong>Description:</strong> <span class="description">b7</span></p>
+                        <h4>$<span class="price">11.99</span></h4>
+                    </div> <!--/description-b7-->
+
+                </div> <!--/description-panel-->
+            </div> <!--/col description-panel-->
+        </div> <!--/row description-panel-->
+
+        <!--Add/Customize Button-->
+        <div class="row">
+            <!--Add button-->
+            <div class="col-xs-1 col-xs-offset-5">
+                <div class="popular-button">
+                    <button id="add-popular" type="button" class="btn btn-danger">Add</button>
+                </div>
+            </div> <!--/Add button-->
+
+            <!-- Customize button -->
+            <div class="col-xs-1">
+                <div class="popular-button">
+                    <button id="customize-popular" type="button" class="btn btn-danger edit">Customize</button>
+                </div>
+            </div> <!--/Customize button-->
         </div>
+    </div> <!--/Popular-->
 
-        <!--List of Item-->
-        <ul id="receipt-list" class="list-unstyled">
-        </ul> <!--/List of Item-->
-    </div> <!--/Receipt bar-->
+    <!--Build-->
+    <div id="build-option-page" class="page-content">
+
+        <!--Page Header-->
+        <h1 id="build-header" class="page-header">Build Your Own Burger</h1>
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="removeModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h3 class="modal-title">Remove Order Item</h3>
-                </div>
-                <div class="modal-body">
-                    <p>Do you want remove this item from your order?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button id="remove-confirm" type="button" class="btn btn-danger">Confirm</button>
-                </div>
+    </div> <!--/Build-->
+
+    <!--Checkout-->
+    <div id="checkout-option-page" class="page-content">
+
+        <!--Page Header-->
+        <h1 class="page-header">Review and Checkout</h1>
+
+    </div> <!--/Checkout-->
+
+</div> <!--/main container-->
+
+<!-- Modal -->
+<!--Remove Modal-->
+<div class="modal fade" id="removeModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title">Remove Order Item</h3>
+            </div>
+            <div class="modal-body">
+                <p>Do you want remove this item from your order?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button id="remove-confirm" type="button" class="btn btn-danger">Confirm</button>
             </div>
         </div>
     </div>
 </div>
 
-<!--Bootstrap JS, JQUERY-->
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<!--Review Modal-->
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title">Review Order</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row no-gutter order-header">
+                    <div class="col-xs-12 col-sm-1 col-sm-offset-5">
+                        Price
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        Quantity
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-sm-offset-2 order-line-price-header">
+                        Total
+                    </div>
+                </div>
 
-<!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
+                <ul id="order-list" class="list-unstyled"></ul>
+
+
+                <div class="row no-gutter order-total">
+                    <div class="col-xs-6 col-sm-2 col-sm-offset-8 order-total-header">
+                        Subtotal
+                    </div>
+                    <div class="col-xs-6 col-sm-2 subtotal">
+                        $20.00
+                    </div>
+                </div>
+                <div class="row no-gutter order-total">
+                    <div class="col-xs-6 col-sm-2 col-sm-offset-8 order-total-header">
+                        Tax (13%)
+                    </div>
+                    <div class="col-xs-6 col-sm-2 tax-total">
+                        $2.00
+                    </div>
+                </div>
+                <div class="row no-gutter order-total">
+                    <div class="col-xs-6 col-sm-2 col-sm-offset-8 order-total-header">
+                        Grand Total
+                    </div>
+                    <div class="col-xs-6 col-sm-2 grand-total">
+                        $22.00
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button id="review-confirm" type="button" class="btn btn-success">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Bootstrap JS, JQUERY-->
+<script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!--Owl Carousel JS-->
@@ -351,7 +295,5 @@
 <!--Custom JS-->
 <script src="script.js"></script>
 
-
-<!-- <script  src="js/index.js"></script> -->
 </body>
 </html>

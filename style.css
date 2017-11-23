@@ -2,22 +2,17 @@
     GENERAL
 ----------------------------------------------*/
 html, body {
-    overflow-x: hidden;
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*overflow-x: hidden;*/
 }
 
 .container-fluid {
-    padding: 0;
     margin: 0;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-}
-
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
 }
 
 a, a:hover, a:focus {
@@ -30,174 +25,32 @@ i, span {
     display: inline-block;
 }
 
+.no-gutter {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.no-gutter > [class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 /* To center columns */
 .col-centered {
     float: none;
     margin: 0 auto;
 }
 
-.btn {
-    /*font-size: 20px;*/
-}
 /* -------------------------------------------
     TOP BAR
 ----------------------------------------------*/
-#top-bar {
-    height: 40px !important;
-    background: #4c4c4c;
-}
+#top-bar { background: #4c4c4c; }
 
-.sidebar-collapse {
-    height: 40px;
-    background-color: #000;
-    border: none;
-    box-shadow: none;
-    outline: none !important;
-}
-
-.sidebar-collapse:hover, .sidebar-collapse:active:hover, .sidebar-collapse:focus:hover {
-    background-color: #fff;
-    color: #000;
-}
-
-.sidebar-collapse:focus, .sidebar-collapse:active {
-    background-color: #000;
-    border-color: #000;
-}
-
-.contact-info {
-    color: #fff;
-    text-align: right;
-}
-
-#name {
-    display: none;
-}
-
-/* -------------------------------------------
-    SIDEBAR
-----------------------------------------------*/
-.wrapper {
-    display: flex;
-    align-items: stretch;
-}
-
-#sidebar {
-    min-width: 200px;
-    max-width: 200px;
-    background: #F2493A;
-    color: #fff;
-    transition: all 0.3s;
-}
-
-#sidebar.active {
-    min-width: 100px;
-    max-width: 100px;
-    text-align: center
-}
-
-.sidebar-header {
-    text-align: center;
-    padding: 20px;
-    background: #DC4335;
-}
-
-#sidebar .sidebar-header strong {
-    display: none;
-}
-
-#sidebar.active .sidebar-header h3 {
-    display: none;
-}
-
-#sidebar.active .sidebar-header strong {
-    display: block;
-}
-
-#sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #B1362B;
-}
-
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
-
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-
-}
-
-#sidebar ul li a:hover, #sidebar ul li a:focus, .link-hover {
-    color: #F2493A;
-    background: #fff;
-}
-
-#sidebar.active ul li a {
-    padding: 20px 10px;
-    text-align: center;
-    font-size: 0.85em;
-}
-
-#sidebar.active ul li a i {
-    margin-right: 0;
-    display: block;
-    font-size: 1.8em;
-    margin-bottom: 5px;
-}
-
-/* -------------------------------------------
-    RECEIPT BAR
-----------------------------------------------*/
-#receipt-bar {
-    min-height: calc(100vh - 40px);
-    overflow-y: auto;
-    text-align: center;
-    min-width: 150px;
-    max-width: 150px;
-    background: #F2493A;
-    color: #fff;
-    transition: all 0.3s;
-}
-
-#receipt-list {
-    padding: 10px;
-}
-
-#receipt-bar.active {
-    margin-right: -150px;
-}
-
-.receipt-quantity {
-    color: #000;
-    width: 40%;
-}
-
-.receipt-button {
-    text-align: right;
-}
-
-.receipt-edit {
-
-}
-
-.receipt-remove {
-
-}
+.contact-info { color: #fff; }
 
 /* -------------------------------------------
     GENERAL CONTENT
 ----------------------------------------------*/
-#content {
-    width: 100%;
-    padding: 0 20px;
-    min-height: calc(100vh - 40px);
-    transition: all 0.3s;
-}
-
 #page {
     padding: 0 10px;
 }
@@ -215,13 +68,6 @@ i, span {
 /* -------------------------------------------
     CAROUSEL
 ----------------------------------------------*/
-
-.wrapper-img {
-    margin: 0 auto;
-    max-width: 150px;
-    height: auto;
-}
-
 .owl-carousel .item {
     cursor: pointer;
     transition: 0.3s ease;
@@ -245,302 +91,291 @@ i, span {
     display: none;
 }
 
-
 /* -------------------------------------------
     MODAL BOX
 ----------------------------------------------*/
-.modal-header {
+#removeModal .modal-header {
     text-align: center;
     background-color: #F2493A;
     color: white;
 }
 
+#reviewModal .modal-header {
+    text-align: center;
+    background-color: #449d44;
+    color: white;
+}
+
+.modal-body {
+    padding: 20px;
+}
+/*------------------------------------------
+    SIDEBAR & RECEIPT BAR
+--------------------------------------------*/
+#nav-side-menu, #receipt-bar {
+    overflow: auto;
+    background: #F2493A;
+    color: #fff;
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    transition: all 0.3s;
+}
+
+.brand {
+    color: #fff;
+    text-align: center;
+    display: block;
+    padding: 20px;
+    background: #DC4335;
+}
+
+#nav-side-menu .toggle-btn, #cart {
+    display: none;
+}
+
+#nav-side-menu ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#nav-side-menu ul li a:hover, #nav-side-menu ul li a:focus, .link-hover {
+    color: #F2493A;
+    background: #fff;
+}
+
+/*------------------------------------------
+    RECEIPT BAR
+--------------------------------------------*/
+#receipt-bar {
+    right: 0;
+}
+
+#receipt-bar .brand:hover {
+    color: #fff;
+    background: #449d44;
+}
+
+#receipt-list li {
+    padding: 10px;
+}
+
+.receipt-quantity {
+    color: #000;
+    width: 25%;
+    margin-right: 5px;
+}
+
+.receipt-button {
+    text-align: right;
+}
+
+/*Show always the arrows*/
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+}
+
+.total-price {
+    text-align: right;
+    padding: 20px;
+    border-top: 1px solid #B1362B;
+}
 
 
-/* -------------------------------------------
-    MEDIA QUERIES
-----------------------------------------------*/
+
+/*------------------------------------------
+    CHECKOUT
+--------------------------------------------*/
+.order-header {
+    padding-bottom: 15px;
+    margin: 10px 10px 15px 10px;
+    border-bottom: 1px solid #eee;
+    color: #aaa;
+    text-align: right;
+}
+
+.order {
+    margin: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: right;
+}
+
+.order-name, .order-customize {
+    text-align: center;
+}
+
+.order-quantity input {
+    width: 50%;
+}
+
+.cust-order-btn {
+    margin-right: 5px;
+}
+
+.order-total {
+    margin: 10px;
+    text-align: right;
+}
+
+.order-total-header {
+    margin-bottom: 20px;
+    color: #aaa;
+}
+/*------------------------------------------
+    MEDIA QUERIES (MAX-WIDTH 767)
+--------------------------------------------*/
 @media (max-width: 767px) {
 
-    /*------------------------------------------
-    SIDEBAR
-    --------------------------------------------*/
-    #sidebar {
-        min-width: 100px;
-        max-width: 100px;
-        text-align: center;
-        margin-left: -80px !important;
-    }
-
-    #sidebar.active {
-        margin-left: 0 !important;
-    }
-
-    #sidebar .sidebar-header h3 {
+    .order-header, .order-price {
         display: none;
     }
 
-    #sidebar .sidebar-header strong {
-        display: block;
+    .order {
+        text-align: center;
     }
 
-    #sidebar ul li a {
-        padding: 20px 10px;
-    }
-
-    #sidebar ul li a span {
-        font-size: 0.85em;
-    }
-
-    #sidebar ul li a i {
-        margin-right: 0;
-        display: block;
-    }
-
-    #sidebar {
-        /* make collapsible button appear*/
-        margin-left: 0;
+    .order > [class*="col-"] {
+        margin: 5px;
     }
 
     /*------------------------------------------
     TOP BAR
     --------------------------------------------*/
+    #top-bar h4 {
+        font-size: 1em;
+    }
+
     .contact-info span {
         display: none;
     }
 
-}
+    /*------------------------------------------
+    SIDEBAR
+    --------------------------------------------*/
+    #nav-side-menu {
+        position: relative;
+        width: 100%;
+        margin-bottom: 10px;
+    }
 
-/*------------------------------------------
-    CHECKOUT (DISPLAY)TABLE SETTING
---------------------------------------------*/
-.product-image {
-    float: left;
-    width: 20%;
-}
+    #nav-side-menu h3 {
+        font-size: 0.9em;
+    }
 
-.product-details {
-    float: left;
-    width: 30%;
-}
+    #nav-side-menu .toggle-btn, #cart {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 10 !important;
+        padding: 3px;
+        background: #DC4335;
+        color: #fff;
+        width: 40px;
+        text-align: center;
+    }
 
-.product-price {
-    float: left;
-    width: 12%;
-}
+    #cart {
+        top: 55px;
+    }
 
-.product-quantity {
-    float: left;
-    width: 10%;
-}
+    #nav-side-menu .toggle-btn:hover, #cart:hover {
+        color: #000;
+    }
 
-.product-customize {
-    float: left;
-    width: 8%;
-}
+    #nav-side-menu .brand {
+        text-align: left !important;
+        font-size: 22px;
+        padding-left: 20px;
+    }
 
-.product-line-price {
-    float: left;
-    width: 12%;
-    text-align: right;
-}
-
-.group:before, .column-labels:before, .product:before, .totals-item:before,
-.group:after,
-.column-labels:after,
-.product:after,
-.totals-item:after {
-    content: '';
-    display: table;
-}
-
-.group:after, .column-labels:after, .product:after, .totals-item:after {
-    clear: both;
-}
-
-.group, .column-labels, .product, .totals-item {
-    zoom: 1;
-}
-
-/* Apply dollar signs */
-.product .product-price:before, .product .product-line-price:before, .totals-value:before {
-    content: '$';
-}
-
-label {
-    color: #aaa;
-}
-
-/* Column headers */
-.column-labels label {
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
-}
-
-.column-labels .product-image, .column-labels .product-details, .column-labels .product-customize {
-    text-indent: -9999px;
-}
-
-/* Product entries */
-.product {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-}
-
-.product .product-image {
-    text-align: center;
-}
-
-.product .product-image img {
-    width: 100px;
-}
-
-.product .product-details .product-title {
-    margin-right: 20px;
-}
-
-.product .product-details .product-description {
-    margin: 5px 20px 5px 0;
-    line-height: 1.4em;
-}
-
-.product .product-quantity input {
-    width: 40px;
-}
-
-.customize-product-btn {
-    border: 0;
-    padding: 4px 8px;
-    background-color: #c66;
-    color: #fff;
-    font-size: 12px;
-    border-radius: 3px;
-}
-
-.product .remove-product:hover, .product .edit-product:hover {
-    background-color: #a44;
-}
-
-/* Totals section */
-.totals .totals-item {
-    float: right;
-    clear: both;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.totals .totals-item label {
-    float: left;
-    clear: both;
-    width: 79%;
-    text-align: right;
-}
-
-.totals .totals-item .totals-value {
-    float: right;
-    width: 21%;
-    text-align: right;
-}
-
-.checkout {
-    float: right;
-    border: 0;
-    margin: 20px 10px 0px 10px;
-    padding: 6px 20px;
-    background-color: #6b6;
-    color: #fff;
-    font-size: 25px;
-    border-radius: 3px;
-}
-
-.checkout:hover {
-    background-color: #494;
-}
-
-/* Make adjustments for tablet */
-@media screen and (max-width: 650px) {
-
-    .column-labels {
+    /* -------------------------------------------
+    RECEIPT BAR
+    ----------------------------------------------*/
+    #receipt-bar{
         display: none;
     }
 
-    .product-image {
-        float: right;
-        width: auto;
-    }
-
-    .product-image img {
-        margin: 0 0 10px 10px;
-    }
-
-    .product-details {
-        float: none;
-        margin-bottom: 10px;
-        width: auto;
-    }
-
-    .product-price {
-        clear: both;
-        width: 70px;
-    }
-
-    .product-quantity {
-        width: 100px;
-    }
-
-    .product-quantity input {
-        margin-left: 20px;
-    }
-
-    .product-quantity:before {
-        content: 'x';
-    }
-
-    .product-removal {
-        width: auto;
-    }
-
-    .product-line-price {
-        float: right;
-        width: 70px;
+    /* -------------------------------------------
+    GENERAL CONTENT
+    ----------------------------------------------*/
+    .page-content h1 {
+        font-size: 1.5em;
     }
 }
 
-/* Make more adjustments for phone */
-@media screen and (max-width: 350px) {
-    .product-removal {
-        float: right;
+/*------------------------------------------
+    MEDIA QUERIES (MIN-WIDTH 767)
+--------------------------------------------*/
+@media (min-width: 767px) {
+
+    /*------------------------------------------
+    SIDEBAR
+    --------------------------------------------*/
+    #menu-content, #receipt-bar .brand{ 
+        display: block;
+    }
+    /* -------------------------------------------
+    GENERAL CONTENT
+    ----------------------------------------------*/
+    #main { 
+        width: calc(100% - 400px); 
+    }
+}
+
+/*------------------------------------------
+    MEDIA QUERIES (767 < x < 992)
+--------------------------------------------*/
+@media (min-width: 767px) and (max-width: 992px){
+
+    /*------------------------------------------
+    CHECKOUT
+    --------------------------------------------*/
+
+    /*------------------------------------------
+    SIDEBAR & RECEIPT BAR
+    --------------------------------------------*/
+    #nav-side-menu, #receipt-bar {
+        width: 150px;
     }
 
-    .product-line-price {
-        float: right;
-        clear: left;
-        width: auto;
-        margin-top: 10px;
+    .brand h3 {
+        font-size: 1.1em;
     }
 
-    .product .product-line-price:before {
-        content: 'Item Total: $';
+    #nav-side-menu ul li a, .brand #checkout {
+        padding: 20px 10px;
+        text-align: center;
+        font-size: 0.85em;
     }
 
-    .totals .totals-item label {
-        width: 60%;
+    #nav-side-menu ul li a i, #receipt-bar .brand a i {
+        margin-right: 0;
+        display: block;
+        font-size: 1.8em;
+        margin-bottom: 5px;
     }
 
-    .totals .totals-item .totals-value {
+    .receipt-quantity {
         width: 40%;
     }
+
+    .receipt-btn {
+        display: block;
+        text-align: center;
+    }
+
+    .total-price h4 {
+        font-size: 1em;
+    } 
+
+    /* -------------------------------------------
+    GENERAL CONTENT
+    ----------------------------------------------*/
+    #main { 
+        width: calc(100% - 300px); 
+    }
 }
-
-/*home page slideshow*/
-#carousel-example-generic {
-    height: 500px;
-    width: auto;
-/*    overflow: hidden;*/
-}
-
-
-
-    
