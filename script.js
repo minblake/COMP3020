@@ -25,6 +25,20 @@ $('.sidebar-options').on('click', function () {
 });
 
 // Popular Items carousel
+// $('#home-carousel').owlCarousel({
+//     mouseDrag: false,
+//     touchDrag: false,
+//     pullDrag: false,
+//     margin: 10,
+//     nav: true,
+//     autoHeight: true,
+//     items: 1,
+//     //Define navigation icons as < >
+//     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>',
+//         '<i class="fa fa-angle-right" aria-hidden="true"></i>']
+// });
+
+// Popular Items carousel
 $('#popular-carousel').owlCarousel({
     mouseDrag: false,
     touchDrag: false,
@@ -60,29 +74,7 @@ $('.item').on('click', function () {
 
 });
 
-// Add item to receipt list
-function addItem(obj) {
-    if (obj.length) {
-        var itemId = obj.attr('id');
 
-        // if already in the list, increase counter
-        if ($('#' + itemId + '-receipt-item').length)
-            $('#' + itemId + '-quantity').val(function (i, oldval) {
-                return ++oldval;
-            });
-
-        // else, add new item
-        else {
-            $('#receipt-list').append('<li id="' + itemId + '-receipt-item"' + ' class="receipt-item">' +
-                '<img src="images/' + itemId + '-icon.png"> x <input class="receipt-quantity" id="' + itemId +
-                '-quantity"' + ' type="number" value="1" min="1"><div class="receipt-button"><button type="button" ' +
-                'class="btn btn-danger edit" onclick="editBurger(' + itemId + ')"><i class="fa fa-pencil" ' +
-                'aria-hidden="true"></i></button><button data-id="' + itemId + '" type="button" data-toggle="modal"' +
-                'data-target="#removeModal" class="btn btn-danger">' +
-                '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></div></li>');
-        }
-    }
-}
 
 //Receipt Add button
 function editBurger(bID) {
@@ -100,16 +92,7 @@ $('.edit').on('click', function() {
 });
 
 
-//Remove burger from receipt list
-$('#removeModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget);
-    var bID = button.data('id');
-    
-    $('#remove-confirm').on('click', function() {
-        removeBurger(bID);
-        $('#removeModal').modal('hide');
-    });
-});
+
 
 function removeBurger(bID) {
     $('#'+bID+'-receipt-item').remove();
@@ -189,17 +172,94 @@ function removeItem(removeButton) {
 }
 
 /* -------------------------------------------
+    CHECKOUT
+----------------------------------------------*/
+$('#checkout-option').on('click', function() {
+    $('#product-list').empty();
+    addOrderToCheckout();
+});
+
+/* -------------------------------------------
     RECEIPT BAR
 ----------------------------------------------*/
-// function addOrderToCheckout {
-//     var productList = $('#product-list');
-//     var listItems = $('$receipt-list li');
+// Add item to receipt list
+function addItem(obj) {
+    if (obj.length) {
+        var itemId = obj.attr('id');
 
-//     listItems.each(function(idx, li) {
-//         var product = $(li);
+        // if already in the list, increase counter
+        if ($('#' + itemId + '-receipt-item').length)
+            $('#' + itemId + '-quantity').val(function (i, oldval) {
+                return ++oldval;
+            });
 
-            
+        // else, add new item
+        else {
+            $('#receipt-list').append('<li data-id="' + itemId +'" id="' + itemId + '-receipt-item"' + ' class="receipt-item">' +
+                '<img src="images/' + itemId + '-icon.png"> x <input class="receipt-quantity" id="' + itemId +
+                '-quantity"' + ' type="number" value="1" min="1"><div class="receipt-button"><button type="button" ' +
+                'class="btn btn-danger edit" onclick="editBurger(' + itemId + ')"><i class="fa fa-pencil" ' +
+                'aria-hidden="true"></i></button><button data-id="' + itemId + '" type="button" data-toggle="modal"' +
+                'data-target="#removeModal" class="btn btn-danger">' +
+                '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></div></li>');
+        }
+    }
+}
 
-//     });
-// }
+//Remove burger from receipt list
+$('#removeModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    var bID = button.data('id');
+    
+    $('#remove-confirm').on('click', function() {
+        removeBurger(bID);
+        $('#removeModal').modal('hide');
+    });
+});
+
+function addOrderToCheckout() {
+    var imageHtml = '<div class="product"><div class="product-image">';
+    var titleHtml = '<div class="product-details"><div class="product-title">';
+    var descriptHtml = '<p class="product-description">';
+    var priceHtml = '<div class="product-price">';
+    var quantityHtml = '<div class="product-quantity"><input type="number" value="';
+    var linePriceHtml = '<div class="product-line-price">';
+    var btnHtml = '<div class="product-customize">' + 
+            '<button class="customize-product-btn">Remove</button></div>' +
+            '<div class="product-customize">' +
+            '<button class="customize-product-btn">Edit</button></div>';
+    var ih, th, dh, ph, qh, lph;
+
+    $('#receipt-list li').each(function() {
+        var product = $(this);
+        var bId = product.data('id');
+
+        // Reset html
+        ih = imageHtml;
+        th = titleHtml;
+        dh = descriptHtml;
+        ph = priceHtml;
+        qh = quantityHtml;
+        lph = linePriceHtml;
+
+        // Add image
+        ih += '<img src=images/' + bId + '-icon-lg.png></div>';
+
+        // Add project details
+        th += $('#description-' + bId + ' .name').text() + '</div>';
+        dh += $('#description-' + bId + ' .dsecription').text() + '</p></div>';
+
+        // Add product price
+        var quantity = $('#' + bId + '-receipt-item ' + '#' + bId + '-quantity').val();
+        var price = $('#description-' + bId + ' .price').text();
+        var linePrice = quantity * parseFloat(price);
+        
+        ph += price + '</div>';
+        qh += quantity + '" min="1"></div>';
+        lph += linePrice + '</div></div>';
+
+        $('#product-list').append(ih + th + dh + ph + qh + btnHtml + lph);
+
+    });
+}
 
