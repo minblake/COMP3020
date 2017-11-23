@@ -10,6 +10,7 @@ body{
   font-size:62.5%;
   font-family: 'Open Sans', sans-serif;
 }
+
 img{
   max-width: 100%;
 }
@@ -30,6 +31,7 @@ img{
   border-radius:50%;
   float:left;
 }
+
 #accordian .step{
   width:100%;
   height:63px;
@@ -41,6 +43,7 @@ img{
   border-radius:2px;
   float:left;
 }
+
 #accordian .title{
   float:left;
   width:80%;
@@ -165,16 +168,15 @@ form.go-right input:focus + label.same{
 #accordian #shipping div{
   margin-top:5px;
 }
+
 #accordian #shipping label{
   padding:0;
 }
-#accordian #shipping .price{
-  text-align:center;
-  display:inline-block;
-}
+
 #accordian #payment #card_number{
   width:100%;
 }
+
 #accordian .left,
 #accordian .right{
   width:50%;
@@ -411,9 +413,11 @@ form input, form textarea {
 form input:valid, form textarea:valid {
   background: white;
 }
+
 form input:focus, form textarea:focus {
   border-color: #f06d06;
 }
+
 form input:focus + label, form textarea:focus + label {
   background: #F2493A;
   color: white;
@@ -422,12 +426,14 @@ form input:focus + label, form textarea:focus + label {
   z-index: 2;
   text-transform: uppercase;
 }
+
 form label {
   transition: background 0.4s, color 0.4s, top 0.4s, bottom 0.4s, right 0.4s, left 0.4s;
   position: absolute;
   color: #999;
   padding: 7px 6px;
 }
+
 form textarea {
   display: block;
   resize: vertical;
@@ -453,85 +459,5 @@ form.go-right input:focus + label, form.go-right textarea:focus + label {
 #accordian #address label{
   display:none;
 }
-  
-#accordian #address input[type=checkbox] {
-  outline: none;
-  width: 90%;
-  height: 35px;
-  font-size: 12px;
-  line-height: 2;
-  display: block;
-  font-weight: bold;
-  border: 1px solid #e6e6e6;
-  -webkit-appearance: none;
-  color: #FFFFFF;
-  cursor:pointer;
-  border-radius:15px;
-  transform: scale(1);
-  -webkit-transform: scale(1);
-  transition: all .3s ease-out;
-  padding:0;
-}
- 
-#accordian #address input[type=checkbox]:checked {
-  color: #fff;
-  background:#FFF;
-  border-radius:15px;
-}
- 
-#accordian #address input[type=checkbox]:before {
-  content: 'Ship to Other Address';
-  width: 50%;
-  height:100%;
-  padding-top:3px;
-  display: inline-block;
-  text-indent: 13px;
-  background:#F2493A;
-  border-radius:15px;
-  transition: all 0.1s ease-in .1s;
-}
-#accordian #shipping input[type="radio"]{
-  outline:0;
-}
-#accordian #address input[type=checkbox]:checked:before {
-  content: 'Ship To This Address';
-  text-indent: 7px;
-  margin-left: 50%;
-  background:#F2493A;
-  border-radius:15px;
-}
-#accordian #shipping input[type=radio]:checked {
-  box-shadow: inset 0px 0px 0px 20px #F2493A;
-}
-#accordian #shipping input[type=radio]:after {
-  content: '';
-  position: absolute;
-  width: 29px;
-  height: 29px;
-  border-radius: 15px;
-  box-shadow: 0px 2px 2px 1px rgba(0,0,0,.2);
-  cursor: pointer;
-  background-color: #fff;
-  transition: all 0.1s ease-in .1s;
-}
-#accordian #shipping input[type="radio"]:checked:after {
-  left: 22px;
-}
-#accordian #shipping input[type=radio] {
-  appearance: none;
-  -webkit-appearance: none;
-  box-shadow: inset 0px 0px 0px 1px #e6e6e6;
-  border-radius: 15px;
-  background-color: #fff;
-  padding: 1px;
-  display: inline-block;
-  width: 52px;
-  height: 31px;
-  position: relative;
-  cursor: pointer;
-  transition: all .3s ease-out;
-  margin: 0px;
-  transform: scale(1);
-  -webkit-transform: scale(1); /* Adjust size here */
-}
+
 }
