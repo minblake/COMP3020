@@ -26,17 +26,17 @@
 </head>
 <body>
 
-<!--Top bar (contact info & collapsible buttons)-->
+<!--Top bar (Store info & collapsible buttons)-->
 <div id="top-bar" class="container-fluid">
     <div class="row no-gutter">
-        <!--Contact info-->
+        <!--Store info-->
         <div class="col-xs-6 text-center">
-            <h4 class="contact-info"><i class="fa fa-map-marker" aria-hidden="true"></i>
+            <h4 class="store-info"><i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>Store Location:</span> 999 St Mary's Rd</h4>
         </div>
         <div class="col-xs-6 text-center">
-            <h4 class="contact-info"><i class="fa fa-phone" aria-hidden="true"></i>
-                <span>Tel:</span> (204)999-9999</h4>
+            <h4 class="store-info"><i class="fa fa-phone" aria-hidden="true"></i>
+                <span>Tel:</span> (204) 999-9999</h4>
         </div>
     </div>
 </div> <!--/top-bar-->
@@ -74,7 +74,7 @@
 <div id="receipt-bar">
         <button id="checkout-option" class="brand btn" data-toggle="modal" data-target="#reviewModal">
             <i class="fa fa-shopping-cart fa-2x"></i>
-            <span id="checkout">Checkout</span>
+            <span><h3>Checkout</h3></span>
         </button>
     <ul id="receipt-list" class="list-unstyled"></ul>
     <div class="total-price">
@@ -166,14 +166,14 @@
         <!--Add/Customize Button-->
         <div class="row">
             <!--Add button-->
-            <div class="col-xs-1 col-xs-offset-5">
+            <div class="col-sm-6 text-center">
                 <div class="popular-button">
                     <button id="add-popular" type="button" class="btn btn-danger">Add</button>
                 </div>
             </div> <!--/Add button-->
 
             <!-- Customize button -->
-            <div class="col-xs-1">
+            <div class="col-sm-6 text-center">
                 <div class="popular-button">
                     <button id="customize-popular" type="button" class="btn btn-danger edit">Customize</button>
                 </div>
@@ -214,62 +214,164 @@
 </div>
 
 <!--Review Modal-->
-<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <h3 class="modal-title">Review Order</h3>
+                <h3 class="modal-title">Review & Checkout Order</h3>
             </div>
-            <div class="modal-body">
-                <div class="row no-gutter order-header">
-                    <div class="col-xs-12 col-sm-1 col-sm-offset-5">
-                        Price
+
+            <ul class="nav nav-pills nav-justified">
+                <li class="active"><a data-toggle="tab" href="#review">Review</a></li>
+                <li><a data-toggle="tab" href="#checkout">Checkout</a></li>
+            </ul>
+
+            <div class="modal-body tab-content">
+                <!-- Review -->
+                <div id="review" class="tab-pane active">
+                    
+                    <!-- Header -->
+                    <div class="row no-gutter order-header">
+                        <div class="col-xs-12 col-sm-1 col-sm-offset-5">Price</div>
+                        <div class="col-xs-12 col-sm-2">Quantity</div>
+                        <div class="col-xs-12 col-sm-2 col-sm-offset-2 order-line-price-header">Total</div>
                     </div>
-                    <div class="col-xs-12 col-sm-2">
-                        Quantity
+
+                    <!-- List of Order -->
+                    <div id="order-list"></div>
+
+                    <!-- Subtotal -->
+                    <div class="row no-gutter order-total">
+                        <div class="col-xs-6 col-sm-2 col-sm-offset-8 order-total-header">Subtotal</div>
+                        <div class="col-xs-6 col-sm-2" id="subtotal">$<span>0.00<span></div>
                     </div>
-                    <div class="col-xs-12 col-sm-2 col-sm-offset-2 order-line-price-header">
-                        Total
+                        
+                    <!-- Tax -->
+                    <div class="row no-gutter order-total">
+                        <div class="col-xs-6 col-sm-2 col-sm-offset-8 order-total-header">Tax (13%)</div>
+                        <div class="col-xs-6 col-sm-2" id="tax">$<span>0.00<span></div>
+                    </div>
+                        
+                    <!-- Total -->
+                    <div class="row no-gutter order-total">
+                        <div class="col-xs-6 col-sm-2 col-sm-offset-8 order-total-header">Total</div>
+                        <div class="col-xs-6 col-sm-2" id="grand-total">$<span>0.00<span></div>
+                    </div>
+                    
+                    <!-- Buttons -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button id="review-confirm" type="button" class="btn btn-success">Confirm</button>
                     </div>
                 </div>
 
-                <div id="order-list"></div>
+                <!-- Checkout -->
+                <div id="checkout" class="tab-pane">
+                    
+                    <!-- General Info -->
+                    <div id="general-info" class="row">
+                        <div class="col-sm-12">
+                            <h3>General Information</h3>
+                        </div>
 
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="fname" placeholder="First Name" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="lname" placeholder="Last Name" required>
+                            </div>                           
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control" type="tel" name="tel" placeholder="Phone" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control" type="email" name="email" placeholder="Email" required>
+                            </div>                           
+                        </div>
+                    </div> <!--/general--> 
+                    
+                    <!-- Order method (Address) -->
+                    <div id="order-method-info" class="row">
+                        <div class="col-sm-12">
+                            <h3>Choose ordering method: </h3>
+                        </div>
+                            
+                        <div class="col-sm-4 col-centered text-center">
+                            <div class="order-method btn-group" role="group">
+                                <button id="delivery-btn" type="button" class="btn btn-success active">Delivery</button>
+                                <button id="pickup-btn" type="button" class="btn btn-success">Pickup</button>
+                            </div>
+                        </div>
+                        
+                        <div id="address-info" class="collapse in">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="st-address" placeholder="Street Address" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="city" placeholder="City" required>
+                                </div>                           
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <select class="form-control" required>
+                                        <option value="" disabled selected>Select your Province</option>
+                                        <option value="MB">Manitoba</option>
+                                        <option value="ON">Ontario</option>
+                                        <option value="QC">Quebec</option>
+                                        <option value="NS">Nova Scotia</option>
+                                        <option value="NB">New Brunswick</option>
+                                        <option value="BC">British Columbia</option>
+                                        <option value="PE">Prince Edward Island</option>
+                                        <option value="SK">Saskatchewan</option>
+                                        <option value="AB">Alberta</option>
+                                        <option value="NL">Newfoundland and Labrador</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="postal-code" placeholder="Postal Code" required>
+                                </div>                           
+                            </div>    
+                        </div> <!--/address-info-->
+                    </div> <!--/order-method-row-->
+                    
+                    <!-- Payment Details -->
+                    <div id="payment-info" class="row">
+                        <div class="col-sm-12">
+                            <h3>Payment Details</h3>
+                        </div>
+                        <div class="col-sm-12">
+                            <h4>Balance Due: $<span id="checkout-total"></span></h4>
+                        </div>
 
-                <div class="row no-gutter order-total">
-                    <div class="col-xs-6 col-sm-2 col-sm-offset-8 order-total-header">
-                        Subtotal
+                        <div class="col-sm-4">
+                            <div class="pay-method btn-group" role="group">
+                                <button id="cash-btn" type="button" class="btn btn-success active">Cash</button>
+                                <button id="card-btn" type="button" class="btn btn-success">Debit/Credit</button>
+                            </div>
+                        </div>
+                    </div> <!--/payment-row-->
+                    
+                    <div class="modal-footer text-center">
+                        <input id="order-btn" type="submit" value="Order" class="btn btn-lg btn-success">
                     </div>
-                    <div class="col-xs-6 col-sm-2" id="subtotal">
-                        $<span>0.00<span>
-                    </div>
-                </div>
-                <div class="row no-gutter order-total">
-                    <div class="col-xs-6 col-sm-2 col-sm-offset-8 order-total-header">
-                        Tax (13%)
-                    </div>
-                    <div class="col-xs-6 col-sm-2" id="tax">
-                        $<span>0.00<span>
-                    </div>
-                </div>
-                <div class="row no-gutter order-total">
-                    <div class="col-xs-6 col-sm-2 col-sm-offset-8 order-total-header">
-                        Grand Total
-                    </div>
-                    <div class="col-xs-6 col-sm-2" id="grand-total">
-                        $<span>0.00<span>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button id="review-confirm" type="button" class="btn btn-success">Confirm</button>
-            </div>
-        </div>
-    </div>
-</div>
+                </div> <!--/checkout-->
+            </div> <!--tab-content-->
+        </div> <!--/modal-content-->
+    </div> <!--/modal-dialog-->
+</div> <!--/reviewModal-->
 
 
 <!--Bootstrap JS, JQUERY-->

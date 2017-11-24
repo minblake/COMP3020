@@ -113,14 +113,20 @@ function addItem(obj) {
 
         // else, add new item
         else {
-            $('#receipt-list').append('<li data-id="' + itemId + '" id="' + itemId + '-receipt-item" class="receipt-item">' +
-                '<img src="images/' + itemId + '-icon.png"> x' + 
-                '<input class="receipt-quantity" id="' + itemId + '-quantity" type="number" value="1" min="1">' + 
-                '<span class="receipt-btn"><button data-id="' + itemId + '" type="button" data-toggle="modal" ' + 
-                'data-target="#removeModal" class="btn btn-danger btn-sm cust-btn">' +
-                '<i class="fa fa-trash" aria-hidden="true"></i></button>' + 
-                '<button type="button" onclick="editBurger(' + itemId + ')" class="btn btn-danger cust-btn btn-sm">' +
-                '<i class="fa fa-pencil" aria-hidden="true"></i></button></span></li>');
+            $('#receipt-list').append(
+                '<li data-id="' + itemId + '" id="' + itemId + '-receipt-item" class="receipt-item">' +
+                    '<img src="images/' + itemId + '-icon.png"> x <input class="receipt-quantity" ' + 
+                    'id="' + itemId + '-quantity" type="number" value="1" min="1">' + 
+                    '<span class="receipt-btn">' + 
+                        '<button data-id="' + itemId + '" type="button" data-toggle="modal" data-target="#removeModal" ' + 
+                        'class="btn btn-danger btn-sm">' +
+                            '<i class="fa fa-trash" aria-hidden="true"></i>' + 
+                        '</button>' + 
+                        '<button type="button" onclick="editBurger(' + itemId + ')" class="btn btn-danger btn-sm">' +
+                            '<i class="fa fa-pencil" aria-hidden="true"></i>' + 
+                        '</button>' + 
+                    '</span>' + 
+                '</li>');
         }
     }
 }
@@ -155,8 +161,8 @@ function addOrderToCheckout() {
                 '<div class="col-xs-12 col-sm-3 order-name">' +
                     $('#description-' + bId + ' .name').text() + 
                 '</div>' +
-                '<div class="col-sm-1 order-price">' + 
-                    price + 
+                '<div class="col-sm-1 order-price">$<span>' + 
+                    price + '</span>' + 
                 '</div>' +
                 '<div class="col-xs-12 col-sm-2 order-quantity">' +
                     '<input id="' + bId + '-quantity" type="number" value="' + quantity + '" min="1">' + 
@@ -168,8 +174,8 @@ function addOrderToCheckout() {
                     '<button class="cust-order-btn btn btn-danger" onclick="editBurger(' + bId + ')">' +
                         '<i class="fa fa-pencil" aria-hidden="true"></i></button>' + 
                 '</div>' +
-                '<div class="col-xs-12 col-sm-1 order-line-price">' +
-                    quantity * parseFloat(price) + 
+                '<div class="col-xs-12 col-sm-1 order-line-price">$<span>' +
+                    quantity * parseFloat(price) + '</span>' +
                 '</div>' + 
             '</div>');
 
@@ -196,7 +202,7 @@ $('#removeModal').on('show.bs.modal', function (event) {
 
 
 /* -------------------------------------------
-    CHECKOUT
+    REVIEW ORDER
 ----------------------------------------------*/
 
 // Add current order to checkout
@@ -204,6 +210,11 @@ $('#reviewModal').on('show.bs.modal', function () {
     $('#order-list').empty();
     addOrderToCheckout();
     calculateTotals();
+});
+
+// Update price on change on quantity
+$(document).on('change', '.order-quantity input', function () {
+    updateQuantity(this);
 });
 
 // Remove order
@@ -215,18 +226,14 @@ function removeOrder(button) {
     });
 };
 
-// Update price on change on quantity
-$(document).on('change', '.order-quantity input', function () {
-    updateQuantity(this);
-});
-
+// Calculate total price
 function calculateTotals() {
     var subtotal = 0;
     var taxRate = 0.13;
 
     // Sum up row totals
     $('.order').each(function () {
-        subtotal += parseFloat($(this).find('.order-line-price').text());
+        subtotal += parseFloat($(this).find('.order-line-price span').text());
     });
 
     // Calculate totals
@@ -237,18 +244,48 @@ function calculateTotals() {
     $('#subtotal span').html(subtotal.toFixed(2));
     $('#tax span').html(tax.toFixed(2));
     $('#grand-total span').html(total.toFixed(2));
+
+    $('#checkout-total').html(total.toFixed(2));
 }
 
+// Update total when quantity is changed
 function updateQuantity(quantityInput) {
     var quantity = 0;
     var order = $(quantityInput).parent().parent();
-    var price = parseFloat(order.children('.order-price').text());
+    var price = parseFloat(order.find('.order-price span').text());
     quantity = $(quantityInput).val();
     var linePrice = price * quantity;
 
     // Update line price display and re-calculate totals 
-    order.find('.order-line-price').each(function () {
+    order.find('.order-line-price span').each(function () {
         $(this).text(linePrice.toFixed(2));
         calculateTotals();
     });
 }
+
+/* -------------------------------------------
+    CHECKOUT  ORDER
+----------------------------------------------*/
+$('#cash-btn').on('click', function () {
+    $(this).addClass('active');
+    $('#card-btn').removeClass('active');   
+});
+
+$('#card-btn').on('click', function () {
+    $(this).addClass('active');
+    $('#cash-btn').removeClass('active');   
+});
+
+$('#delivery-btn').on('click', function () {
+    $(this).addClass('active');
+    $('#pickup-btn').removeClass('active');
+    $('#address-info').collapse('show');    
+});
+
+$('#pickup-btn').on('click', function () {
+    $(this).addClass('active');
+    $('#delivery-btn').removeClass('active');
+    $('#address-info').collapse('hide');
+});
+
+
