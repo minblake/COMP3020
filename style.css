@@ -102,7 +102,7 @@ i, span {
 
 #reviewModal .modal-header {
     text-align: center;
-    background-color: #449d44;
+    background-color: #32CD32;
     color: white;
 }
 
@@ -125,11 +125,12 @@ i, span {
 
 
 .brand {
+    width: 100%;
     color: #fff;
     text-align: center;
     display: block;
     padding: 20px;
-    background: #DC4335;
+    background: #d91e0e;
 }
 
 #nav-side-menu .toggle-btn, #cart {
@@ -154,9 +155,15 @@ i, span {
     right: 0;
 }
 
+#receipt-bar .brand {
+    color: #d91e0e;
+    background: #fff;
+    border: 2px solid #d91e0e;
+}
+
 #receipt-bar .brand:hover {
     color: #fff;
-    background: #449d44;
+    background: #DC4335;
 }
 
 #receipt-list li {
