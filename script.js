@@ -2,15 +2,7 @@
     START
 ----------------------------------------------*/
 $(document).ready(function () {
-    // Activate sidebar toggle button
-    $('#sidebar-toggle').on('click', function () {
-        $('#sidebar').toggleClass('active');
-    });
 
-    // Activate receipt bar toggle button
-    $('#receipt-toggle').on('click', function () {
-        $('#receipt-bar').toggleClass('active');
-    });
 
     //Home button pressed from start
     $('#home-option').trigger('click');
@@ -293,4 +285,22 @@ $('#pickup-btn').on('click', function () {
     $('#address-info').collapse('hide');
 });
 
+$('#order-btn').on('click', function () {
+    $('.page-content').hide();
+    $('#thankyou-page').show();
+    $('.sidebar-options').removeClass('link-hover');
+    $('.modal').modal('hide');
+    resetPage();
+});
 
+function resetPage() {
+    $('#receipt-list').empty();
+    $('#tp').html('0.00');
+    $('#b1').trigger('click');
+    
+    $(':input').not(':button, :submit, :reset, :hidden, :checkbox, :radio').val('');
+    $(':checkbox, :radio').prop('checked', false);
+
+
+    $('#tab-navigation li:eq(0) a').tab('show');
+}
