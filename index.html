@@ -21,7 +21,6 @@
     <!--Google Font-->
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
-    <!--checkout-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 </head>
 <body>
@@ -72,20 +71,13 @@
 
 <!--Receipt Bar-->
 <div id="receipt-bar">
-    <div class="brand">
-        <a id="checkout-option" href="javascript:void(0);" data-toggle="modal" data-target="#reviewModal">
-            <i class="fa fa-shopping-cart fa-2x"></i>
-<<<<<<< HEAD
-            <span><h3>Checkout</h3></span>
-        </button>
-||||||| merged common ancestors
-            <span id="checkout">Checkout</span>
-        </button>
-=======
-            <span id="checkout">Checkout</span>
-        </a></div>
->>>>>>> 82cf0eb66c266f4585d437322fe55ead8c494ced
+    <button id="checkout-option" class="brand btn" data-toggle="modal" data-target="#reviewModal">
+        <i class="fa fa-shopping-cart fa-2x"></i>
+        <span><h3>Checkout</h3></span>
+    </button>
+    
     <ul id="receipt-list" class="list-unstyled"></ul>
+    
     <div class="total-price">
         <h4>Total: $ <span id="tp">0.00</span></h4>
         <h6>**No tax included</h6>
@@ -124,7 +116,7 @@
 
         <!--Description Panel-->
         <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
+            <div class="col-sm-12 ">
                 <div id="description-panel">
                     <div id="description-b1" class="description-text">
                         <h4 class="name">Chicken cheese delight burger</h4>
@@ -184,19 +176,12 @@
 
         <!--Add/Customize Button-->
         <div class="row">
-            <!--Add button-->
-            <div class="col-sm-6 text-center">
+            <div class="col-sm-12 text-center">
                 <div class="popular-button">
                     <button id="add-popular" type="button" class="btn btn-danger">Add</button>
-                </div>
-            </div> <!--/Add button-->
-
-            <!-- Customize button -->
-            <div class="col-sm-6 text-center">
-                <div class="popular-button">
                     <button id="customize-popular" type="button" class="btn btn-danger edit">Customize</button>
                 </div>
-            </div> <!--/Customize button-->
+            </div>
         </div>
     </div> <!--/Popular-->
 
@@ -344,7 +329,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <select class="form-control" required>
-                                        <option value="" disabled selected>Select your Province</option>
+                                        <option value="" disabled selected>Select Province</option>
                                         <option value="MB">Manitoba</option>
                                         <option value="ON">Ontario</option>
                                         <option value="QC">Quebec</option>
