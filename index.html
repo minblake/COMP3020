@@ -227,9 +227,9 @@
                 <h3 class="modal-title">Review & Checkout Order</h3>
             </div>
 
-            <ul class="nav nav-pills nav-justified">
-                <li class="active"><a data-toggle="tab" href="#review">Review</a></li>
-                <li><a data-toggle="tab" href="#checkout">Checkout</a></li>
+            <ul id="tab-navigation" class="nav nav-pills nav-justified">
+                <li id="review-tab" class="active"><a data-toggle="tab" href="#review">Review</a></li>
+                <li id="checkout-tab"><a data-toggle="tab" href="#checkout">Checkout</a></li>
             </ul>
 
             <div class="modal-body tab-content">
@@ -267,7 +267,7 @@
                     <!-- Buttons -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button id="review-confirm" type="button" class="btn btn-success">Confirm</button>
+                        <button id="review-confirm" type="button" class="btn btn-success">Proceed to Checkout</button>
                     </div>
                 </div>
 

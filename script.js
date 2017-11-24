@@ -263,6 +263,11 @@ function updateQuantity(quantityInput) {
     });
 }
 
+$('#review-confirm').on('click', function (e) {
+    $('#tab-navigation li:eq(1) a').tab('show');
+});
+
+
 /* -------------------------------------------
     CHECKOUT  ORDER
 ----------------------------------------------*/
