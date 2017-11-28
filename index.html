@@ -178,7 +178,7 @@
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="popular-button">
-                    <button id="add-popular" type="button" class="btn btn-danger">Add</button>
+                    <button id="add-popular" type="button" data-toggle="modal" data-target="#customModal" class="btn btn-danger">Add</button>
                     <button id="customize-popular" type="button" class="btn btn-danger edit">Customize</button>
                 </div>
             </div>
@@ -204,21 +204,20 @@
 </div> <!--/main container-->
 
 <!-- Modal -->
-<!--Remove Modal-->
-<div class="modal fade" id="removeModal" tabindex="-1" role="dialog">
+<!--Custom Modal-->
+<div class="modal fade" id="customModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <h3 class="modal-title">Remove Order Item</h3>
+                <h3 class="modal-title"></h3>
             </div>
             <div class="modal-body">
-                <p>Do you want remove this item from your order?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button id="remove-confirm" type="button" class="btn btn-danger">Confirm</button>
+                <button id="modal-confirm" type="button" class="btn btn-danger">Confirm</button>
             </div>
         </div>
     </div>

@@ -94,7 +94,7 @@ i, span {
 /* -------------------------------------------
     MODAL BOX
 ----------------------------------------------*/
-#removeModal .modal-header {
+#customModal .modal-header {
     text-align: center;
     background-color: #F2493A;
     color: white;

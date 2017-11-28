@@ -76,12 +76,6 @@ $('.item').on('click', function () {
 });
 
 
-// Add popular item burger
-$('#add-popular').on('click', function () {
-    addItem($('.item.item-hover'));
-    calcReceiptPrice();
-});
-
 //Send to edit page
 $('.edit').on('click', function () {
     editBurger($(this).attr('id'));
@@ -93,24 +87,27 @@ $('.edit').on('click', function () {
 ----------------------------------------------*/
 
 // Add item to receipt list
-function addItem(obj) {
+function addItem(obj, val) {
     if (obj.length) {
         var itemId = obj.attr('id');
+        var quantityId = '#' + itemId + '-quantity';
 
         // if already in the list, increase counter
-        if ($('#' + itemId + '-receipt-item').length)
-            $('#' + itemId + '-quantity').val(function (i, oldval) {
-                return ++oldval;
-            });
+        if ($('#' + itemId + '-receipt-item').length) {
+            
+            // Get sum and update value
+            var sum = parseInt($(quantityId).val()) + parseInt(val);
+            $(quantityId).val(sum);
+        }
 
         // else, add new item
         else {
             $('#receipt-list').append(
                 '<li data-id="' + itemId + '" id="' + itemId + '-receipt-item" class="receipt-item">' +
                     '<img src="images/' + itemId + '-icon.png"> x <input class="receipt-quantity" ' + 
-                    'id="' + itemId + '-quantity" type="number" value="1" min="1">' + 
+                    'id="' + itemId + '-quantity" type="number" ' + 'value="' + val + '" min="1" max="999">' + 
                     '<span class="receipt-btn">' + 
-                        '<button data-id="' + itemId + '" type="button" data-toggle="modal" data-target="#removeModal" ' + 
+                        '<button data-id="' + itemId + '" data-type="remove" type="button" data-toggle="modal" data-target="#customModal" ' + 
                         'class="btn btn-danger btn-sm">' +
                             '<i class="fa fa-trash" aria-hidden="true"></i>' + 
                         '</button>' + 
@@ -180,16 +177,32 @@ $(document).on('change', '.receipt-quantity', function () {
     calcReceiptPrice();
 });
 
-//Remove burger from receipt list
-$('#removeModal').on('show.bs.modal', function (event) {
+//Custom Modal for adding/removing burger from receipt list
+$('#customModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
     var bID = button.data('id');
 
-    $('#remove-confirm').on('click', function () {
-        removeBurger(bID, true);
-        $('#removeModal').modal('hide');
-        calcReceiptPrice($('#receipt-list'));
-    });
+    if(button.data('type')=='remove'){
+        $('#customModal .modal-title').text('Remove Order Item'); 
+        $('#customModal .modal-body').text('Do you want remove all of this item from your order?');
+
+        $('#modal-confirm').off().on('click', function () {
+            removeBurger(bID, true);
+            $('#customModal').modal('hide');
+            calcReceiptPrice();
+        });
+    }
+    else {
+        $('#customModal .modal-title').text('Add Order Item'); 
+        $('#customModal .modal-body').html('<p>How many would you like to add?   ' +
+            '<input id="modal-add" type="number" value="1" min="1" max="999"></p>');
+
+        $('#modal-confirm').off().on('click', function () {
+            addItem($('.item.item-hover'), $('#modal-add').val());
+            $('#customModal').modal('hide');
+            calcReceiptPrice();
+        });
+    }
 });
 
 
