@@ -347,20 +347,20 @@ function resetPage() {
 }
  
 // Add check sign when choice is selected
-$('.build-btn').click(function () {
+$('.build-group button').click(function () {
     var okIcon = $(this).find('span');
     var parentId = $(this).parent().attr('id');
+    var isOneChoice = (parentId == 'bun-choices' || parentId == 'meat-choices')
 
     // Append only if it's present
     if( !okIcon.length ) {
         // Only one choice in buns and meats so remove others 
-        if(parentId == 'bun-choices' || parentId == 'meat-choices')
+        if(isOneChoice)
             $('#'+ parentId + '>.btn > span').remove('span');
         $(this).append(
             '<span class="glyphicon glyphicon-ok ' + 
             'form-control-feedback" aria-hidden="true"></span>');
     }
-    else
+    else if (!isOneChoice)
         $(okIcon).remove();
 });
-

@@ -190,27 +190,30 @@
 
         <!--Page Header-->
         <h1 id="build-header" class="page-header">Build Your Own Burger</h1>
-        <div class="col-sm-6">
-            <div class="row">
+        <div class="col-md-6">
+            <div class="row">    
+
                 <h3 class="build-instruction">Choose one of each</h3>
-                <!-- Bun options -->
+                
                 <div class="col-md-6">
-                    <h4>Bun:</h4>
-                    <div id="bun-choices" class="btn-group-vertical build-group text-center">
-                        <button id="sesame-seed-btn" type="button" class="btn btn-warning build-btn">Sesame Seed</button>
+                    <h4>Buns:</h4>
+                    <div id="bun-choices" class="build-group btn-group-vertical text-center">
+                        <button id="sesame-seed-btn" type="button" class="btn btn-warning build-btn">Sesame Seed
+                            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        </button>
                         <button id="kaiser-roll-btn" type="button" class="btn btn-warning build-btn">Kaiser Roll</button>
-                        <button id="pretzel-roll-btn" type="button" class="btn btn-warning build-btn">Pretzel Rol</button>
-                    </div>
+                        <button id="pretzel-roll-btn" type="button" class="btn btn-warning build-btn">Pretzel Roll</button>
+                    </div>  
                 </div>
-                    
+
                 <!-- Meat option -->
                 <div class="col-md-6">
                     <h4>Meat:</h4>
                     <div id="meat-choices" class="btn-group-vertical build-group text-center">
-                        <button id="beef-btn" type="button" class="btn btn-danger build-btn">Beef</button>
+                        <button id="beef-btn" type="button" class="btn btn-danger build-btn">Beef<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span></button>
                         <button id="chicken-btn" type="button" class="btn btn-danger build-btn">Chicken</button>
                         <button id="black-bean-btn" type="button" class="btn btn-danger build-btn">Black Bean</button>
-                </div>
+                    </div>
                 </div>
 
                 <h3 class="build-instruction">Choose as many as you want</h3>
@@ -239,10 +242,32 @@
                         <button id="kaft-ranch-btn" type="button" class="btn btn-sample build-btn">Kaft Ranch</button>
                         <button id="tabasco-btn" type="button" class="btn btn-sample build-btn">Tabasco</button>
                     </div>
-                </div>             
+                </div>
 
             </div>
         </div> <!--/option col-->
+
+        <div class="col-md-6">
+            <h3 class="text-center">Burger Status</h3>
+            <div id="build-burger" style="border: 1px solid pink; height: 100%">
+                <div id="bun-container">
+                    <img id="bun-img" class="build-img" src="images/ingredients/buns/sesame-seed.png">
+                </div>
+                <div id="meat-container">
+                    <img id="meat-img" class="build-img" src="images/ingredients/buns/sesame-seed.png">
+                </div>
+                <div id="veg-container">
+                    <img id="veg-img" class="build-img" src="images/ingredients/buns/sesame-seed.png">
+                </div>
+                <div id="sauce-container">
+                    <img id="sauce-img" class="build-img" src="images/ingredients/buns/sesame-seed.png">
+                </div>
+
+            </div>
+
+
+            </div>
+        </div>
     </div> <!--/Build-->
 
     <!-- Thankyou -->

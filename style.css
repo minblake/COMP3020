@@ -152,8 +152,8 @@ i, span {
     BUILD BURGER
 --------------------------------------------*/
 .build-group {
-    width: 100%;
     margin-bottom: 30px;
+    width: 100%;
 }
 
 .btn-sample { 
@@ -202,9 +202,38 @@ fieldset[disabled] .btn-sample.active {
   background-color: #ffffff; 
 }
 
-#build-choice {
-    overflow-y: overlay;
+#build-burger {
+    text-align: center; 
 }
+
+#bun-container {
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+#meat-container {
+    background-color: #c9302c;
+    border-color: #ac2925;
+}
+
+#veg-container {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+#sauce-container {
+    background-color: #FF9340;
+    border-color: #FC7814;
+}
+
+.build-img {
+    margin: 0 auto;
+    max-width: 100px;
+    background: #fff;
+    border: 1px solid #ddd;
+    height: auto;
+}
+
 /*------------------------------------------
     SIDEBAR & RECEIPT BAR
 --------------------------------------------*/
