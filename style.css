@@ -1,8 +1,8 @@
 /* -------------------------------------------
     GENERAL
 ----------------------------------------------*/
-html, body {
-    /*padding: 0;*/
+body {
+    padding-top: 50px;
     /*margin: 0;*/
     /*overflow: hidden;*/
 }
@@ -44,19 +44,13 @@ i, span {
 /* -------------------------------------------
     TOP BAR
 ----------------------------------------------*/
-#top-bar { 
-    background: #4c4c4c; 
-    /*position: fixed;*/
-}
-
+#top-bar {background: #4c4c4c; }
+.navbar-text { float: none; }
 .store-info { color: #fff; }
 
 /* -------------------------------------------
     GENERAL CONTENT
 ----------------------------------------------*/
-#main {
-    overflow-y: overlay;
-}
 .page-content {
     display: none;
 }
@@ -99,9 +93,7 @@ i, span {
     background-color: #FFA319;
 }
 
-.description-text {
-    display: none;
-}
+#description-panel, .description-text  { display: none; }
 
 /* -------------------------------------------
     MODAL BOX
@@ -164,10 +156,6 @@ i, span {
     margin-bottom: 30px;
 }
 
-#veg-options, #sauce-options {
-    margin-bottom: 0;
-}
-
 .btn-sample { 
   color: #ffffff; 
   background-color: #FF9340; 
@@ -214,6 +202,9 @@ fieldset[disabled] .btn-sample.active {
   background-color: #ffffff; 
 }
 
+#build-choice {
+    overflow-y: overlay;
+}
 /*------------------------------------------
     SIDEBAR & RECEIPT BAR
 --------------------------------------------*/
@@ -420,13 +411,6 @@ input[type=number]::-webkit-inner-spin-button {
     .page-content h1 {
         font-size: 1.5em;
     }
-
-    /* -------------------------------------------
-    BUILD BURGER
-    ----------------------------------------------*/
-    #veg-options, #sauce-options {
-    margin-bottom: 30px;
-}
 }
 
 /*------------------------------------------

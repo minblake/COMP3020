@@ -69,6 +69,7 @@ $('.item').on('click', function () {
     $('.item').removeClass('item-hover');
     $(this).addClass('item-hover');
 
+    $('#description-panel').show();
     $('.description-text').hide();
     $('#' + 'description-' + $(this).attr('id')).show();
 
@@ -345,6 +346,7 @@ function resetPage() {
     $('#tab-navigation li:eq(0) a').tab('show');
 }
  
+// Add check sign when choice is selected
 $('.build-btn').click(function () {
     var okIcon = $(this).find('span');
     var parentId = $(this).parent().attr('id');
@@ -352,7 +354,7 @@ $('.build-btn').click(function () {
     // Append only if it's present
     if( !okIcon.length ) {
         // Only one choice in buns and meats so remove others 
-        if(parentId == 'bun-options' || parentId == 'meat-options')
+        if(parentId == 'bun-choices' || parentId == 'meat-choices')
             $('#'+ parentId + '>.btn > span').remove('span');
         $(this).append(
             '<span class="glyphicon glyphicon-ok ' + 
