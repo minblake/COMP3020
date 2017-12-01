@@ -103,13 +103,13 @@
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
                 <div id="popular-carousel" class="owl-carousel owl-theme">
-                    <div id="b1" class="item"><img src="images/b1-icon-lg.png"></div>
-                    <div id="b2" class="item"><img src="images/b2-icon-lg.png"></div>
-                    <div id="b3" class="item"><img src="images/b3-icon-lg.png"></div>
-                    <div id="b4" class="item"><img src="images/b4-icon-lg.png"></div>
-                    <div id="b5" class="item"><img src="images/b5-icon-lg.png"></div>
-                    <div id="b6" class="item"><img src="images/b6-icon-lg.png"></div>
-                    <div id="b7" class="item"><img src="images/b7-icon-lg.png"></div>
+                    <div id="b1" class="wrapper-img item"><img src="images/icon/b1-icon-lg.png"></div>
+                    <div id="b2" class="wrapper-img item"><img src="images/icon/b2-icon-lg.png"></div>
+                    <div id="b3" class="wrapper-img item"><img src="images/icon/b3-icon-lg.png"></div>
+                    <div id="b4" class="wrapper-img item"><img src="images/icon/b4-icon-lg.png"></div>
+                    <div id="b5" class="wrapper-img item"><img src="images/icon/b5-icon-lg.png"></div>
+                    <div id="b6" class="wrapper-img item"><img src="images/icon/b6-icon-lg.png"></div>
+                    <div id="b7" class="wrapper-img item"><img src="images/icon/b7-icon-lg.png"></div>
                 </div>
             </div>
         </div> <!--/Popular Carousel-->
@@ -190,8 +190,59 @@
 
         <!--Page Header-->
         <h1 id="build-header" class="page-header">Build Your Own Burger</h1>
+        <div class="col-md-6">
+            <div class="row">
+                <h3 class="build-instruction">Choose one of each</h3>
+                
+                <!-- Bun options -->
+                <div class="col-sm-6">
+                    <h4>Bun:</h4>
+                    <div id="bun-options" class="btn-group-vertical build-group text-center">
+                        <button id="sesame-seed-btn" type="button" class="btn btn-warning build-btn">Sesame Seed</button>
+                        <button id="kaiser-roll-btn" type="button" class="btn btn-warning build-btn">Kaiser Roll</button>
+                        <button id="pretzel-roll-btn" type="button" class="btn btn-warning build-btn">Pretzel Rol</button>
+                    </div>
+                </div>
+                
+                <!-- Meat option -->
+                <div class="col-sm-6">
+                    <h4>Meat:</h4>
+                    <div id="meat-options" class="btn-group-vertical build-group text-center">
+                        <button id="beef-btn" type="button" class="btn btn-danger build-btn">Beef</button>
+                        <button id="chicken-btn" type="button" class="btn btn-danger build-btn">Chicken</button>
+                        <button id="black-bean-btn" type="button" class="btn btn-danger build-btn">Black Bean</button>
+                    </div>
+                </div>
 
-
+                <h3 class="build-instruction">Choose as many as you want</h3>
+                
+                <!-- Vegetable option -->
+                <div class="col-sm-6">
+                    <h4>Vegetables:</h4>
+                    <div id="veg-options" class="btn-group-vertical build-group text-center">
+                        <button id="lettuce-btn" type="button" class="btn btn-success build-btn">Lettuce</button>
+                        <button id="tomato-btn" type="button" class="btn btn-success build-btn">Tomato</button>
+                        <button id="onion-btn" type="button" class="btn btn-success build-btn">Onion</button>
+                        <button id="grilled-mushroom-btn" type="button" class="btn btn-success build-btn">Grilled Mushroom</button>
+                        <button id="pickles-btn" type="button" class="btn btn-success build-btn">Pickles</button>
+                        <button id="jalapeno-btn" type="button" class="btn btn-success build-btn">Jalapeño Peppers</button>                        
+                    </div>
+                </div>  
+                
+                <!-- Sauce option -->
+                <div class="col-sm-6">
+                    <h4>Sauces:</h4>
+                    <div id="sauce-options" class="btn-group-vertical build-group text-center">
+                        <button id="ketchup-btn" type="button" class="btn btn-sample build-btn">Ketchup</button>
+                        <button id="mayo-btn" type="button" class="btn btn-sample build-btn">Mayonnaise</button>
+                        <button id="mustard-btn" type="button" class="btn btn-sample build-btn">Mustard</button>
+                        <button id="chipotle-btn" type="button" class="btn btn-sample build-btn">Chipotle</button>
+                        <button id="kaft-ranch-btn" type="button" class="btn btn-sample build-btn">Kaft Ranch</button>
+                        <button id="tabasco-btn" type="button" class="btn btn-sample build-btn">Tabasco</button>
+                    </div>
+                </div>
+            </div>
+        </div> <!--/option col-->
     </div> <!--/Build-->
 
     <!-- Thankyou -->

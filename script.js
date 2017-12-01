@@ -41,8 +41,7 @@ function editBurger(bID) {
 // Popular Items carousel
 $('#popular-carousel').owlCarousel({
     mouseDrag: false,
-    // touchDrag: false,
-    margin: 10,
+    margin: 30,
     nav: true,
     autoHeight: true,
     responsive: {
@@ -81,6 +80,34 @@ $('.edit').on('click', function () {
     editBurger($(this).attr('id'));
 });
 
+/* -------------------------------------------
+    BUILD YOUR OWN BURGER
+----------------------------------------------*/
+// Build carousel
+$('.build-carousel').owlCarousel({
+    mouseDrag: false,
+    dots: false,
+    margin: 30,
+    nav: true,
+    autoHeight: true,
+    responsive: {
+        0: {
+            items: 1
+        },
+        400: {
+            items: 3
+        // },
+        // 600: {
+        //     items: 3
+        // },
+        // 992: {
+            // items: 3
+        }
+    },
+    //Define navigation icons as < >
+    navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>',
+        '<i class="fa fa-angle-right" aria-hidden="true"></i>']
+});
 
 /* -------------------------------------------
     RECEIPT BAR
@@ -317,3 +344,21 @@ function resetPage() {
 
     $('#tab-navigation li:eq(0) a').tab('show');
 }
+ 
+$('.build-btn').click(function () {
+    var okIcon = $(this).find('span');
+    var parentId = $(this).parent().attr('id');
+
+    // Append only if it's present
+    if( !okIcon.length ) {
+        // Only one choice in buns and meats so remove others 
+        if(parentId == 'bun-options' || parentId == 'meat-options')
+            $('#'+ parentId + '>.btn > span').remove('span');
+        $(this).append(
+            '<span class="glyphicon glyphicon-ok ' + 
+            'form-control-feedback" aria-hidden="true"></span>');
+    }
+    else
+        $(okIcon).remove();
+});
+

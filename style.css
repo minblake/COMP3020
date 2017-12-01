@@ -4,7 +4,7 @@
 html, body {
     /*padding: 0;*/
     /*margin: 0;*/
-    /*overflow-x: hidden;*/
+    /*overflow: hidden;*/
 }
 
 .container-fluid {
@@ -44,17 +44,19 @@ i, span {
 /* -------------------------------------------
     TOP BAR
 ----------------------------------------------*/
-#top-bar { background: #4c4c4c; }
+#top-bar { 
+    background: #4c4c4c; 
+    /*position: fixed;*/
+}
 
 .store-info { color: #fff; }
 
 /* -------------------------------------------
     GENERAL CONTENT
 ----------------------------------------------*/
-#page {
-    padding: 0 10px;
+#main {
+    overflow-y: overlay;
 }
-
 .page-content {
     display: none;
 }
@@ -68,16 +70,26 @@ i, span {
 /* -------------------------------------------
     CAROUSEL
 ----------------------------------------------*/
+.owl-carousel .owl-stage {
+    display: flex;
+    align-items: center;
+}
+
 .owl-carousel .item {
     cursor: pointer;
     transition: 0.3s ease;
+    margin: 0 auto;
 }
 
-.owl-carousel .item:hover, .item-hover {
+#popular-carousel .owl-carousel .item:hover, .item-hover {
     border: 5px solid yellow;
     opacity: 0.5;
 }
 
+.wrapper-img {
+    max-width: 100px;
+    height: auto;
+}
 /* -------------------------------------------
     DESCRIPTION PANEL
 ----------------------------------------------*/
@@ -107,9 +119,7 @@ i, span {
     border-bottom: none;
 }
 
-.modal-body {
-    padding: 20px;
-}
+.modal-body { padding: 20px; }
 
 .nav-pills li a {
     color: #419641;
@@ -129,13 +139,11 @@ i, span {
     display: table-cell;
     width: 1%;
 }
-  .nav-justified > li > a {
-    margin-bottom: 0;
-}
 
-#checkout .tab-pane {
-    padding: 20px;
-}
+.nav-justified > li > a { margin-bottom: 0; }
+
+#checkout .tab-pane { padding: 20px; }
+
 /* -------------------------------------------
     MODAL BOX - FORM
 ----------------------------------------------*/
@@ -148,6 +156,63 @@ i, span {
     color: #398439;
 }
 
+/*------------------------------------------
+    BUILD BURGER
+--------------------------------------------*/
+.build-group {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+#veg-options, #sauce-options {
+    margin-bottom: 0;
+}
+
+.btn-sample { 
+  color: #ffffff; 
+  background-color: #FF9340; 
+  border-color: #FC7814; 
+} 
+ 
+.btn-sample:hover, 
+.btn-sample:focus, 
+.btn-sample:active, 
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+  color: #ffffff; 
+  background-color: #FC7F3C; 
+  border-color: #FC7814; 
+} 
+ 
+.btn-sample:active, 
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+  background-image: none; 
+} 
+ 
+.btn-sample.disabled, 
+.btn-sample[disabled], 
+fieldset[disabled] .btn-sample, 
+.btn-sample.disabled:hover, 
+.btn-sample[disabled]:hover, 
+fieldset[disabled] .btn-sample:hover, 
+.btn-sample.disabled:focus, 
+.btn-sample[disabled]:focus, 
+fieldset[disabled] .btn-sample:focus, 
+.btn-sample.disabled:active, 
+.btn-sample[disabled]:active, 
+fieldset[disabled] .btn-sample:active, 
+.btn-sample.disabled.active, 
+.btn-sample[disabled].active, 
+fieldset[disabled] .btn-sample.active { 
+  background-color: #F77816; 
+  border-color: #FC7814; 
+} 
+ 
+.btn-sample .badge { 
+  color: #F77816; 
+  background-color: #ffffff; 
+}
 
 /*------------------------------------------
     SIDEBAR & RECEIPT BAR
@@ -190,9 +255,7 @@ i, span {
 /*------------------------------------------
     RECEIPT BAR
 --------------------------------------------*/
-#receipt-bar {
-    right: 0;
-}
+#receipt-bar { right: 0; }
 
 #receipt-bar .brand {
     color: #fff;
@@ -357,6 +420,13 @@ input[type=number]::-webkit-inner-spin-button {
     .page-content h1 {
         font-size: 1.5em;
     }
+
+    /* -------------------------------------------
+    BUILD BURGER
+    ----------------------------------------------*/
+    #veg-options, #sauce-options {
+    margin-bottom: 30px;
+}
 }
 
 /*------------------------------------------
@@ -370,12 +440,15 @@ input[type=number]::-webkit-inner-spin-button {
     #menu-content, #receipt-bar .brand{ 
         display: block;
     }
+
     /* -------------------------------------------
     GENERAL CONTENT
     ----------------------------------------------*/
-    #main { 
+    #main {
+        /*overflow-y: auto;*/
         width: calc(100% - 400px); 
     }
+
 }
 
 /*------------------------------------------
@@ -394,6 +467,7 @@ input[type=number]::-webkit-inner-spin-button {
     #checkout-option span {
         font-size: 1em;
     }
+
     /*------------------------------------------
     SIDEBAR & RECEIPT BAR
     --------------------------------------------*/
@@ -436,5 +510,20 @@ input[type=number]::-webkit-inner-spin-button {
     ----------------------------------------------*/
     #main { 
         width: calc(100% - 300px); 
+    }  
+}
+
+/*------------------------------------------
+    MEDIA QUERIES (MAX-WIDTH 767)
+--------------------------------------------*/
+@media (max-width: 992px) {
+    
+    /* -------------------------------------------
+    BUILD FORMS
+    ----------------------------------------------*/
+    label.build-choice.radio-inline {
+        display: block;
+        padding: 5px;
     }
+
 }
