@@ -198,11 +198,14 @@
                 <div class="col-md-6">
                     <h4>Buns:</h4>
                     <div id="bun-choices" class="build-group btn-group-vertical text-center">
-                        <button id="sesame-seed-btn" type="button" class="btn btn-warning build-btn">Sesame Seed
+                        <button id="sesame-seed-btn" type="button" onclick="addIngredientImg('bun', 'sesame-seed')" 
+                        class="btn btn-warning build-btn">Sesame Seed
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="kaiser-roll-btn" type="button" class="btn btn-warning build-btn">Kaiser Roll</button>
-                        <button id="pretzel-roll-btn" type="button" class="btn btn-warning build-btn">Pretzel Roll</button>
+                        <button id="kaiser-roll-btn" type="button" onclick="addIngredientImg('bun', 'kaiser-roll')" 
+                        class="btn btn-warning build-btn">Kaiser Roll</button>
+                        <button id="pretzel-roll-btn" type="button" onclick="addIngredientImg('bun', 'pretzel-roll')" 
+                        class="btn btn-warning build-btn">Pretzel Roll</button>
                     </div>  
                 </div>
 
@@ -210,9 +213,14 @@
                 <div class="col-md-6">
                     <h4>Meat:</h4>
                     <div id="meat-choices" class="btn-group-vertical build-group text-center">
-                        <button id="beef-btn" type="button" class="btn btn-danger build-btn">Beef<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span></button>
-                        <button id="chicken-btn" type="button" class="btn btn-danger build-btn">Chicken</button>
-                        <button id="black-bean-btn" type="button" class="btn btn-danger build-btn">Black Bean</button>
+                        <button id="beef-btn" type="button" onclick="addIngredientImg('meat', 'beef')" 
+                        class="btn btn-danger build-btn">Beef
+                            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        </button>
+                        <button id="chicken-btn" type="button" onclick="addIngredientImg('meat', 'chicken')" 
+                        class="btn btn-danger build-btn">Chicken</button>
+                        <button id="turkey-btn" type="button" onclick="addIngredientImg('meat', 'turkey')" 
+                        class="btn btn-danger build-btn">Turkey</button>
                     </div>
                 </div>
 
@@ -222,12 +230,12 @@
                 <div class="col-md-6">
                     <h4>Vegetables:</h4>
                     <div id="veg-choices" class="btn-group-vertical build-group text-center">
-                        <button id="lettuce-btn" type="button" class="btn btn-success build-btn">Lettuce</button>
-                        <button id="tomato-btn" type="button" class="btn btn-success build-btn">Tomato</button>
-                        <button id="onion-btn" type="button" class="btn btn-success build-btn">Onion</button>
-                        <button id="grilled-mushroom-btn" type="button" class="btn btn-success build-btn">Grilled Mushroom</button>
-                        <button id="pickles-btn" type="button" class="btn btn-success build-btn">Pickles</button>
-                        <button id="jalapeno-btn" type="button" class="btn btn-success build-btn">Jalapeño Peppers</button>                        
+                        <button id="lettuce-btn" type="button" onclick="addIngredientImg('veg', 'lettuce')" class="btn btn-success build-btn">Lettuce</button>
+                        <button id="tomato-btn" type="button" onclick="addIngredientImg('veg', 'tomato')" class="btn btn-success build-btn">Tomato</button>
+                        <button id="onion-btn" type="button" onclick="addIngredientImg('veg', 'onion')" class="btn btn-success build-btn">Onion</button>
+                        <button id="grilled-mushroom-btn" type="button" onclick="addIngredientImg('veg', 'grilled-mushroom')" class="btn btn-success build-btn">Grilled Mushroom</button>
+                        <button id="pickles-btn" type="button" onclick="addIngredientImg('veg', 'pickles')" class="btn btn-success build-btn">Pickles</button>
+                        <button id="jalapeno-btn" type="button" onclick="addIngredientImg('veg', 'jalapeno')" class="btn btn-success build-btn">Jalapeño Peppers</button>                        
                     </div>
                 </div>  
                     
@@ -235,12 +243,12 @@
                 <div class="col-md-6">
                     <h4>Sauces:</h4>
                     <div id="sauce-choices" class="btn-group-vertical build-group text-center">
-                        <button id="ketchup-btn" type="button" class="btn btn-sample build-btn">Ketchup</button>
-                        <button id="mayo-btn" type="button" class="btn btn-sample build-btn">Mayonnaise</button>
-                        <button id="mustard-btn" type="button" class="btn btn-sample build-btn">Mustard</button>
-                        <button id="chipotle-btn" type="button" class="btn btn-sample build-btn">Chipotle</button>
-                        <button id="kaft-ranch-btn" type="button" class="btn btn-sample build-btn">Kaft Ranch</button>
-                        <button id="tabasco-btn" type="button" class="btn btn-sample build-btn">Tabasco</button>
+                        <button id="ketchup-btn" type="button" onclick="addIngredientImg('sauce', 'ketchup')" class="btn btn-sample build-btn">Ketchup</button>
+                        <button id="mayo-btn" type="button" onclick="addIngredientImg('sauce', 'mayo')" class="btn btn-sample build-btn">Mayonnaise</button>
+                        <button id="mustard-btn" type="button" onclick="addIngredientImg('sauce', 'mustard')" class="btn btn-sample build-btn">Mustard</button>
+                        <button id="chipotle-btn" type="button" onclick="addIngredientImg('sauce', 'chipotle')" class="btn btn-sample build-btn">Chipotle</button>
+                        <button id="kaft-ranch-btn" type="button" onclick="addIngredientImg('sauce', 'kaft-ranch')" class="btn btn-sample build-btn">Kaft Ranch</button>
+                        <button id="tabasco-btn" type="button" onclick="addIngredientImg('sauce', 'tabasco')" class="btn btn-sample build-btn">Tabasco</button>
                     </div>
                 </div>
 
@@ -251,16 +259,16 @@
             <h3 class="text-center">Burger Status</h3>
             <div id="build-burger" style="border: 1px solid pink; height: 100%">
                 <div id="bun-container">
-                    <img id="bun-img" class="build-img" src="images/ingredients/buns/sesame-seed.png">
+                    <img id="bun-img" class="build-img" src="images/ingredients/bun/sesame-seed.png">
                 </div>
                 <div id="meat-container">
-                    <img id="meat-img" class="build-img" src="images/ingredients/buns/sesame-seed.png">
+                    <img id="meat-img" class="build-img" src="images/ingredients/meat/turkey.png">
                 </div>
                 <div id="veg-container">
-                    <img id="veg-img" class="build-img" src="images/ingredients/buns/sesame-seed.png">
+                    <img id="veg-img" class="build-img" src="images/ingredients/bun/sesame-seed.png">
                 </div>
                 <div id="sauce-container">
-                    <img id="sauce-img" class="build-img" src="images/ingredients/buns/sesame-seed.png">
+                    <img id="sauce-img" class="build-img" src="images/ingredients/bun/sesame-seed.png">
                 </div>
 
             </div>

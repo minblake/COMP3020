@@ -347,7 +347,7 @@ function resetPage() {
 }
  
 // Add check sign when choice is selected
-$('.build-group button').click(function () {
+$('.build-group button').on('click', function () {
     var okIcon = $(this).find('span');
     var parentId = $(this).parent().attr('id');
     var isOneChoice = (parentId == 'bun-choices' || parentId == 'meat-choices')
@@ -364,3 +364,9 @@ $('.build-group button').click(function () {
     else if (!isOneChoice)
         $(okIcon).remove();
 });
+
+// Change building burger images
+function addIngredientImg(type, name) {
+    $('#' + type + '-img').attr('src', 'images/ingredients/' + type + 
+        '/' + name+'.png');
+}
