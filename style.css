@@ -3,8 +3,7 @@
 ----------------------------------------------*/
 body {
     padding-top: 50px;
-    /*margin: 0;*/
-    /*overflow: hidden;*/
+    padding-bottom: 30px;
 }
 
 .container-fluid {
@@ -245,6 +244,9 @@ fieldset[disabled] .btn-sample.active {
     height: auto;
 }
 
+#sm-many-instruction {
+    display: none;
+}
 /*------------------------------------------
     SIDEBAR & RECEIPT BAR
 --------------------------------------------*/
@@ -253,8 +255,10 @@ fieldset[disabled] .btn-sample.active {
     color: #fff;
     position: fixed;
     width: 200px;
-    height: 100%;
-    overflow-y: overlay;
+    /*height: 100%;*/
+    top: 50px;
+    bottom: 0;
+    overflow-y: auto;
 }
 
 
@@ -296,18 +300,20 @@ fieldset[disabled] .btn-sample.active {
     box-shadow: 0 6px #ab3c3c;
     border: none;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 #receipt-bar .brand:hover {
     color: #000;
-    background: #d91e0e;
+    background: #DC4335;
     box-shadow: 0 4px #ab3c3c;
     top: 2px;
     
 }
 
-#receipt-list {
+#receipt-list li{
     padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .receipt-quantity {
@@ -336,7 +342,8 @@ input[type=number]::-webkit-inner-spin-button {
     height: auto;
 }
 
-.item-summary > li {
+.item-summary > div{
+    margin-left: 10px;
     font-size: 0.8em;
     padding: 3px;
 }
@@ -384,6 +391,9 @@ input[type=number]::-webkit-inner-spin-button {
 --------------------------------------------*/
 @media (max-width: 767px) {
 
+    /*------------------------------------------
+    CHECKOUT
+    --------------------------------------------*/
     .order-header, .order-price {
         display: none;
     }
@@ -414,6 +424,7 @@ input[type=number]::-webkit-inner-spin-button {
         position: relative;
         width: 100%;
         margin-bottom: 10px;
+        top: 0;
     }
 
     #nav-side-menu h3 {
@@ -461,6 +472,8 @@ input[type=number]::-webkit-inner-spin-button {
     .page-content h1 {
         font-size: 1.5em;
     }
+
+
 }
 
 /*------------------------------------------
@@ -539,6 +552,8 @@ input[type=number]::-webkit-inner-spin-button {
         font-size: 1em;
     } 
 
+
+
     /* -------------------------------------------
     GENERAL CONTENT
     ----------------------------------------------*/
@@ -551,13 +566,14 @@ input[type=number]::-webkit-inner-spin-button {
     MEDIA QUERIES (MAX-WIDTH 767)
 --------------------------------------------*/
 @media (max-width: 992px) {
-    
-    /* -------------------------------------------
-    BUILD FORMS
-    ----------------------------------------------*/
-    label.build-choice.radio-inline {
+    /*------------------------------------------
+    BUILD
+    --------------------------------------------*/
+    #sm-many-instruction {
         display: block;
-        padding: 5px;
     }
-
+    #md-many-instruction {
+        display: none;
+    }
+    
 }

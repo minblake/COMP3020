@@ -189,11 +189,12 @@ function addItem(obj, val) {
                         '</span>';
         
         if(!notCustom) {
+            beginHtml = '<li data-id="' + itemId + '" id="' + itemId + '-receipt-item" class="receipt-item">';
             imgHtml = '<img class="receipt-img" src="images/icon/c-icon.png">';
             summary = getSummary();
-            receiptHtml += '<ul class="item-summary">';
+            receiptHtml += '<div class="item-summary">';
             for( var i = 0; i < summary.length; i++ )
-                receiptHtml += '<li>' + summary[i] + '</li>';
+                receiptHtml += '<div>' + summary[i] + '</div>';
             receiptHtml += '</div>';
         }
 
@@ -209,10 +210,16 @@ function calcReceiptPrice() {
 
     $('#receipt-list li').each(function () {
         var bId = $(this).data('id');
+        var price = $('#description-' + bId + ' .price').text();
+        var quantity = $('#' + bId + '-receipt-item ' + '#' + bId + '-quantity').val();
+        
+        console.log(bId);
+        if(bId.indexOf('c') >= 0)
+            price = $('#custom-price').text();
 
-        // Total price += price * quantity
-        tp += parseFloat($('#description-' + bId + ' .price').text()) * 
-        $('#' + bId + '-receipt-item ' + '#' + bId + '-quantity').val();
+        // Calculate total price
+        tp += parseFloat(price) * quantity;
+        
     });
     $('#tp').html(tp.toFixed(2));
 }

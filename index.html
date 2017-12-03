@@ -173,12 +173,17 @@
 
         <!--Page Header-->
         <h1 id="build-header" class="page-header">Build Your Own Burger</h1>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="row">    
-
-                <h3 class="build-instruction">Choose one of each</h3>
+                <div class="col-sm-12 col-md-6">                
+                    <h3 class="build-instruction">Choose one of each:</h3>
+                </div>
                 
-                <div class="col-sm-6">
+                <div id = "md-many-instruction" class="col-md-6">
+                    <h3 class="build-instruction">Choose as many as you want:</h3>
+                </div> 
+
+                <div class="col-sm-6 col-md-3">
                     <h4>Buns:</h4>
                     <div id="bun-choices" class="build-group btn-group-vertical text-center">
                         <button id="sesame-seed-btn" type="button" onclick="addIngredientImg('bun', 'sesame-seed-bun')" 
@@ -193,7 +198,7 @@
                 </div>
 
                 <!-- Meat option -->
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-md-3">
                     <h4>Meat:</h4>
                     <div id="meat-choices" class="btn-group-vertical build-group text-center">
                         <button id="beef-btn" type="button" onclick="addIngredientImg('meat', 'beef')" 
@@ -207,10 +212,12 @@
                     </div>
                 </div>
 
-                <h3 class="build-instruction">Choose as many as you want</h3>
+                <div id = "sm-many-instruction" class="col-sm-12">
+                    <h3 class="build-instruction">Choose as many as you want:</h3>
+                </div>                
                     
                 <!-- Vegetable option -->
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-md-3">
                     <h4>Vegetables:</h4>
                     <div id="veg-choices" class="btn-group-vertical build-group text-center">
                         <button id="lettuce-btn" onclick="addIngredientImg('veg', 'lettuce')" type="button" 
@@ -233,7 +240,7 @@
                 </div>  
                     
                 <!-- Sauce option -->
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-md-3">
                     <h4>Sauces:</h4>
                     <div id="sauce-choices" class="btn-group-vertical build-group text-center">
                         <button id="ketchup-btn" type="button" onclick="addIngredientImg('sauce', 'ketchup')" 
@@ -257,8 +264,8 @@
             </div>
         </div> <!--/option col-->
 
-        <div class="col-md-6">
-            <h3 class="text-center">Burger Status</h3>
+        <div class="col-md-10 col-md-offset-1">
+            <h3 class="text-center">Burger Status (Price: $<span id="custom-price">8.99</span>)</h3>
             <div id="burger-status-container">
                 <div id="bun-container" data-name="Bun" class="ingredient-container">
                     <img id="bun" data-id="sesame-seed-bun" data-name="Sesame Seed Bun" data-type="bun" 
@@ -288,10 +295,8 @@
 
 
             <div class="col-sm-12 text-center">
-                <div class="popular-button">
-                    <button type="button" data-type="custom" data-toggle="modal" data-target="#customModal" 
-                    class="btn btn-lg btn-danger">Add</button>
-                </div>
+                <button type="button" data-type="custom" data-toggle="modal" data-target="#customModal" 
+                class="btn btn-lg btn-danger">Add</button>
             </div>
         </div>
     </div> <!--/Build-->
