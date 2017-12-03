@@ -161,8 +161,8 @@
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="popular-button">
-                    <button id="add-popular" type="button" data-toggle="modal" data-target="#customModal" class="btn btn-danger">Add</button>
-                    <button id="customize-popular" type="button" class="btn btn-danger edit">Customize</button>
+                    <button type="button" data-toggle="modal" data-target="#customModal" class="btn btn-danger">Add</button>
+                    <button type="button" class="btn btn-danger edit">Customize</button>
                 </div>
             </div>
         </div>
@@ -181,7 +181,7 @@
                 <div class="col-sm-6">
                     <h4>Buns:</h4>
                     <div id="bun-choices" class="build-group btn-group-vertical text-center">
-                        <button id="sesame-seed-btn" type="button" onclick="addIngredientImg('bun', 'sesame-seed')" 
+                        <button id="sesame-seed-btn" type="button" onclick="addIngredientImg('bun', 'sesame-seed-bun')" 
                         class="btn btn-warning build-btn">Sesame Seed
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
@@ -213,21 +213,21 @@
                 <div class="col-sm-6">
                     <h4>Vegetables:</h4>
                     <div id="veg-choices" class="btn-group-vertical build-group text-center">
-                        <button id="lettuce-btn" onclick="addMultiIngredientImg('veg', 'lettuce')" type="button" 
+                        <button id="lettuce-btn" onclick="addIngredientImg('veg', 'lettuce')" type="button" 
                         class="btn btn-success build-btn mult-choice-btn">Lettuce
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="tomato-btn" type="button" onclick="addMultiIngredientImg('veg', 'tomato')" 
+                        <button id="tomato-btn" type="button" onclick="addIngredientImg('veg', 'tomato')" 
                         class="btn btn-success build-btn mult-choice-btn">Tomato
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="onion-btn" type="button" onclick="addMultiIngredientImg('veg', 'onion')" 
+                        <button id="onion-btn" type="button" onclick="addIngredientImg('veg', 'onion')" 
                         class="btn btn-success build-btn mult-choice-btn">Onion 
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="pickles-btn" type="button" onclick="addMultiIngredientImg('veg', 'pickles')" 
+                        <button id="pickles-btn" type="button" onclick="addIngredientImg('veg', 'pickles')" 
                         class="btn btn-success build-btn mult-choice-btn">Pickles</button>
-                        <button id="jalapeno-btn" type="button" onclick="addMultiIngredientImg('veg', 'jalapeno')" 
+                        <button id="jalapeno-btn" type="button" onclick="addIngredientImg('veg', 'jalapeno')" 
                         class="btn btn-success build-btn mult-choice-btn">Jalapeño Peppers</button>                        
                     </div>
                 </div>  
@@ -236,56 +236,62 @@
                 <div class="col-sm-6">
                     <h4>Sauces:</h4>
                     <div id="sauce-choices" class="btn-group-vertical build-group text-center">
-                        <button id="ketchup-btn" type="button" onclick="addMultiIngredientImg('sauce', 'ketchup')" 
+                        <button id="ketchup-btn" type="button" onclick="addIngredientImg('sauce', 'ketchup')" 
                         class="btn btn-sample build-btn mult-choice-btn">Ketchup
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="mayonnaise-btn" type="button" onclick="addMultiIngredientImg('sauce', 'mayonnaise')" 
+                        <button id="mayonnaise-btn" type="button" onclick="addIngredientImg('sauce', 'mayonnaise')" 
                         class="btn btn-sample build-btn mult-choice-btn">Mayonnaise
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="mustard-btn" type="button" onclick="addMultiIngredientImg('sauce', 'mustard')" 
+                        <button id="mustard-btn" type="button" onclick="addIngredientImg('sauce', 'mustard')" 
                         class="btn btn-sample build-btn mult-choice-btn">Mustard
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="chipotle-btn" type="button" onclick="addMultiIngredientImg('sauce', 'chipotle')" 
+                        <button id="chipotle-btn" type="button" onclick="addIngredientImg('sauce', 'chipotle')" 
                         class="btn btn-sample build-btn mult-choice-btn">Chipotle</button>
-                        <button id="tabasco-btn" type="button" onclick="addMultiIngredientImg('sauce', 'tabasco')" 
+                        <button id="tabasco-btn" type="button" onclick="addIngredientImg('sauce', 'tabasco')" 
                         class="btn btn-sample build-btn mult-choice-btn">Tabasco</button>
                     </div>
                 </div>
-
             </div>
         </div> <!--/option col-->
 
         <div class="col-md-6">
             <h3 class="text-center">Burger Status</h3>
-            <div id="build-burger" style="border: 1px solid pink; height: 100%">
-                <div id="bun-container">
-                    <img id="sesame-seed-img" data-name="Sesame Seed" data-type="bun" 
-                    class="build-img" src="images/ingredients/bun/sesame-seed.png">
+            <div id="burger-status-container">
+                <div id="bun-container" data-name="Bun" class="ingredient-container">
+                    <img id="bun" data-id="sesame-seed-bun" data-name="Sesame Seed Bun" data-type="bun" 
+                    class="build-img" src="images/ingredients/bun/sesame-seed-bun.png">
                 </div>
-                <div id="meat-container">
-                    <img id="beef-img" data-name="Beef" data-type="meat" 
+                <div id="meat-container" data-name="Meat" class="ingredient-container">
+                    <img id="meat" data-id="beef" data-name="Beef" data-type="meat" 
                     class="build-img" src="images/ingredients/meat/beef.png">
                 </div>
-                <div id="veg-container" class="ingredient-container">
-                    <img id="lettuce-img" data-name="Lettuce" data-type="veg" 
+                <div id="veg-container" data-name="Vegetable(s)" class="ingredient-container">
+                    <img id="lettuce" data-name="Lettuce" data-type="veg" 
                     class="build-img" src="images/ingredients/veg/lettuce.png">
-                    <img id="tomato-img" data-name="Tomato" data-type="veg" 
+                    <img id="tomato" data-name="Tomato" data-type="veg" 
                     class="build-img" src="images/ingredients/veg/tomato.png">
-                    <img id="onion-img" data-name="Onion" data-type="veg" 
+                    <img id="onion" data-name="Onion" data-type="veg" 
                     class="build-img" src="images/ingredients/veg/onion.png">
                 </div>
-                <div id="sauce-container" class="ingredient-container">
-                    <img id="ketchup-img" data-name="Ketchup" data-type="sauce" class="build-img" src="images/ingredients/sauce/ketchup.png">
-                    <img id="mayonnaise-img" data-name="Mayonnaise" data-type="sauce" class="build-img" src="images/ingredients/sauce/mayonnaise.png">
-                    <img id="mustard-img" data-name="Mustard" data-type="sauce" class="build-img" src="images/ingredients/sauce/mustard.png">
-                </div>
-
+                <div id="sauce-container" data-name="Sauce(s)" class="ingredient-container">
+                    <img id="ketchup" data-name="Ketchup" data-type="sauce" 
+                    class="build-img" src="images/ingredients/sauce/ketchup.png">
+                    <img id="mayonnaise" data-name="Mayonnaise" data-type="sauce" 
+                    class="build-img" src="images/ingredients/sauce/mayonnaise.png">
+                    <img id="mustard" data-name="Mustard" data-type="sauce" 
+                    class="build-img" src="images/ingredients/sauce/mustard.png">
+                </div>                
             </div>
 
 
+            <div class="col-sm-12 text-center">
+                <div class="popular-button">
+                    <button type="button" data-type="custom" data-toggle="modal" data-target="#customModal" 
+                    class="btn btn-lg btn-danger">Add</button>
+                </div>
             </div>
         </div>
     </div> <!--/Build-->

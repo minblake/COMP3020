@@ -61,6 +61,7 @@ i, span {
 
 }
 
+
 /* -------------------------------------------
     CAROUSEL
 ----------------------------------------------*/
@@ -80,12 +81,12 @@ i, span {
 }
 
 #popular-carousel .owl-carousel .item:hover, .item-hover {
-    border: 5px solid yellow;
+    border: 3px solid yellow;
     opacity: 0.5;
 }
 
 .wrapper-img {
-    min-width: 100px;
+    /*min-width: 100px;*/
     max-width: 100px;
     height: auto;
 }
@@ -207,8 +208,9 @@ fieldset[disabled] .btn-sample.active {
   background-color: #ffffff; 
 }
 
-#build-burger {
-    text-align: center; 
+#burger-status-container {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 #bun-container {
@@ -284,7 +286,10 @@ fieldset[disabled] .btn-sample.active {
 /*------------------------------------------
     RECEIPT BAR
 --------------------------------------------*/
-#receipt-bar { right: 0; }
+#receipt-bar { 
+    right: 0;
+    padding: 10px; 
+}
 
 #receipt-bar .brand {
     color: #fff;
@@ -301,8 +306,8 @@ fieldset[disabled] .btn-sample.active {
     
 }
 
-#receipt-list li {
-    padding: 10px;
+#receipt-list {
+    padding-top: 10px;
 }
 
 .receipt-quantity {
@@ -326,8 +331,15 @@ input[type=number]::-webkit-inner-spin-button {
     border-top: 1px solid #B1362B;
 }
 
+.receipt-img {
+    width: 50px;
+    height: auto;
+}
 
-
+.item-summary > li {
+    font-size: 0.8em;
+    padding: 3px;
+}
 /*------------------------------------------
     CHECKOUT
 --------------------------------------------*/

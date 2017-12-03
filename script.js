@@ -106,20 +106,47 @@ $('.build-group button').on('click', function () {
 
 // Change building burger images
 function addIngredientImg(type, name) {
-    $('#' + name + '-img').attr('src', 'images/ingredients/' + type + 
-        '/' + name+'.png');
+
+    // Format name for printable version
+    formattedName = "";
+    var formattedA = name.split("-");
+    for( var i = 0; i < formattedA.length; i++)
+        formattedName += formattedA[i].substring(0,1).toUpperCase() + formattedA[i].substring(1) + " ";
+
+    if(type == 'bun' || type == 'meat') {
+        $('#' + type).attr('src', 'images/ingredients/' + type + '/' + name+'.png');
+        $('#' + type).data('id', name);
+    }
+    else {
+        var isChosen = $('#' + name + '-btn').find('span').length;
+        if( isChosen )
+            $('#' + name).remove();
+        else
+            $('#' + type + '-container').append(
+                '<img id="' + name + '" data-name="' + formattedName + '" data-type="' + type + '" ' + 
+                'class="build-img" src="images/ingredients/' + type + '/' + name + '.png">');
+    }
+
+    
+    $('#' + type).data('name', formattedName); 
 }
 
 
-function addMultiIngredientImg(type, name) {
-    var isChosen = $('#' + name + '-btn').find('span').length;
-    console.log(isChosen);
-    var imgId = name + '-img'
-    if( isChosen )
-        $('#' + imgId).remove();
-    else
-        $('#' + type + '-container').append('<img id="' + imgId + '" class="build-img"' + 
-            'src="images/ingredients/' + type + '/' + name + '.png">');
+function getSummary() {
+    summary = [];
+
+    $('.ingredient-container').each( function () {
+        var size = $(this).children().length;
+        
+        if(size > 1) {
+            $(this).children().each( function () {
+                summary.push($(this).data('name'));
+            });
+        } else
+        summary.push($(this).find('img').data('name'));
+    }); 
+
+    return summary;
 }
 
 
@@ -127,38 +154,53 @@ function addMultiIngredientImg(type, name) {
     RECEIPT BAR
 ----------------------------------------------*/
 
+var idCounter = 1;
 // Add item to receipt list
 function addItem(obj, val) {
-    if (obj.length) {
-        var itemId = obj.attr('id');
-        var quantityId = '#' + itemId + '-quantity';
 
-        // if already in the list, increase counter
-        if ($('#' + itemId + '-receipt-item').length) {
+    var itemId = 'c' + idCounter++;    
+    var notCustom = (obj.length)
+    if (notCustom)
+        itemId = obj.attr('id');
+
+    var quantityId = '#' + itemId + '-quantity';
+
+    // if already in the list, increase counter
+    if ($('#' + itemId + '-receipt-item').length) {
             
-            // Get sum and update value
-            var sum = parseInt($(quantityId).val()) + parseInt(val);
-            $(quantityId).val(sum);
+        // Get sum and update value
+        var sum = parseInt($(quantityId).val()) + parseInt(val);
+        $(quantityId).val(sum);
+    }
+    // else, add new item
+    else {
+        beginHtml = '<li data-id="' + itemId + '" id="' + itemId + '-receipt-item" class="receipt-item">'
+        imgHtml = '<img class="receipt-img" src="images/icon/' + itemId + '-icon.png">';
+        receiptHtml =   'x <input class="receipt-quantity" id="' + itemId + '-quantity" type="number" ' + 
+                        'value="' + val + '" min="1" max="999">' + 
+                        '<span class="receipt-btn">' + 
+                            '<button data-id="' + itemId + '" data-type="remove" type="button" data-toggle="modal"' + 
+                            ' data-target="#customModal" class="btn btn-danger btn-sm">' +
+                                '<i class="fa fa-trash" aria-hidden="true"></i>' + 
+                            '</button>' + 
+                            '<button type="button" onclick="editBurger(' + itemId + ')" class="btn btn-danger btn-sm">' +
+                                '<i class="fa fa-pencil" aria-hidden="true"></i>' + 
+                            '</button>' + 
+                        '</span>';
+        
+        if(!notCustom) {
+            imgHtml = '<img class="receipt-img" src="images/icon/c-icon.png">';
+            summary = getSummary();
+            receiptHtml += '<ul class="item-summary">';
+            for( var i = 0; i < summary.length; i++ )
+                receiptHtml += '<li>' + summary[i] + '</li>';
+            receiptHtml += '</div>';
         }
 
-        // else, add new item
-        else {
-            $('#receipt-list').append(
-                '<li data-id="' + itemId + '" id="' + itemId + '-receipt-item" class="receipt-item">' +
-                    '<img src="images/' + itemId + '-icon.png"> x <input class="receipt-quantity" ' + 
-                    'id="' + itemId + '-quantity" type="number" ' + 'value="' + val + '" min="1" max="999">' + 
-                    '<span class="receipt-btn">' + 
-                        '<button data-id="' + itemId + '" data-type="remove" type="button" data-toggle="modal" data-target="#customModal" ' + 
-                        'class="btn btn-danger btn-sm">' +
-                            '<i class="fa fa-trash" aria-hidden="true"></i>' + 
-                        '</button>' + 
-                        '<button type="button" onclick="editBurger(' + itemId + ')" class="btn btn-danger btn-sm">' +
-                            '<i class="fa fa-pencil" aria-hidden="true"></i>' + 
-                        '</button>' + 
-                    '</span>' + 
-                '</li>');
-        }
+        $('#receipt-list').append(beginHtml + imgHtml + receiptHtml + '</li>');
     }
+   
+
 }
 
 // Get total price 
@@ -180,13 +222,13 @@ function addOrderToCheckout() {
 
     $('#receipt-list li').each(function () {
         var bId = $(this).data('id');
-        var quantity = $('#' + bId + '-receipt-item ' + '#' + bId + '-quantity').val();
+        var quantity = $(this).find('input[type="number"]').val();
         var price = $('#description-' + bId + ' .price').text();
 
         $('#order-list').append(
             '<div class="row no-gutter order">' +
                 '<div class="col-xs-12 col-sm-2 order-image">' +
-                    '<img src="images/' + bId + '-icon-lg.png">' +
+                    '<img src="images/icon/' + bId + '-icon-lg.png">' +
                 '</div>' +
                 '<div class="col-xs-12 col-sm-3 order-name">' +
                     $('#description-' + bId + ' .name').text() + 
@@ -234,12 +276,17 @@ $('#customModal').on('show.bs.modal', function (event) {
         });
     }
     else {
+
         $('#customModal .modal-title').text('Add Order Item'); 
         $('#customModal .modal-body').html('<p>How many would you like to add?   ' +
             '<input id="modal-add" type="number" value="1" min="1" max="999"></p>');
 
+        var addItemObj = '.item.item-hover';
+        if (button.data('type')=='custom')
+            addItemObj = '';
+
         $('#modal-confirm').off().on('click', function () {
-            addItem($('.item.item-hover'), $('#modal-add').val());
+            addItem($(addItemObj), $('#modal-add').val());
             $('#customModal').modal('hide');
             calcReceiptPrice();
         });
@@ -359,3 +406,4 @@ function resetPage() {
     $('#tab-navigation li:eq(0) a').tab('show');
 }
  
+
