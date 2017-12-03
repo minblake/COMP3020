@@ -213,7 +213,6 @@ function calcReceiptPrice() {
         var price = $('#description-' + bId + ' .price').text();
         var quantity = $('#' + bId + '-receipt-item ' + '#' + bId + '-quantity').val();
         
-        console.log(bId);
         if(bId.indexOf('c') >= 0)
             price = $('#custom-price').text();
 
@@ -228,17 +227,36 @@ function calcReceiptPrice() {
 function addOrderToCheckout() {
 
     $('#receipt-list li').each(function () {
-        var bId = $(this).data('id');
-        var quantity = $(this).find('input[type="number"]').val();
-        var price = $('#description-' + bId + ' .price').text();
+        var bId = $(this).data('id'),
+            quantity = $(this).find('input[type="number"]').val(),
+            price = 0, 
+            nameHtml = '', 
+            imgHtml = '';
 
+        if(bId.indexOf('c') < 0) {
+            price = $('#description-' + bId + ' .price').text();
+            imgHtml += '<img src="images/icon/' + bId + '-icon-lg.png">'
+            nameHtml += $('#description-' + bId + ' .name').text();
+        }
+        else {
+            price = $('#custom-price').text();
+            imgHtml += '<img class="receipt-img" src="images/icon/c-icon.png">';
+
+
+            nameHtml += 'Custom Burger';
+            nameHtml += '<div class="item-summary">';
+            for( var i = 0; i < summary.length; i++ )
+                nameHtml += '<div>' + summary[i] + '</div>';
+            nameHtml += '</div>';
+        }
+ 
         $('#order-list').append(
             '<div class="row no-gutter order">' +
                 '<div class="col-xs-12 col-sm-2 order-image">' +
-                    '<img src="images/icon/' + bId + '-icon-lg.png">' +
+                    imgHtml +
                 '</div>' +
                 '<div class="col-xs-12 col-sm-3 order-name">' +
-                    $('#description-' + bId + ' .name').text() + 
+                    nameHtml + 
                 '</div>' +
                 '<div class="col-sm-1 order-price">$<span>' + 
                     price + '</span>' + 
