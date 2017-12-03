@@ -108,8 +108,6 @@
                     <div id="b3" class="wrapper-img item"><img src="images/icon/b3-icon-lg.png"></div>
                     <div id="b4" class="wrapper-img item"><img src="images/icon/b4-icon-lg.png"></div>
                     <div id="b5" class="wrapper-img item"><img src="images/icon/b5-icon-lg.png"></div>
-                    <div id="b6" class="wrapper-img item"><img src="images/icon/b6-icon-lg.png"></div>
-                    <div id="b7" class="wrapper-img item"><img src="images/icon/b7-icon-lg.png"></div>
                 </div>
             </div>
         </div> <!--/Popular Carousel-->
@@ -154,21 +152,6 @@
                         <h4>$<span class="price">9.99</span></h4>
                     </div> <!-- /description-b5 -->
 
-                    <div id="description-b6" class="description-text">
-                        <h4 class="name">Chicken supreme burger</h4>
-                        <p><strong>Description:</strong> <span class="description">Roasted chicken, peppered bacon, 
-                        aged cheddar cheese, avocado, and tomato with red wine vinaigrette, 
-                        mayonnaise, and shredded lettuce on a large toasted bun.</span></p>
-                        <h4>$<span class="price">10.99</span></h4>
-                    </div> <!-- /description-b6 -->
-
-                    <div id="description-b7" class="description-text">
-                        <h4 class="name">Beef supreme burger</h4>
-                        <p><strong>Description:</strong> <span class="description">One half pound seasoned 
-                        Alberta Angus beef patties, double cheese, mustard, mayo, relish, sliced onion, 
-                        centre-cut tomato, hand-cut lettuce, and deli pickles.</span></p>
-                        <h4>$<span class="price">11.99</span></h4>
-                    </div> <!--/description-b7-->
 
                 </div> <!--/description-panel-->
             </div> <!--/col description-panel-->
@@ -195,7 +178,7 @@
 
                 <h3 class="build-instruction">Choose one of each</h3>
                 
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <h4>Buns:</h4>
                     <div id="bun-choices" class="build-group btn-group-vertical text-center">
                         <button id="sesame-seed-btn" type="button" onclick="addIngredientImg('bun', 'sesame-seed')" 
@@ -210,7 +193,7 @@
                 </div>
 
                 <!-- Meat option -->
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <h4>Meat:</h4>
                     <div id="meat-choices" class="btn-group-vertical build-group text-center">
                         <button id="beef-btn" type="button" onclick="addIngredientImg('meat', 'beef')" 
@@ -227,28 +210,48 @@
                 <h3 class="build-instruction">Choose as many as you want</h3>
                     
                 <!-- Vegetable option -->
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <h4>Vegetables:</h4>
                     <div id="veg-choices" class="btn-group-vertical build-group text-center">
-                        <button id="lettuce-btn" type="button" onclick="addIngredientImg('veg', 'lettuce')" class="btn btn-success build-btn">Lettuce</button>
-                        <button id="tomato-btn" type="button" onclick="addIngredientImg('veg', 'tomato')" class="btn btn-success build-btn">Tomato</button>
-                        <button id="onion-btn" type="button" onclick="addIngredientImg('veg', 'onion')" class="btn btn-success build-btn">Onion</button>
-                        <button id="grilled-mushroom-btn" type="button" onclick="addIngredientImg('veg', 'grilled-mushroom')" class="btn btn-success build-btn">Grilled Mushroom</button>
-                        <button id="pickles-btn" type="button" onclick="addIngredientImg('veg', 'pickles')" class="btn btn-success build-btn">Pickles</button>
-                        <button id="jalapeno-btn" type="button" onclick="addIngredientImg('veg', 'jalapeno')" class="btn btn-success build-btn">Jalapeño Peppers</button>                        
+                        <button id="lettuce-btn" onclick="addMultiIngredientImg('veg', 'lettuce')" type="button" 
+                        class="btn btn-success build-btn mult-choice-btn">Lettuce
+                            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        </button>
+                        <button id="tomato-btn" type="button" onclick="addMultiIngredientImg('veg', 'tomato')" 
+                        class="btn btn-success build-btn mult-choice-btn">Tomato
+                            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        </button>
+                        <button id="onion-btn" type="button" onclick="addMultiIngredientImg('veg', 'onion')" 
+                        class="btn btn-success build-btn mult-choice-btn">Onion 
+                            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        </button>
+                        <button id="pickles-btn" type="button" onclick="addMultiIngredientImg('veg', 'pickles')" 
+                        class="btn btn-success build-btn mult-choice-btn">Pickles</button>
+                        <button id="jalapeno-btn" type="button" onclick="addMultiIngredientImg('veg', 'jalapeno')" 
+                        class="btn btn-success build-btn mult-choice-btn">Jalapeño Peppers</button>                        
                     </div>
                 </div>  
                     
                 <!-- Sauce option -->
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <h4>Sauces:</h4>
                     <div id="sauce-choices" class="btn-group-vertical build-group text-center">
-                        <button id="ketchup-btn" type="button" onclick="addIngredientImg('sauce', 'ketchup')" class="btn btn-sample build-btn">Ketchup</button>
-                        <button id="mayo-btn" type="button" onclick="addIngredientImg('sauce', 'mayo')" class="btn btn-sample build-btn">Mayonnaise</button>
-                        <button id="mustard-btn" type="button" onclick="addIngredientImg('sauce', 'mustard')" class="btn btn-sample build-btn">Mustard</button>
-                        <button id="chipotle-btn" type="button" onclick="addIngredientImg('sauce', 'chipotle')" class="btn btn-sample build-btn">Chipotle</button>
-                        <button id="kaft-ranch-btn" type="button" onclick="addIngredientImg('sauce', 'kaft-ranch')" class="btn btn-sample build-btn">Kaft Ranch</button>
-                        <button id="tabasco-btn" type="button" onclick="addIngredientImg('sauce', 'tabasco')" class="btn btn-sample build-btn">Tabasco</button>
+                        <button id="ketchup-btn" type="button" onclick="addMultiIngredientImg('sauce', 'ketchup')" 
+                        class="btn btn-sample build-btn mult-choice-btn">Ketchup
+                            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        </button>
+                        <button id="mayonnaise-btn" type="button" onclick="addMultiIngredientImg('sauce', 'mayonnaise')" 
+                        class="btn btn-sample build-btn mult-choice-btn">Mayonnaise
+                            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        </button>
+                        <button id="mustard-btn" type="button" onclick="addMultiIngredientImg('sauce', 'mustard')" 
+                        class="btn btn-sample build-btn mult-choice-btn">Mustard
+                            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        </button>
+                        <button id="chipotle-btn" type="button" onclick="addMultiIngredientImg('sauce', 'chipotle')" 
+                        class="btn btn-sample build-btn mult-choice-btn">Chipotle</button>
+                        <button id="tabasco-btn" type="button" onclick="addMultiIngredientImg('sauce', 'tabasco')" 
+                        class="btn btn-sample build-btn mult-choice-btn">Tabasco</button>
                     </div>
                 </div>
 
@@ -259,16 +262,25 @@
             <h3 class="text-center">Burger Status</h3>
             <div id="build-burger" style="border: 1px solid pink; height: 100%">
                 <div id="bun-container">
-                    <img id="bun-img" class="build-img" src="images/ingredients/bun/sesame-seed.png">
+                    <img id="sesame-seed-img" data-name="Sesame Seed" data-type="bun" 
+                    class="build-img" src="images/ingredients/bun/sesame-seed.png">
                 </div>
                 <div id="meat-container">
-                    <img id="meat-img" class="build-img" src="images/ingredients/meat/turkey.png">
+                    <img id="beef-img" data-name="Beef" data-type="meat" 
+                    class="build-img" src="images/ingredients/meat/beef.png">
                 </div>
-                <div id="veg-container">
-                    <img id="veg-img" class="build-img" src="images/ingredients/bun/sesame-seed.png">
+                <div id="veg-container" class="ingredient-container">
+                    <img id="lettuce-img" data-name="Lettuce" data-type="veg" 
+                    class="build-img" src="images/ingredients/veg/lettuce.png">
+                    <img id="tomato-img" data-name="Tomato" data-type="veg" 
+                    class="build-img" src="images/ingredients/veg/tomato.png">
+                    <img id="onion-img" data-name="Onion" data-type="veg" 
+                    class="build-img" src="images/ingredients/veg/onion.png">
                 </div>
-                <div id="sauce-container">
-                    <img id="sauce-img" class="build-img" src="images/ingredients/bun/sesame-seed.png">
+                <div id="sauce-container" class="ingredient-container">
+                    <img id="ketchup-img" data-name="Ketchup" data-type="sauce" class="build-img" src="images/ingredients/sauce/ketchup.png">
+                    <img id="mayonnaise-img" data-name="Mayonnaise" data-type="sauce" class="build-img" src="images/ingredients/sauce/mayonnaise.png">
+                    <img id="mustard-img" data-name="Mustard" data-type="sauce" class="build-img" src="images/ingredients/sauce/mustard.png">
                 </div>
 
             </div>

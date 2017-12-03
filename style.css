@@ -75,12 +75,17 @@ i, span {
     margin: 0 auto;
 }
 
+#popular-carousel {
+    margin-bottom: 30px;
+}
+
 #popular-carousel .owl-carousel .item:hover, .item-hover {
     border: 5px solid yellow;
     opacity: 0.5;
 }
 
 .wrapper-img {
+    min-width: 100px;
     max-width: 100px;
     height: auto;
 }
@@ -226,9 +231,13 @@ fieldset[disabled] .btn-sample.active {
     border-color: #FC7814;
 }
 
+.ingredient-container {
+    min-height: 80px;
+}
+
 .build-img {
     margin: 0 auto;
-    max-width: 100px;
+    max-width: 80px;
     background: #fff;
     border: 1px solid #ddd;
     height: auto;
@@ -404,7 +413,7 @@ input[type=number]::-webkit-inner-spin-button {
         cursor: pointer;
         position: absolute;
         right: 10px;
-        top: 10px;
+        top: 15px;
         z-index: 10 !important;
         padding: 3px;
         background: #DC4335;

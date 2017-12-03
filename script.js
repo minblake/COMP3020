@@ -55,7 +55,7 @@ $('#popular-carousel').owlCarousel({
             items: 3
         },
         992: {
-            items: 6
+            items: 5
         }
     },
     //Define navigation icons as < >
@@ -84,31 +84,44 @@ $('.edit').on('click', function () {
 /* -------------------------------------------
     BUILD YOUR OWN BURGER
 ----------------------------------------------*/
-// Build carousel
-$('.build-carousel').owlCarousel({
-    mouseDrag: false,
-    dots: false,
-    margin: 30,
-    nav: true,
-    autoHeight: true,
-    responsive: {
-        0: {
-            items: 1
-        },
-        400: {
-            items: 3
-        // },
-        // 600: {
-        //     items: 3
-        // },
-        // 992: {
-            // items: 3
-        }
-    },
-    //Define navigation icons as < >
-    navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>',
-        '<i class="fa fa-angle-right" aria-hidden="true"></i>']
+
+// Add check sign when choice is selected
+$('.build-group button').on('click', function () {
+    var okIcon = $(this).find('span');
+    var parentId = $(this).parent().attr('id');
+    var isOneChoice = (parentId == 'bun-choices' || parentId == 'meat-choices')
+
+    // Append only if it's present
+    if( !okIcon.length ) {
+        // Only one choice in buns and meats so remove others 
+        if(isOneChoice)
+            $('#'+ parentId + '>.btn > span').remove('span');
+        $(this).append(
+            '<span class="glyphicon glyphicon-ok ' + 
+            'form-control-feedback" aria-hidden="true"></span>');
+    }
+    else if (!isOneChoice)
+        $(okIcon).remove();
 });
+
+// Change building burger images
+function addIngredientImg(type, name) {
+    $('#' + name + '-img').attr('src', 'images/ingredients/' + type + 
+        '/' + name+'.png');
+}
+
+
+function addMultiIngredientImg(type, name) {
+    var isChosen = $('#' + name + '-btn').find('span').length;
+    console.log(isChosen);
+    var imgId = name + '-img'
+    if( isChosen )
+        $('#' + imgId).remove();
+    else
+        $('#' + type + '-container').append('<img id="' + imgId + '" class="build-img"' + 
+            'src="images/ingredients/' + type + '/' + name + '.png">');
+}
+
 
 /* -------------------------------------------
     RECEIPT BAR
@@ -346,27 +359,3 @@ function resetPage() {
     $('#tab-navigation li:eq(0) a').tab('show');
 }
  
-// Add check sign when choice is selected
-$('.build-group button').on('click', function () {
-    var okIcon = $(this).find('span');
-    var parentId = $(this).parent().attr('id');
-    var isOneChoice = (parentId == 'bun-choices' || parentId == 'meat-choices')
-
-    // Append only if it's present
-    if( !okIcon.length ) {
-        // Only one choice in buns and meats so remove others 
-        if(isOneChoice)
-            $('#'+ parentId + '>.btn > span').remove('span');
-        $(this).append(
-            '<span class="glyphicon glyphicon-ok ' + 
-            'form-control-feedback" aria-hidden="true"></span>');
-    }
-    else if (!isOneChoice)
-        $(okIcon).remove();
-});
-
-// Change building burger images
-function addIngredientImg(type, name) {
-    $('#' + type + '-img').attr('src', 'images/ingredients/' + type + 
-        '/' + name+'.png');
-}
