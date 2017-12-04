@@ -103,7 +103,7 @@ i, span {
 /* -------------------------------------------
     MODAL BOX
 ----------------------------------------------*/
-#customModal .modal-header {
+#customModal .modal-header, #saveModal .modal-header {
     text-align: center;
     background-color: #F2493A;
     color: white;
@@ -251,6 +251,7 @@ fieldset[disabled] .btn-sample.active {
 .not-custom {
     display: none;
 }
+
 /*------------------------------------------
     SIDEBAR & RECEIPT BAR
 --------------------------------------------*/

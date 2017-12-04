@@ -31,16 +31,10 @@ function removeBurger(bID) {
 }
 
 //Send to edit page
-$(document).on('click', '.edit-btn', function () {
-    customizeBurger(this);
-});
-
-function customizeBurger(obj) {
+$('#customize-btn').on('click', function () {
+    
     $('#build-option').trigger('click');
-    $('.modal').modal('hide');
-
-    var li = $(obj).parent().parent(),
-        summary = getItemSummary(li);
+    var summary = getSummary($('.item.item-hover').attr('id'));
 
     // Clear selected items first
     // No need to clear bun and meat choices
@@ -52,7 +46,8 @@ function customizeBurger(obj) {
         console.log(summary[i]);
         $('.build-group').find('[data-name="' + summary[i] + '"]').trigger('click')
     }
-}
+});
+
 
 /* -------------------------------------------
     POPULAR ITEMS
@@ -127,10 +122,8 @@ function addIngredientImg(type, name) {
     for( var i = 0; i < formattedA.length; i++)
         formattedName += formattedA[i].substring(0,1).toUpperCase() + formattedA[i].substring(1) + " ";
 
-    if(type == 'bun' || type == 'meat') {
+    if(type == 'bun' || type == 'meat')
         $('#' + type).attr('src', 'images/ingredients/' + type + '/' + name+'.png');
-        // $('#' + type).data('id', name);
-    }
     else {
         if( $('#' + name ).length )
             $('#' + name).remove();
@@ -145,16 +138,6 @@ function addIngredientImg(type, name) {
     $('#' + type).data('name', formattedName); 
 }
 
-function getItemSummary(obj) {
-    summary = [];
-
-    // li = $(obj).parent().parent();
-    $(obj).find('.item-summary').children().each( function () {
-        summary.push($(this).text());
-    });
-    console.log(summary)
-    return summary;
-}
 
 
 function getSummary(bId) {
@@ -170,10 +153,9 @@ function getSummary(bId) {
             summary.push($(this).text());
         });
     }
-
+    console.log(summary);
     return summary;
 }
-
 
 /* -------------------------------------------
     RECEIPT BAR
@@ -212,12 +194,12 @@ function addItem(obj, val) {
                         'value="' + val + '" min="1" max="999">' + 
                         '<span class="receipt-btn">' + 
                             '<button data-id="' + itemId + '" data-type="remove" type="button" data-toggle="modal"' + 
-                            ' data-target="#customModal" class="btn btn-danger btn-sm">' +
-                                '<i class="fa fa-trash" aria-hidden="true"></i>' + 
+                            ' data-target="#customModal" class="btn btn-danger btn-sm">Remove' +
+                                // '<i class="fa fa-trash" aria-hidden="true"></i>' + 
                             '</button>' + 
-                            '<button type="button" class="edit-btn btn btn-danger btn-sm">' +
-                                '<i class="fa fa-pencil" aria-hidden="true"></i>' + 
-                            '</button>' + 
+                            // '<button type="button" class="edit-btn btn btn-danger btn-sm">' +
+                                // '<i class="fa fa-pencil" aria-hidden="true"></i>' + 
+                            // '</button>' + 
                         '</span>';
         
         if(notCustom)
@@ -295,12 +277,12 @@ function addOrderToCheckout() {
                 '<div class="col-xs-12 col-sm-2 order-quantity">' +
                     '<input id="' + bId + '-quantity" type="number" value="' + quantity + '" min="1">' + 
                 '</div>' +
-                '<div class="col-xs-12 col-sm-3 order-customize">' +
-                    '<button class="cust-order-btn btn btn-danger" onclick="removeOrder(this)">' +
-                        '<i class="fa fa-trash" aria-hidden="true"></i>' + 
+                '<div class="col-xs-12 col-sm-3 text-center order-customize">' +
+                    '<button class="cust-order-btn btn btn-danger" onclick="removeOrder(this)">Remove' +
+                        // '<i class="fa fa-trash" aria-hidden="true"></i>' + 
                     '</button>' +
-                    '<button class="edit-btn cust-order-btn btn btn-danger">' +
-                        '<i class="fa fa-pencil" aria-hidden="true"></i></button>' + 
+                    // '<button class="edit-btn cust-order-btn btn btn-danger">' +
+                        // '<i class="fa fa-pencil" aria-hidden="true"></i></button>' + 
                 '</div>' +
                 '<div class="col-xs-12 col-sm-1 order-line-price">$<span>' +
                     quantity * parseFloat(price) + '</span>' +
@@ -316,13 +298,18 @@ $(document).on('change', '.receipt-quantity', function () {
     calcReceiptPrice();
 });
 
+
+/* -------------------------------------------
+    MODAL
+----------------------------------------------*/
+
 //Custom Modal for adding/removing burger from receipt list
 $('#customModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
     var bID = button.data('id');
 
     if(button.data('type')=='remove'){
-        $('#customModal .modal-title').text('Remove Order Item'); 
+        $('#customModal .modal-title').text('Remove Order'); 
         $('#customModal .modal-body').text('Do you want remove all of this item from your order?');
 
         $('#modal-confirm').off().on('click', function () {
@@ -333,7 +320,7 @@ $('#customModal').on('show.bs.modal', function (event) {
     }
     else {
 
-        $('#customModal .modal-title').text('Add Order Item'); 
+        $('#customModal .modal-title').text('Add Order'); 
         $('#customModal .modal-body').html('<p>How many would you like to add?   ' +
             '<input id="modal-add" type="number" value="1" min="1" max="999"></p>');
 
