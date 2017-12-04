@@ -30,9 +30,28 @@ function removeBurger(bID) {
     $('#' + bID + '-receipt-item').remove();
 }
 
-function editBurger(bID) {
+//Send to edit page
+$(document).on('click', '.edit-btn', function () {
+    customizeBurger(this);
+});
+
+function customizeBurger(obj) {
     $('#build-option').trigger('click');
     $('.modal').modal('hide');
+
+    var li = $(obj).parent().parent(),
+        summary = getItemSummary(li);
+
+    // Clear selected items first
+    // No need to clear bun and meat choices
+    $('#veg-choices').find('span').parent().trigger('click');
+    $('#sauce-choices').find('span').parent().trigger('click')
+
+    // Click the items
+    for( var i = 0; i < summary.length; i++ ) {
+        console.log(summary[i]);
+        $('.build-group').find('[data-name="' + summary[i] + '"]').trigger('click')
+    }
 }
 
 /* -------------------------------------------
@@ -76,11 +95,6 @@ $('.item').on('click', function () {
 });
 
 
-//Send to edit page
-$('.edit').on('click', function () {
-    editBurger($(this).attr('id'));
-});
-
 /* -------------------------------------------
     BUILD YOUR OWN BURGER
 ----------------------------------------------*/
@@ -115,36 +129,47 @@ function addIngredientImg(type, name) {
 
     if(type == 'bun' || type == 'meat') {
         $('#' + type).attr('src', 'images/ingredients/' + type + '/' + name+'.png');
-        $('#' + type).data('id', name);
+        // $('#' + type).data('id', name);
     }
     else {
-        var isChosen = $('#' + name + '-btn').find('span').length;
-        if( isChosen )
+        if( $('#' + name ).length )
             $('#' + name).remove();
         else
             $('#' + type + '-container').append(
-                '<img id="' + name + '" data-name="' + formattedName + '" data-type="' + type + '" ' + 
-                'class="build-img" src="images/ingredients/' + type + '/' + name + '.png">');
+                '<img id="' + name + '" data-name="' + formattedName + 
+                '" data-type="' + type + '" ' + 'class="build-img" src="images/ingredients/' + 
+                type + '/' + name + '.png">');
     }
 
     
     $('#' + type).data('name', formattedName); 
 }
 
-
-function getSummary() {
+function getItemSummary(obj) {
     summary = [];
 
-    $('.ingredient-container').each( function () {
-        var size = $(this).children().length;
-        
-        if(size > 1) {
-            $(this).children().each( function () {
-                summary.push($(this).data('name'));
-            });
-        } else
-        summary.push($(this).find('img').data('name'));
-    }); 
+    // li = $(obj).parent().parent();
+    $(obj).find('.item-summary').children().each( function () {
+        summary.push($(this).text());
+    });
+    console.log(summary)
+    return summary;
+}
+
+
+function getSummary(bId) {
+    summary = [];
+
+    if(bId.indexOf('c') >= 0) {
+        $('.ingredient-container > img').each( function () {
+            summary.push($(this).data('name'));
+        });
+    } 
+    else {
+        $('#description-' + bId + ' .item-summary > div').each( function() {
+            summary.push($(this).text());
+        });
+    }
 
     return summary;
 }
@@ -158,13 +183,20 @@ var idCounter = 1;
 // Add item to receipt list
 function addItem(obj, val) {
 
-    var itemId = 'c' + idCounter++;    
-    var notCustom = (obj.length)
+    var itemId = 'c' + idCounter++, 
+        notCustom = (obj.length);
+    
     if (notCustom)
         itemId = obj.attr('id');
 
-    var quantityId = '#' + itemId + '-quantity';
-
+    var quantityId = '#' + itemId + '-quantity',
+        summary = getSummary(itemId),
+        summaryHtml = '';
+    
+    // Get item summary
+    for( var i = 0; i < summary.length; i++ )
+        summaryHtml += '<div>' + summary[i] + '</div>'; 
+    
     // if already in the list, increase counter
     if ($('#' + itemId + '-receipt-item').length) {
             
@@ -183,22 +215,21 @@ function addItem(obj, val) {
                             ' data-target="#customModal" class="btn btn-danger btn-sm">' +
                                 '<i class="fa fa-trash" aria-hidden="true"></i>' + 
                             '</button>' + 
-                            '<button type="button" onclick="editBurger(' + itemId + ')" class="btn btn-danger btn-sm">' +
+                            '<button type="button" class="edit-btn btn btn-danger btn-sm">' +
                                 '<i class="fa fa-pencil" aria-hidden="true"></i>' + 
                             '</button>' + 
                         '</span>';
         
-        if(!notCustom) {
+        if(notCustom)
+            summaryHtml =   '<div class="item-summary not-custom">' + summaryHtml + '</div>'
+        else {
             beginHtml = '<li data-id="' + itemId + '" id="' + itemId + '-receipt-item" class="receipt-item">';
             imgHtml = '<img class="receipt-img" src="images/icon/c-icon.png">';
-            summary = getSummary();
-            receiptHtml += '<div class="item-summary">';
-            for( var i = 0; i < summary.length; i++ )
-                receiptHtml += '<div>' + summary[i] + '</div>';
-            receiptHtml += '</div>';
+            summaryHtml = '<div class="item-summary">' + summaryHtml + '</div>'
         }
 
-        $('#receipt-list').append(beginHtml + imgHtml + receiptHtml + '</li>');
+
+        $('#receipt-list').append(beginHtml + imgHtml + receiptHtml + summaryHtml + '</li>');
     }
    
 
@@ -268,7 +299,7 @@ function addOrderToCheckout() {
                     '<button class="cust-order-btn btn btn-danger" onclick="removeOrder(this)">' +
                         '<i class="fa fa-trash" aria-hidden="true"></i>' + 
                     '</button>' +
-                    '<button class="cust-order-btn btn btn-danger" onclick="editBurger(' + bId + ')">' +
+                    '<button class="edit-btn cust-order-btn btn btn-danger">' +
                         '<i class="fa fa-pencil" aria-hidden="true"></i></button>' + 
                 '</div>' +
                 '<div class="col-xs-12 col-sm-1 order-line-price">$<span>' +

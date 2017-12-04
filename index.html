@@ -117,39 +117,85 @@
             <div class="col-sm-12 ">
                 <div id="description-panel">
                     <div id="description-b1" class="description-text">
-                        <h4 class="name">Chicken cheese delight burger</h4>
+                        <h4 class="name">Chicken Delight Burger</h4>
                         <p><strong>Description:</strong> <span class="description">Tasty and crunchy! Breaded chicken breast,
-                         served on a toasted bun with lettuce, tomato and mayo.</span></p>
+                         served on a pretzel roll with lettuce, tomato and mayo.</span></p>
                         <h4>$<span class="price">5.99</span></h4>
+                        <div class="item-summary not-custom">
+                            <div>Pretzel Roll</div>
+                            <div>Chicken</div>
+                            <div>Lettuce</div>
+                            <div>Tomato</div>
+                            <div>Mayonnaise</div>
+                        </div>
                     </div> <!-- /description-b1 -->
 
                     <div id="description-b2" class="description-text">
-                        <h4 class="name">Beef cheese delight burger</h4>
+                        <h4 class="name">Beef Delight burger</h4>
                         <p><strong>Description:</strong> <span class="description">The signature 1/3 pound Alberta 
-                        Angus beef patty stacked with mustard, relish, onion, pickles, mayo, bacon, lettuce and tomato.</span></p>
+                        Angus beef patty stacked with mustard, onion, pickles, mayo, lettuce and tomato.</span></p>
                         <h4>$<span class="price">6.99</span></h4>
+                        <div class="item-summary not-custom">
+                            <div>Sesame-seed-bun</div>
+                            <div>Beef</div>
+                            <div>Lettuce</div>
+                            <div>Tomato</div>
+                            <div>Onion</div>
+                            <div>Pickles</div>
+                            <div>Mayonnaise</div>
+                            <div>Mustard</div>
+                        </div>
                     </div> <!-- /description-b2 -->
 
                     <div id="description-b3" class="description-text">
                         <h4 class="name">Regular Beef burger</h4>
                         <p><strong>Description:</strong> <span class="description">Quarter pound seasoned 
-                        Alberta Angus beef, double cheese, mustard, mayo, relish, sliced onion, center-cut 
+                        Alberta Angus beef, mustard, mayo, onion, center-cut 
                         tomato, hand-cut lettuce and deli pickles.</span></p>
                         <h4>$<span class="price">7.99</span></h4>
+                        <div class="item-summary not-custom">
+                            <div>Sesame Seed Bun</div>
+                            <div>Beef</div>
+                            <div>Lettuce</div>
+                            <div>Tomato</div>
+                            <div>Onion</div>
+                            <div>Pickles</div>
+                            <div>Mayonnaise</div>
+                            <div>Mustard</div>
+                        </div>
                     </div> <!-- /description-b3 -->
 
                     <div id="description-b4" class="description-text">
                         <h4 class="name">Ai's Special beef burger</h4>
-                        <p><strong>Description:</strong> <span class="description">Juicy half-pound burger served with
-                         fresh mushrooms, cheese, mayo, lettuce, tomato, mustard, onion, and chili.</span></p>
+                        <p><strong>Description:</strong> <span class="description">Juicy half-pound burger served Kaiser Roll with 
+                        mayo, lettuce, tomato, mustard, onion, and jalapeño peppers.</span></p>
                         <h4>$<span class="price">8.99</span></h4>
+                        <div class="item-summary not-custom">
+                            <div>Kaiser Roll</div>
+                            <div>Beef</div>
+                            <div>Lettuce</div>
+                            <div>Tomato</div>
+                            <div>Onion</div>
+                            <div>Jalapeño Peppers</div>
+                            <div>Mayonnaise</div>
+                            <div>Mustard</div>
+                        </div>
                     </div> <!-- /description-b4 -->
 
                     <div id="description-b5" class="description-text">
-                        <h4 class="name">Ai's Special chicken burger</h4>
-                        <p><strong>Description:</strong> <span class="description">Grilled chicken breast in 
-                        a spiced chili lemon marinade with mayo, lettuce, tomato, and red onion. This burger is served with fries.</span></p>
+                        <h4 class="name">Ai's Special Turkey burger</h4>
+                        <p><strong>Description:</strong> <span class="description">Grilled turkey in 
+                        a Kaiser Roll with mayo, lettuce, tomato, and onion.</span></p>
                         <h4>$<span class="price">9.99</span></h4>
+                        <div class="item-summary not-custom">
+                            <div>Kaiser Roll</div>
+                            <div>Turkey</div>
+                            <div>Lettuce</div>
+                            <div>Tomato</div>
+                            <div>Onion</div>
+                            <div>Pickles</div>
+                            <div>Mayonnaise</div>
+                        </div>
                     </div> <!-- /description-b5 -->
 
 
@@ -162,7 +208,7 @@
             <div class="col-sm-12 text-center">
                 <div class="popular-button">
                     <button type="button" data-toggle="modal" data-target="#customModal" class="btn btn-danger">Add</button>
-                    <button type="button" class="btn btn-danger edit">Customize</button>
+                    <button type="button" class="btn btn-danger edit-btn">Customize</button>
                 </div>
             </div>
         </div>
@@ -179,20 +225,20 @@
                     <h3 class="build-instruction">Choose one of each:</h3>
                 </div>
                 
-                <div id = "md-many-instruction" class="col-md-6">
+                <div id="md-many-instruction" class="col-md-6">
                     <h3 class="build-instruction">Choose as many as you want:</h3>
                 </div> 
 
                 <div class="col-sm-6 col-md-3">
                     <h4>Buns:</h4>
                     <div id="bun-choices" class="build-group btn-group-vertical text-center">
-                        <button id="sesame-seed-btn" type="button" onclick="addIngredientImg('bun', 'sesame-seed-bun')" 
+                        <button id="sesame-seed-bun-btn" data-name="Sesame Seed Bun" type="button" onclick="addIngredientImg('bun', 'sesame-seed-bun')" 
                         class="btn btn-warning build-btn">Sesame Seed
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="kaiser-roll-btn" type="button" onclick="addIngredientImg('bun', 'kaiser-roll')" 
+                        <button id="kaiser-roll-btn" data-name="Kaiser Roll" type="button" onclick="addIngredientImg('bun', 'kaiser-roll')" 
                         class="btn btn-warning build-btn">Kaiser Roll</button>
-                        <button id="pretzel-roll-btn" type="button" onclick="addIngredientImg('bun', 'pretzel-roll')" 
+                        <button id="pretzel-roll-btn" data-name="Pretzel Roll" type="button" onclick="addIngredientImg('bun', 'pretzel-roll')" 
                         class="btn btn-warning build-btn">Pretzel Roll</button>
                     </div>  
                 </div>
@@ -201,13 +247,13 @@
                 <div class="col-sm-6 col-md-3">
                     <h4>Meat:</h4>
                     <div id="meat-choices" class="btn-group-vertical build-group text-center">
-                        <button id="beef-btn" type="button" onclick="addIngredientImg('meat', 'beef')" 
+                        <button id="beef-btn" data-name="Beef" type="button" onclick="addIngredientImg('meat', 'beef')" 
                         class="btn btn-danger build-btn">Beef
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="chicken-btn" type="button" onclick="addIngredientImg('meat', 'chicken')" 
+                        <button id="chicken-btn" data-name="Chicken" type="button" onclick="addIngredientImg('meat', 'chicken')" 
                         class="btn btn-danger build-btn">Chicken</button>
-                        <button id="turkey-btn" type="button" onclick="addIngredientImg('meat', 'turkey')" 
+                        <button id="turkey-btn" data-name="Turkey" type="button" onclick="addIngredientImg('meat', 'turkey')" 
                         class="btn btn-danger build-btn">Turkey</button>
                     </div>
                 </div>
@@ -220,21 +266,21 @@
                 <div class="col-sm-6 col-md-3">
                     <h4>Vegetables:</h4>
                     <div id="veg-choices" class="btn-group-vertical build-group text-center">
-                        <button id="lettuce-btn" onclick="addIngredientImg('veg', 'lettuce')" type="button" 
+                        <button id="lettuce-btn" data-name="Lettuce" onclick="addIngredientImg('veg', 'lettuce')" type="button" 
                         class="btn btn-success build-btn mult-choice-btn">Lettuce
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="tomato-btn" type="button" onclick="addIngredientImg('veg', 'tomato')" 
+                        <button id="tomato-btn" data-name="Tomato" type="button" onclick="addIngredientImg('veg', 'tomato')" 
                         class="btn btn-success build-btn mult-choice-btn">Tomato
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="onion-btn" type="button" onclick="addIngredientImg('veg', 'onion')" 
+                        <button id="onion-btn" data-name="Onion" type="button" onclick="addIngredientImg('veg', 'onion')" 
                         class="btn btn-success build-btn mult-choice-btn">Onion 
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="pickles-btn" type="button" onclick="addIngredientImg('veg', 'pickles')" 
+                        <button id="pickles-btn" data-name="Pickles" type="button" onclick="addIngredientImg('veg', 'pickles')" 
                         class="btn btn-success build-btn mult-choice-btn">Pickles</button>
-                        <button id="jalapeno-btn" type="button" onclick="addIngredientImg('veg', 'jalapeno')" 
+                        <button id="jalapeno-btn" data-name="Jalapeño" type="button" onclick="addIngredientImg('veg', 'jalapeno')" 
                         class="btn btn-success build-btn mult-choice-btn">Jalapeño Peppers</button>                        
                     </div>
                 </div>  
@@ -243,21 +289,21 @@
                 <div class="col-sm-6 col-md-3">
                     <h4>Sauces:</h4>
                     <div id="sauce-choices" class="btn-group-vertical build-group text-center">
-                        <button id="ketchup-btn" type="button" onclick="addIngredientImg('sauce', 'ketchup')" 
+                        <button id="ketchup-btn" data-name="Ketchup" type="button" onclick="addIngredientImg('sauce', 'ketchup')" 
                         class="btn btn-sample build-btn mult-choice-btn">Ketchup
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="mayonnaise-btn" type="button" onclick="addIngredientImg('sauce', 'mayonnaise')" 
+                        <button id="mayonnaise-btn" data-name="Mayonnaise" type="button" onclick="addIngredientImg('sauce', 'mayonnaise')" 
                         class="btn btn-sample build-btn mult-choice-btn">Mayonnaise
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="mustard-btn" type="button" onclick="addIngredientImg('sauce', 'mustard')" 
+                        <button id="mustard-btn" data-name="Mustard" type="button" onclick="addIngredientImg('sauce', 'mustard')" 
                         class="btn btn-sample build-btn mult-choice-btn">Mustard
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </button>
-                        <button id="chipotle-btn" type="button" onclick="addIngredientImg('sauce', 'chipotle')" 
+                        <button id="chipotle-btn" data-name="Chipotle" type="button" onclick="addIngredientImg('sauce', 'chipotle')" 
                         class="btn btn-sample build-btn mult-choice-btn">Chipotle</button>
-                        <button id="tabasco-btn" type="button" onclick="addIngredientImg('sauce', 'tabasco')" 
+                        <button id="tabasco-btn" data-name="Tabasco" type="button" onclick="addIngredientImg('sauce', 'tabasco')" 
                         class="btn btn-sample build-btn mult-choice-btn">Tabasco</button>
                     </div>
                 </div>
@@ -268,11 +314,11 @@
             <h3 class="text-center">Burger Status (Price: $<span id="custom-price">8.99</span>)</h3>
             <div id="burger-status-container">
                 <div id="bun-container" data-name="Bun" class="ingredient-container">
-                    <img id="bun" data-id="sesame-seed-bun" data-name="Sesame Seed Bun" data-type="bun" 
+                    <img id="bun" data-name="Sesame Seed Bun" data-type="bun"
                     class="build-img" src="images/ingredients/bun/sesame-seed-bun.png">
                 </div>
                 <div id="meat-container" data-name="Meat" class="ingredient-container">
-                    <img id="meat" data-id="beef" data-name="Beef" data-type="meat" 
+                    <img id="meat" data-name="Beef" data-type="meat" 
                     class="build-img" src="images/ingredients/meat/beef.png">
                 </div>
                 <div id="veg-container" data-name="Vegetable(s)" class="ingredient-container">

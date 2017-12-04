@@ -247,6 +247,10 @@ fieldset[disabled] .btn-sample.active {
 #sm-many-instruction {
     display: none;
 }
+
+.not-custom {
+    display: none;
+}
 /*------------------------------------------
     SIDEBAR & RECEIPT BAR
 --------------------------------------------*/
