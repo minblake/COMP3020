@@ -4,10 +4,19 @@
 body {
     padding-top: 50px;
     padding-bottom: 30px;
+    background: #FFFACD;
 }
 
 .container-fluid {
     margin: 0;
+}
+
+.gl-2x {
+    font-size: 2em;
+}
+
+.gl-lg {
+    font-size: 1.4em;
 }
 
 body {
@@ -57,10 +66,17 @@ i, span {
 .page-header {
     text-align: center;
     margin: 20px;
-
+    font-size: 2em;  
+    font-family: 'Pacifico', cursive;
+    border-bottom: none;
 }
 
-
+#home-option-page, #thankyou-page {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
 /* -------------------------------------------
     CAROUSEL
 ----------------------------------------------*/
@@ -244,12 +260,19 @@ fieldset[disabled] .btn-sample.active {
     height: auto;
 }
 
-#sm-many-instruction {
-    display: none;
+#option-panel {
+    background: #3a3a3a;
+    /*border: 1px solid #2a2a2a;*/
+    color: #fff;
+    border-radius: 5px;
 }
 
-.not-custom {
-    display: none;
+.build-instruction {
+    /*background: #fff;*/
+}
+
+#status-panel {
+    /*background: #EEE8AA;*/
 }
 
 /*------------------------------------------
@@ -266,6 +289,9 @@ fieldset[disabled] .btn-sample.active {
     overflow-y: auto;
 }
 
+.not-custom {
+    display: none;
+}
 
 .brand {
     width: 100%;

@@ -15,11 +15,8 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="style.css">
 
-    <!--Font Awesome Icons (instructions said to put on heading)-->
-    <script src="https://use.fontawesome.com/facda1815c.js"></script>
-
     <!--Google Font-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins|Pacifico" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 </head>
@@ -30,11 +27,11 @@
     <div class="container-fluid">
         <!--Store info-->
         <div class="col-xs-6 text-center">
-            <h4 class="navbar-text store-info"><i class="fa fa-map-marker" aria-hidden="true"></i>
+            <h4 class="navbar-text store-info"><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>
                 <span>Store Location:</span> 999 St Mary's Rd</h4>
         </div>
         <div class="col-xs-6 text-center">
-            <h4 class="navbar-text store-info"><i class="fa fa-phone" aria-hidden="true"></i>
+            <h4 class="navbar-text store-info"><i class="glyphicon glyphicon-phone-alt" aria-hidden="true"></i>
                 <span>Tel:</span> (204) 999-9999</h4>
         </div>
     </div>
@@ -43,25 +40,26 @@
 <!--Sidebar-->
 <div id="nav-side-menu">
     <div class="brand"><h3>Welcome to Ai's Burger!</h3></div>
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-    <i id="cart" class="fa fa-shopping-cart fa-2x" data-toggle="modal" data-target="#reviewModal"></i>
+    <i class="glyphicon glyphicon-menu-hamburger gl-lg toggle-btn" 
+    data-toggle="collapse" data-target="#menu-content"></i>
+    <i id="cart" class="glyphicon glyphicon-shopping-cart gl-lg" data-toggle="modal" data-target="#reviewModal"></i>
     <div class="menu-list">
         <ul id="menu-content" class="list-unstyled menu-content collapse out">
             <li class="active">
                 <a id="home-option" class="sidebar-options" href="javascript:void(0);">
-                    <i class="fa fa-home fa-lg" aria-hidden="true"></i>
-                    Home
+                    <i class="glyphicon glyphicon-home gl-lg" aria-hidden="true"></i>
+                     Home
                 </a>
             </li>
             <li>
                 <a id="popular-option" class="sidebar-options" href="javascript:void(0);">
-                    <i class="fa fa-heart fa-lg"></i>
+                    <i class="glyphicon glyphicon-heart gl-lg"></i>
                     Popular Items
                 </a>
             </li>
             <li>
                 <a id="build-option" class="sidebar-options" href="javascript:void(0);">
-                    <i class="fa fa-cutlery fa-lg"></i>
+                    <i class="glyphicon glyphicon-cutlery gl-lg"></i>
                     Build Your Own
                 </a>
             </li>
@@ -72,7 +70,7 @@
 <!--Receipt Bar-->
 <div id="receipt-bar">
     <button id="checkout-option" class="brand btn" data-toggle="modal" data-target="#reviewModal">
-        <i class="fa fa-shopping-cart fa-2x"></i>
+        <i class="glyphicon glyphicon-shopping-cart gl-2x"></i>
         <span><h3>Checkout</h3></span>
     </button>
     
@@ -207,8 +205,8 @@
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="popular-btn">
-                    <button type="button" data-toggle="modal" data-target="#customModal" class="btn btn-danger">Add</button>
-                    <button id="customize-btn" type="button" class="btn btn-danger">Customize</button>
+                    <button type="button" data-toggle="modal" data-target="#customModal" class="btn btn-danger btn-lg">Add</button>
+                    <button id="customize-btn" type="button" class="btn btn-danger btn-lg">Customize</button>
                 </div>
             </div>
         </div>
@@ -219,17 +217,13 @@
 
         <!--Page Header-->
         <h1 id="build-header" class="page-header">Build Your Own Burger</h1>
-        <div class="col-md-12">
-            <div class="row">    
-                <div class="col-sm-12 col-md-6">                
-                    <h3 class="build-instruction">Choose one of each:</h3>
+        <div class="col-md-6">
+            <div id="option-panel" class="row">    
+                <div class="col-sm-12 build-instruction">                
+                    <h3>Choose one of each:</h3>
                 </div>
-                
-                <div id="md-many-instruction" class="col-md-6">
-                    <h3 class="build-instruction">Choose as many as you want:</h3>
-                </div> 
 
-                <div class="col-sm-6 col-md-3">
+                <div class="col-sm-6 col-md-6">
                     <h4>Buns:</h4>
                     <div id="bun-choices" class="build-group btn-group-vertical text-center">
                         <button id="sesame-seed-bun-btn" data-name="Sesame Seed Bun" type="button" onclick="addIngredientImg('bun', 'sesame-seed-bun')" 
@@ -244,7 +238,7 @@
                 </div>
 
                 <!-- Meat option -->
-                <div class="col-sm-6 col-md-3">
+                <div class="col-sm-6 col-md-6">
                     <h4>Meat:</h4>
                     <div id="meat-choices" class="btn-group-vertical build-group text-center">
                         <button id="beef-btn" data-name="Beef" type="button" onclick="addIngredientImg('meat', 'beef')" 
@@ -258,12 +252,12 @@
                     </div>
                 </div>
 
-                <div id = "sm-many-instruction" class="col-sm-12">
-                    <h3 class="build-instruction">Choose as many as you want:</h3>
+                <div class="col-sm-12 build-instruction">
+                    <h3>Choose as many as you want:</h3>
                 </div>                
                     
                 <!-- Vegetable option -->
-                <div class="col-sm-6 col-md-3">
+                <div class="col-md-6">
                     <h4>Vegetables:</h4>
                     <div id="veg-choices" class="btn-group-vertical build-group text-center">
                         <button id="lettuce-btn" data-name="Lettuce" onclick="addIngredientImg('veg', 'lettuce')" type="button" 
@@ -281,12 +275,12 @@
                         <button id="pickles-btn" data-name="Pickles" type="button" onclick="addIngredientImg('veg', 'pickles')" 
                         class="btn btn-success build-btn mult-choice-btn">Pickles</button>
                         <button id="jalapeno-btn" data-name="Jalapeño" type="button" onclick="addIngredientImg('veg', 'jalapeno')" 
-                        class="btn btn-success build-btn mult-choice-btn">Jalapeño Peppers</button>                        
+                        class="btn btn-success build-btn mult-choice-btn">Jalapeño</button>                        
                     </div>
                 </div>  
                     
                 <!-- Sauce option -->
-                <div class="col-sm-6 col-md-3">
+                <div class="col-md-6">
                     <h4>Sauces:</h4>
                     <div id="sauce-choices" class="btn-group-vertical build-group text-center">
                         <button id="ketchup-btn" data-name="Ketchup" type="button" onclick="addIngredientImg('sauce', 'ketchup')" 
@@ -310,8 +304,8 @@
             </div>
         </div> <!--/option col-->
 
-        <div class="col-md-10 col-md-offset-1">
-            <h3 class="text-center">Burger Status (Price: $<span id="custom-price">8.99</span>)</h3>
+        <div id="status-panel" class="col-md-6">
+            <h3 class="text-center">(Price: $<span id="custom-price">8.99</span>)</h3>
             <div id="burger-status-container">
                 <div id="bun-container" data-name="Bun" class="ingredient-container">
                     <img id="bun" data-name="Sesame Seed Bun" data-type="bun"
