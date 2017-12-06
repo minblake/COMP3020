@@ -92,8 +92,8 @@
         </div>
 
         <div class="row">
-            <div class="home-item col-sm-12 text-center">
-                <h3>Menu of the Day</h3>
+            <div class="page-item col-sm-12 text-center">
+                <h3>Burger of the Day</h3>
                 <div id="burger-day" class="day">
                 </div>
             </div>
@@ -112,7 +112,7 @@
         <h1 class="page-header">Popular Items</h1>
 
         <!--Popular Item Carousel-->
-        <div class="row">
+        <div class="page-item row">
             <div class="col-xs-8 col-xs-offset-2">
                 <div id="popular-carousel" class="owl-carousel owl-theme">
                     <div id="b1" class="wrapper-img item"><img src="images/icon/b1-icon-lg.png"></div>
@@ -125,7 +125,7 @@
         </div> <!--/Popular Carousel-->
 
         <!--Description Panel-->
-        <div class="row">
+        <div class="page-item row">
             <div class="col-sm-12 ">
                 <div id="description-panel">
                     <div id="description-b1" class="description-text">
@@ -218,7 +218,7 @@
         <!--Add/Customize Button-->
         <div class="row">
             <div class="col-sm-12 text-center">
-                <div class="popular-btn">
+                <div id="popular-btn">
                     <button type="button" data-toggle="modal" data-target="#customModal" class="btn btn-danger btn-lg">Add</button>
                     <button id="popular-customize-btn" type="button" class="customize-btn btn btn-danger btn-lg">Customize</button>
                 </div>
@@ -231,6 +231,7 @@
 
         <!--Page Header-->
         <h1 id="build-header" class="page-header">Build Your Own Burger</h1>
+
         <div class="col-md-6">
             <div id="option-panel" class="row">    
                 <div class="col-sm-12 build-instruction">                
@@ -271,7 +272,7 @@
                 </div>                
                     
                 <!-- Vegetable option -->
-                <div class="col-md-6">
+                <div class="col-sm-6 col-md-6">
                     <h4>Vegetables:</h4>
                     <div id="veg-choices" class="btn-group-vertical build-group text-center">
                         <button id="lettuce-btn" data-name="Lettuce" onclick="addIngredientImg('veg', 'lettuce')" type="button" 
@@ -294,7 +295,7 @@
                 </div>  
                     
                 <!-- Sauce option -->
-                <div class="col-md-6">
+                <div class="col-sm-6 col-md-6">
                     <h4>Sauces:</h4>
                     <div id="sauce-choices" class="btn-group-vertical build-group text-center">
                         <button id="ketchup-btn" data-name="Ketchup" type="button" onclick="addIngredientImg('sauce', 'ketchup')" 
@@ -318,8 +319,9 @@
             </div>
         </div> <!--/option col-->
 
-        <div id="status-panel" class="col-md-6">
-            <h3 class="text-center">(Price: $<span id="custom-price">8.99</span>)</h3>
+        <div id="status-panel" class="page-item col-md-6">
+            <h3 class="text-center">Burger Status</h3> 
+            <h4 class="text-center">Price: $<span id="custom-price">8.99</span></h4>
             <div id="burger-status-container">
                 <div id="bun-container" data-name="Bun" class="ingredient-container">
                     <img id="bun" data-name="Sesame Seed Bun" data-type="bun"

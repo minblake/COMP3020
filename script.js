@@ -87,10 +87,7 @@ $('#popular-carousel').owlCarousel({
         992: {
             items: 5
         }
-    },
-    //Define navigation icons as < >
-    navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>',
-        '<i class="fa fa-angle-right" aria-hidden="true"></i>']
+    }
 });
 
 
