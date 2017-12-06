@@ -213,23 +213,17 @@ function addItem(obj, val) {
                         '<span class="receipt-btn">' + 
                             '<button data-id="' + itemId + '" data-type="remove" type="button" data-toggle="modal"' + 
                             ' data-target="#customModal" class="btn btn-danger btn-sm">Remove' +
-                                // '<i class="fa fa-trash" aria-hidden="true"></i>' + 
                             '</button>' + 
-                            // '<button type="button" class="edit-btn btn btn-danger btn-sm">' +
-                                // '<i class="fa fa-pencil" aria-hidden="true"></i>' + 
-                            // '</button>' + 
-                        '</span>';
+                        '</span>' + 
+                        '<div class="item-summary">' + summaryHtml + '</div>';
         
-        if(notCustom)
-            summaryHtml =   '<div class="item-summary not-custom">' + summaryHtml + '</div>'
-        else {
+        if (!notCustom) {
             beginHtml = '<li data-id="' + itemId + '" id="' + itemId + '-receipt-item" class="receipt-item">';
             imgHtml = '<img class="receipt-img" src="images/icon/c-icon.png">';
-            summaryHtml = '<div class="item-summary">' + summaryHtml + '</div>'
         }
 
 
-        $('#receipt-list').append(beginHtml + imgHtml + receiptHtml + summaryHtml + '</li>');
+        $('#receipt-list').append(beginHtml + imgHtml + receiptHtml + '</li>');
     }
    
 
@@ -304,10 +298,7 @@ function addOrderToCheckout() {
                 '</div>' +
                 '<div class="col-xs-12 col-sm-3 text-center order-customize">' +
                     '<button class="cust-order-btn btn btn-danger" onclick="removeOrder(this)">Remove' +
-                        // '<i class="fa fa-trash" aria-hidden="true"></i>' + 
                     '</button>' +
-                    // '<button class="edit-btn cust-order-btn btn btn-danger">' +
-                        // '<i class="fa fa-pencil" aria-hidden="true"></i></button>' + 
                 '</div>' +
                 '<div class="col-xs-12 col-sm-1 order-line-price">$<span>' +
                     quantity * parseFloat(price) + '</span>' +
