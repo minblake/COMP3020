@@ -3,11 +3,30 @@
 ----------------------------------------------*/
 $(document).ready(function () {
 
-
     //Home button pressed from start
     $('#home-option').trigger('click');
-    $('#b1').trigger('click');
 
+    // Get random number to display a random image of popular burger
+    var bId = 'b' + Math.floor(Math.random()*5 + 1),
+        bName = $('#description-b' + bId).find('.name').text();
+
+    $('#' + bId).trigger('click');
+
+    $('#burger-day').append(
+        '<div><img src="images/icon/' + bId + '-icon-lg.png"></div>' +
+        '<div><h4>' + bName + '</h4></div>' +
+        '<div class="row">' +
+            '<div class="col-sm-6 col-centered text-center">' + 
+                '<div class="addcustomize-btn"><button type="button" data-toggle="modal" data-target="#customModal"' + 
+                ' class="btn btn-danger btn">Add</button>' +
+                    '<button type="button" onclick="customizeItem('+ bId + ')" class="customize-btn btn btn-danger btn">' + 
+                    'Customize</button></div>' +
+            '</div>' +
+        '</div>');    
+
+    $('#home-build-btn').on('click', function () {
+        $('#build-option').trigger('click');
+    });
 });
 
 /* -------------------------------------------
@@ -30,11 +49,9 @@ function removeBurger(bID) {
     $('#' + bID + '-receipt-item').remove();
 }
 
-//Send to edit page
-$('#customize-btn').on('click', function () {
-    
+function customizeItem(bId) {
     $('#build-option').trigger('click');
-    var summary = getSummary($('.item.item-hover').attr('id'));
+    var summary = getSummary(bId);
 
     // Clear selected items first
     // No need to clear bun and meat choices
@@ -43,10 +60,9 @@ $('#customize-btn').on('click', function () {
 
     // Click the items
     for( var i = 0; i < summary.length; i++ ) {
-        console.log(summary[i]);
         $('.build-group').find('[data-name="' + summary[i] + '"]').trigger('click')
     }
-});
+}
 
 
 /* -------------------------------------------
@@ -89,7 +105,9 @@ $('.item').on('click', function () {
 
 });
 
-
+$('#popular-customize-btn').on('click', function () {
+    customizeItem($('.item.item-hover').attr('id'));
+})
 /* -------------------------------------------
     BUILD YOUR OWN BURGER
 ----------------------------------------------*/

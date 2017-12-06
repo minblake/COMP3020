@@ -49,6 +49,10 @@ i, span {
     margin: 0 auto;
 }
 
+.addcustomize-btn > button {
+    margin: 10px;
+}
+
 /* -------------------------------------------
     TOP BAR
 ----------------------------------------------*/
@@ -71,12 +75,14 @@ i, span {
     border-bottom: none;
 }
 
-#home-option-page, #thankyou-page {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    align-items: center;
+/* -------------------------------------------
+    HOME
+----------------------------------------------*/
+.home-item {
+    background: #fff;
+
 }
+
 /* -------------------------------------------
     CAROUSEL
 ----------------------------------------------*/
