@@ -244,6 +244,12 @@ function calcReceiptPrice() {
         var price = $('#description-' + bId + ' .price').text();
         var quantity = $('#' + bId + '-receipt-item ' + '#' + bId + '-quantity').val();
         
+        if(quantity < 0 ) {
+            alert('You have to order at least 1 of this item!');
+            $('#' + bId + '-receipt-item ' + '#' + bId + '-quantity').val(1);
+            quantity = 1
+        }
+
         if(bId.indexOf('c') >= 0)
             price = $('#custom-price').text();
 
@@ -251,6 +257,7 @@ function calcReceiptPrice() {
         tp += parseFloat(price) * quantity;
         
     });
+    
     $('#tp').html(tp.toFixed(2));
 }
 
