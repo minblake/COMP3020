@@ -49,8 +49,13 @@ i, span {
     margin: 0 auto;
 }
 
+.home-item {
+    padding: 20px;
+    margin; 20px
+}
+
 .addcustomize-btn > button {
-    margin: 10px;
+    margin: 5px;
 }
 
 /* -------------------------------------------
@@ -141,17 +146,18 @@ i, span {
 .modal-body { padding: 20px; }
 
 .nav-pills li a {
-    color: #419641;
-    border: 1px solid #419641;
-    border-radius: 0;
+    color: #fff;
+    background: #449d44;
+    border-radius: 0;   
 }
 
 .nav-pills > li > a:hover,
 .nav-pills > li.active > a, 
 .nav-pills > li.active > a:focus, 
 .nav-pills > li.active > a:hover {
-    color: #fff;
-    background: #449d44;
+    background: #fff;
+    color: #419641;
+    
 }
 
 .nav-justified > li {
@@ -295,6 +301,13 @@ fieldset[disabled] .btn-sample.active {
     overflow-y: auto;
 }
 
+#checkout-option{
+    background: #32CD32;
+}
+
+#receipt-bar .brand:hover {
+    background: #000;
+}
 .not-custom {
     display: none;
 }
@@ -334,7 +347,7 @@ fieldset[disabled] .btn-sample.active {
 
 #receipt-bar .brand {
     color: #fff;
-    box-shadow: 0 6px #ab3c3c;
+    box-shadow: 0 6px #008000;
     border: none;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -342,8 +355,8 @@ fieldset[disabled] .btn-sample.active {
 
 #receipt-bar .brand:hover {
     color: #000;
-    background: #DC4335;
-    box-shadow: 0 4px #ab3c3c;
+    background: #008000;
+    box-shadow: 0 4px #008000;
     top: 2px;
     
 }
